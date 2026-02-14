@@ -28,9 +28,9 @@ export default function Header() {
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          {/* Left Side: PBS Israel Logo - Original Colors */}
+          {/* Left Side: PBS Israel Logo - Enhanced Size */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative h-14 w-36">
+            <div className="relative h-20 w-48">
               <Image
                 src="/images/logo.jpg"
                 alt="PBS Israel - Xypex Representative"
@@ -59,13 +59,13 @@ export default function Header() {
 
           {/* Right Side: Xypex Global Logo + CTA */}
           <div className="flex items-center gap-6">
-            {/* Xypex Global Logo - Original Colors */}
+            {/* Xypex Global Logo - Enhanced High-Definition */}
             <div className="hidden lg:flex items-center gap-3">
               <div className="text-right">
-                <div className="text-2xl font-bold text-[#003366] tracking-wider leading-none">
+                <div className="text-4xl font-black text-[#003366] tracking-wider leading-none">
                   XYPEX
                 </div>
-                <div className="text-xs text-[#f59e0b] tracking-[0.2em] uppercase">
+                <div className="text-base font-semibold text-[#f59e0b] tracking-[0.3em] uppercase mt-1">
                   Global
                 </div>
               </div>

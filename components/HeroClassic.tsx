@@ -1,46 +1,48 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 
 /**
- * Premium Hero Section - Optimized for Performance
- * NO parallax (performance killer)
- * Sharp branding, perfectly aligned
+ * Premium Hero Section - Live Visual Preview
+ * Click bottom corner buttons to switch images in real-time
  */
 
-// ═══════════════════════════════════════════════════════════════════════
-// HERO BACKGROUND IMAGE SWAPPER
-// Change this single variable to swap the hero background
-// ═══════════════════════════════════════════════════════════════════════
-
-const HERO_IMAGE = '/images/WhatsApp Image 2026-01-21 at 12.28.56.jpeg'; // Sorek B (Infrastructure) - DEFAULT
-
-// ALTERNATIVE OPTIONS (uncomment to use):
-// const HERO_IMAGE = '/images/WhatsApp Image 2026-01-21 at 13.04.40.jpeg';    // Tunnel
-// const HERO_IMAGE = '/images/WhatsApp Image 2026-02-13 at 22.02.11.jpeg';    // Water Plant
-// const HERO_IMAGE = '/images/WhatsApp Image 2026-01-21 at 14.40.19.jpeg';    // Construction Site
-// const HERO_IMAGE = '/images/WhatsApp Image 2026-01-21 at 11.42.28 (3).jpeg'; // Industrial Facility
-
-// ═══════════════════════════════════════════════════════════════════════
+// Define all available hero images
+const HERO_IMAGES = {
+  1: { src: '/images/WhatsApp Image 2026-01-21 at 12.28.56.jpeg', label: 'Sorek B' },
+  2: { src: '/images/WhatsApp Image 2026-01-21 at 13.04.40.jpeg', label: 'Tunnel' },
+  3: { src: '/images/WhatsApp Image 2026-02-13 at 22.02.11.jpeg', label: 'Water Plant' },
+};
 
 export default function HeroClassic() {
+  const [activeHero, setActiveHero] = useState(1);
   return (
     <section className="relative h-screen w-full overflow-hidden">
-      {/* Optimized Background Image - NO parallax */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src={HERO_IMAGE}
-          alt="PBS Israel - Critical Infrastructure Waterproofing"
-          fill
-          priority
-          quality={90}
-          className="object-cover brightness-[0.45]"
-          sizes="100vw"
-          placeholder="blur"
-          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCeAAA/9k="
-        />
-      </div>
+      {/* Optimized Background Image - Live Switchable */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={activeHero}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+          className="absolute inset-0 z-0"
+        >
+          <Image
+            src={HERO_IMAGES[activeHero as keyof typeof HERO_IMAGES].src}
+            alt="PBS Israel - Critical Infrastructure Waterproofing"
+            fill
+            priority
+            quality={90}
+            className="object-cover brightness-[0.45]"
+            sizes="100vw"
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCeAAA/9k="
+          />
+        </motion.div>
+      </AnimatePresence>
 
       {/* Professional Gradient Overlay - Fixed, no animation */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80 z-[1]" />
@@ -148,6 +150,32 @@ export default function HeroClassic() {
               d="M19 14l-7 7m0 0l-7-7m7 7V3"
             />
           </svg>
+        </motion.div>
+
+        {/* Live Hero Image Switcher - Bottom Right Corner */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+          className="absolute bottom-8 right-8 flex gap-3 bg-black/30 backdrop-blur-md px-4 py-3 rounded-full border border-white/10"
+        >
+          {[1, 2, 3].map((num) => (
+            <button
+              key={num}
+              onClick={() => setActiveHero(num)}
+              className={`
+                w-10 h-10 rounded-full border transition-all duration-300
+                flex items-center justify-center text-sm font-semibold
+                ${activeHero === num
+                  ? 'bg-amber-400 text-black border-amber-400 scale-110'
+                  : 'bg-transparent text-white/70 border-white/30 hover:border-amber-400 hover:text-amber-400'
+                }
+              `}
+              title={HERO_IMAGES[num as keyof typeof HERO_IMAGES].label}
+            >
+              {num}
+            </button>
+          ))}
         </motion.div>
       </div>
     </section>

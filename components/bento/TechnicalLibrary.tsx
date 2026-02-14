@@ -9,7 +9,6 @@ const featuredPDFs = [
     name: 'Xypex Concentrate',
     hebrewName: 'קונצנטרייט',
     type: 'TDS',
-    icon: '📘',
     size: '2.4 MB',
     color: 'from-blue-500 to-cyan-500',
     url: 'https://www.xypex.com/wp-content/uploads/2024/01/Xypex-Concentrate-TDS.pdf',
@@ -19,7 +18,6 @@ const featuredPDFs = [
     name: 'Xypex Admix',
     hebrewName: 'אדמיקס',
     type: 'SDS',
-    icon: '📗',
     size: '1.8 MB',
     color: 'from-emerald-500 to-teal-500',
     url: 'https://www.xypex.com/wp-content/uploads/2024/01/Xypex-Admix-SDS.pdf',
@@ -29,7 +27,6 @@ const featuredPDFs = [
     name: "Patch'n Plug",
     hebrewName: 'פאץ אנד פלאג',
     type: 'Method',
-    icon: '📙',
     size: '3.2 MB',
     color: 'from-orange-500 to-amber-500',
     url: 'https://www.xypex.com/wp-content/uploads/2024/01/Xypex-Patch-n-Plug-Method.pdf',
@@ -74,7 +71,9 @@ export default function TechnicalLibrary() {
 
             <div className="relative flex items-center justify-between">
               <div className="flex items-center gap-4">
-                <div className="text-4xl">{pdf.icon}</div>
+                <svg className="w-10 h-10 opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
                 <div>
                   <div className="text-lg font-bold text-foreground mb-1">
                     {pdf.hebrewName}
