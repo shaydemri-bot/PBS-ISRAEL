@@ -2,7 +2,6 @@
 
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import ThemeToggle from '@/components/theme/ThemeToggle';
 import HeroClassic from '@/components/HeroClassic';
 import LoadingScreen from '@/components/ui/loading-screen';
 import LogoCarousel from '@/components/LogoCarousel';
@@ -11,8 +10,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 /**
- * Homepage - Togal.ai Inspired Premium Design
- * Clean, high-end engineering authority
+ * Homepage - Production Ready
+ * Architect (Dark Luxury) theme set as permanent default
  */
 export default function Home() {
   return (
@@ -22,7 +21,6 @@ export default function Home() {
 
       <div dir="rtl" className="min-h-screen bg-white">
         <Header />
-        <ThemeToggle />
 
         {/* 1. HERO SECTION - Full Screen with Live Swapper */}
         <HeroClassic />

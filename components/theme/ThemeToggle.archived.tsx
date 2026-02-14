@@ -11,8 +11,17 @@ const themes = [
 ];
 
 /**
- * Theme Toggle Component
- * Fixed position (bottom-left) 3-way switcher for PBS Israel themes
+ * ARCHIVED: Theme Toggle Component (For Future Use)
+ *
+ * This component has been archived as of the production launch.
+ * The site now uses Architect (dark) theme as the permanent default.
+ *
+ * To reactivate:
+ * 1. Rename this file from .archived.tsx to .tsx
+ * 2. Import and add <ThemeToggle /> to app/page.tsx
+ * 3. User will be able to switch between 3 themes again
+ *
+ * Original functionality: Fixed position (bottom-left) 3-way switcher for PBS Israel themes
  */
 export default function ThemeToggle() {
   const { theme, setTheme } = useTheme();
