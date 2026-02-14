@@ -97,29 +97,45 @@ export default function HeroClassic() {
       {/* Vignette Gradient - Natural corner darkening */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30 z-[1]" />
 
-      {/* Content Container - Perfectly Centered (Mobile & Desktop) */}
-      <div className="relative z-10 h-full flex flex-col items-center justify-center px-6 md:px-12 text-center">
-        {/* Centered Logo & Tagline - Mobile Scaled */}
+      {/* Content Container - Upper-Center Positioning */}
+      <div className="relative z-10 h-full flex flex-col items-center justify-start pt-24 md:pt-32 px-6 md:px-12 text-center">
+        {/* Logo Stack - Text + Graphic */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="max-w-4xl mx-auto"
         >
-          {/* PBS Israel Logo Text - Mobile Scaled */}
-          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extralight text-white tracking-tight leading-none mb-3 md:mb-4" style={{ filter: 'drop-shadow(0 15px 30px rgba(0,0,0,0.9))' }}>
+          {/* PBS ISRAEL Text Logo - Enhanced Visibility */}
+          <h1
+            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extralight text-white tracking-tight leading-none mb-6 md:mb-8"
+            style={{
+              filter: 'drop-shadow(0 0 20px rgba(255,255,255,0.5)) drop-shadow(0 8px 24px rgba(0,0,0,0.9)) drop-shadow(0 0 40px rgba(255,255,255,0.3))',
+              textShadow: '0 0 30px rgba(255,255,255,0.6), 0 0 60px rgba(255,255,255,0.4), 0 4px 20px rgba(0,0,0,1)'
+            }}
+          >
             PBS ISRAEL
           </h1>
 
-          {/* The Science Behind Waterproofing Tagline - Mobile Scaled */}
-          <p className="text-sm sm:text-base md:text-xl lg:text-2xl font-light text-white/90 tracking-wide leading-relaxed px-4" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.8))' }}>
-            The Science Behind Waterproofing
-          </p>
-
-          {/* Hebrew Subtitle - Mobile Scaled */}
-          <p className="text-xs sm:text-sm md:text-base text-white/80 mt-2 md:mt-3 font-light tracking-wider" style={{ filter: 'drop-shadow(0 8px 16px rgba(0,0,0,0.7))' }}>
-            המדע מאחורי איטום
-          </p>
+          {/* PBS Graphic Logo */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="flex justify-center"
+          >
+            <Image
+              src="/images/PBSLOGO.jpg"
+              alt="PBS Israel Logo"
+              width={200}
+              height={80}
+              className="w-32 sm:w-40 md:w-48 lg:w-56 h-auto"
+              style={{
+                filter: 'drop-shadow(0 0 15px rgba(255,255,255,0.4)) drop-shadow(0 6px 20px rgba(0,0,0,0.8))',
+              }}
+              priority
+            />
+          </motion.div>
         </motion.div>
       </div>
 
