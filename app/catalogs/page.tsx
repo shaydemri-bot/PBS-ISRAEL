@@ -29,7 +29,7 @@ export default function CatalogsPage() {
         <div
           className="absolute inset-0 bg-slate-900"
           style={{
-            backgroundImage: 'url(/images/WhatsApp Image 2026-02-13 at 22.02.11.jpeg)',
+            backgroundImage: 'url(/images/WhatsApp Image 2026-02-13 at 22.02.12.jpeg)',
             backgroundSize: '100% auto',
             backgroundPosition: 'top center',
             backgroundRepeat: 'no-repeat',
