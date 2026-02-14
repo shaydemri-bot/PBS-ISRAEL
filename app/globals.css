@@ -215,3 +215,27 @@ p, li, span {
   -webkit-backdrop-filter: blur(24px);
   border: 1px solid var(--glass-border);
 }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   NUCLEAR LOGO FIX - Force transparent backgrounds (THE FINAL FIX)
+   ═══════════════════════════════════════════════════════════════════════ */
+header img {
+  mix-blend-mode: multiply !important;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+header a img {
+  mix-blend-mode: multiply !important;
+  background: transparent !important;
+}
+
+header div[style*="isolation"] {
+  isolation: isolate !important;
+}
+
+/* Force white background removal on logo containers */
+header a > div {
+  background: transparent !important;
+  background-color: transparent !important;
+}

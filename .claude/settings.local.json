@@ -1,0 +1,34 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.pbs-israel.com)",
+      "WebFetch(domain:www.xypex.com)",
+      "WebSearch",
+      "WebFetch(domain:www.pbsisrael.com)",
+      "Bash(npm run dev:*)",
+      "Bash(ls:*)",
+      "Bash(file:*)",
+      "Bash(echo:*)",
+      "Bash(npm install:*)",
+      "Bash(timeout 5 tail:*)",
+      "Bash(findstr:*)",
+      "Bash(npm search:*)",
+      "Bash(taskkill:*)",
+      "Bash(lighthouse:*)",
+      "Bash(curl:*)",
+      "Bash(netstat:*)",
+      "Bash(node screenshot.mjs:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm start)",
+      "Bash(start http://localhost:3000)",
+      "Bash(node:*)",
+      "Bash(start http://localhost:3000/projects)",
+      "Bash(test:*)",
+      "Bash(git commit:*)",
+      "Bash(git add:*)",
+      "Bash(git push:*)",
+      "Bash(grep:*)",
+      "Bash(identify:*)"
+    ]
+  }
+}

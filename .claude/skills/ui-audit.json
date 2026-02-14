@@ -1,0 +1,9 @@
+{
+  "name": "ui-audit",
+  "description": "Design Guardian: Audits the codebase for UI consistency issues (white backgrounds, oversized containers, missing transitions)",
+  "command": "node .claude/skills/ui-audit.js",
+  "category": "quality",
+  "tags": ["design", "audit", "ui", "consistency"],
+  "version": "1.0.0",
+  "author": "PBS Israel Design Team"
+}

@@ -108,6 +108,33 @@ PBS Israel is the exclusive Israeli representative for Xypex crystalline waterpr
 
 ## 🎯 Design Standards (Applied to ALL Pages)
 
+### ⚠️ MANDATORY: Pre-Deployment Design Audit
+
+**CRITICAL RULE**: Before finalizing any UI change, you **MUST** run the design-auditor skill:
+
+```bash
+node .claude/skills/design-auditor.js --fix
+```
+
+**Enforced Standards**:
+- ❌ **NEVER** allow white backgrounds on logos (breaks dark mode compatibility)
+- ✅ **ALWAYS** use `mixBlendMode: 'multiply'` or `bg-transparent` for logo images
+- ✅ **ALWAYS** maintain "Tight & Professional" 100% zoom scale (max-w-7xl limit)
+- ❌ **NEVER** use oversized containers (max-w-full, max-w-screen-xl) in headers
+
+**Why This Matters**:
+- White backgrounds destroy the premium, seamless aesthetic
+- Oversized containers break the carefully calibrated 100% zoom layout
+- The design-auditor automatically fixes violations - use it proactively
+
+**Workflow**:
+1. Make UI changes
+2. Run `node .claude/skills/design-auditor.js --fix`
+3. Verify all checks pass (green checkmark)
+4. Commit changes
+
+---
+
 ### Visual Hierarchy
 ```
 1. Photos (70% visual weight) - brightness-105, clear, impressive
@@ -245,6 +272,7 @@ PBS Israel is the exclusive Israeli representative for Xypex crystalline waterpr
 
 ---
 
-**Last Updated**: February 13, 2026
+**Last Updated**: February 14, 2026
 **Project Status**: Active Development - Architectural Editorial Phase
 **Team**: 4 Permanent Agents (Architect, Chief Engineer, Lead Dev, Optimizer)
+**Design Enforcement**: Automated via design-auditor.js skill

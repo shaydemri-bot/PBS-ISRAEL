@@ -77,7 +77,7 @@ export default function LogoCarousel() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.06, duration: 0.3 }}
-              className="flex items-center justify-center p-5 bg-white rounded-lg border border-slate-200 hover:border-[#003366] hover:shadow-xl transition-all duration-300 group"
+              className="flex items-center justify-center p-5 bg-transparent rounded-lg border border-slate-200 hover:border-[#003366] hover:shadow-xl transition-all duration-300 group"
               style={{ minHeight: 100 }}
             >
               {/* Compact Logo Display */}

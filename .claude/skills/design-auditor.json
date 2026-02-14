@@ -1,0 +1,12 @@
+{
+  "name": "design-auditor",
+  "description": "Design Auditor: Enforces image blending and container size standards in headers with auto-fix capability",
+  "command": "node .claude/skills/design-auditor.js",
+  "category": "quality",
+  "tags": ["design", "audit", "auto-fix", "header", "images"],
+  "version": "1.0.0",
+  "author": "PBS Israel Design Team",
+  "options": {
+    "--fix": "Automatically apply fixes to code"
+  }
+}

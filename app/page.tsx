@@ -27,6 +27,9 @@ export default function Home() {
         {/* 1. HERO SECTION - Full Screen with Live Swapper */}
         <HeroClassic />
 
+        {/* CONSTRUCTION YELLOW DIVIDER - Clean Visual Break */}
+        <section className="bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-400 border-y-4 border-amber-500 h-12"></section>
+
         {/* 2. TRUSTED BY - Infinite Scrolling Logos */}
         <LogoCarousel />
 

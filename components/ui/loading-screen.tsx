@@ -88,7 +88,7 @@ export default function LoadingScreen() {
               <h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-amber-400 tracking-[0.3em] uppercase" style={{ textShadow: '2px 2px 12px rgba(0,0,0,0.9), 0 0 20px rgba(251,191,36,0.4)' }}>
                 ISRAEL
               </h2>
-              <div className="h-1.5 w-[32rem] max-w-full mx-auto mt-10 bg-gradient-to-r from-transparent via-amber-400 to-transparent" style={{ filter: 'drop-shadow(0 0 8px rgba(251,191,36,0.6))' }} />
+              <div className="h-1.5 w-[32rem] max-w-7xl mx-auto mt-10 bg-gradient-to-r from-transparent via-amber-400 to-transparent" style={{ filter: 'drop-shadow(0 0 8px rgba(251,191,36,0.6))' }} />
             </motion.div>
 
             {/* Partnership Badge - Below PBS */}
