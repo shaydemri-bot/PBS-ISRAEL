@@ -40,10 +40,10 @@ export default function ProjectsPage() {
         <div className="absolute inset-x-0 bottom-0 h-[30%] bg-gradient-to-t from-black/60 to-transparent z-[1]"></div>
 
         <div className="relative z-10 text-center px-6">
-          <h1 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tighter leading-tight mb-3 uppercase" style={{ color: '#FFFFFF', filter: 'drop-shadow(0 5px 20px rgba(0,0,0,1))' }}>
+          <h1 className="text-5xl md:text-7xl lg:text-9xl font-extralight tracking-tight leading-none mb-4 uppercase" style={{ color: '#FFFFFF', filter: 'drop-shadow(0 5px 20px rgba(0,0,0,1))' }}>
             הפרויקטים שלנו
           </h1>
-          <p className="text-base md:text-lg font-bold max-w-xl mx-auto leading-relaxed tracking-tight" style={{ color: '#FFFFFF', filter: 'drop-shadow(0 5px 20px rgba(0,0,0,1))' }}>
+          <p className="text-lg md:text-xl lg:text-2xl font-light max-w-2xl mx-auto leading-relaxed tracking-wide" style={{ color: '#FFFFFF', filter: 'drop-shadow(0 5px 20px rgba(0,0,0,1))' }}>
             {projects.length} פרויקטים של תשתיות קריטיות ברחבי ישראל
           </p>
         </div>

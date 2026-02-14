@@ -39,10 +39,10 @@ export default function CatalogsPage() {
         <div className="absolute inset-0 bg-black/40 z-[1]"></div>
 
         <div className="relative z-10 text-center px-6">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tighter leading-tight mb-6" style={{ filter: 'drop-shadow(0 4px 16px rgba(0,0,0,0.8))' }}>
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-extralight text-white tracking-tight leading-none mb-6" style={{ filter: 'drop-shadow(0 4px 16px rgba(0,0,0,0.8))' }}>
             מוצרי Xypex
           </h1>
-          <p className="text-xl md:text-2xl text-slate-200 font-medium max-w-3xl mx-auto leading-relaxed" style={{ filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.8))' }}>
+          <p className="text-xl md:text-2xl lg:text-3xl text-slate-200 font-light max-w-3xl mx-auto leading-relaxed tracking-wide" style={{ filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.8))' }}>
             טכנולוגיית קריסטליזציה מתקדמת לאיטום והגנה על מבני בטון
           </p>
         </div>

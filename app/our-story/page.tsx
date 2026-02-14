@@ -1,9 +1,16 @@
+'use client';
+
 import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import GridDotBackground from '@/components/GridDotBackground';
+import { useAnimatedCounter } from '@/hooks/useAnimatedCounter';
 
 export default function OurStoryPage() {
+  // Animated counters for stats
+  const { count: yearsCount, ref: yearsRef } = useAnimatedCounter(80, 2000);
+  const { count: countriesCount, ref: countriesRef } = useAnimatedCounter(100, 2200);
+  const { count: foundedCount, ref: foundedRef } = useAnimatedCounter(1969, 2400);
   return (
     <div dir="rtl">
       <Header />
@@ -25,10 +32,10 @@ export default function OurStoryPage() {
         <div className="absolute inset-x-0 bottom-0 h-[30%] bg-gradient-to-t from-black/60 to-transparent z-[1]"></div>
 
         <div className="relative z-10 text-center px-6">
-          <h1 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tighter leading-tight mb-3 uppercase" style={{ color: '#FFFFFF', filter: 'drop-shadow(0 5px 20px rgba(0,0,0,1))' }}>
+          <h1 className="text-4xl md:text-6xl lg:text-8xl font-extralight tracking-tight leading-none mb-4 uppercase" style={{ color: '#FFFFFF', filter: 'drop-shadow(0 5px 20px rgba(0,0,0,1))' }}>
             הפתרונות שלנו:<br />איטום ושיקום מתקדם
           </h1>
-          <p className="text-base md:text-lg font-bold max-w-xl mx-auto leading-relaxed tracking-tight" style={{ color: '#FFFFFF', filter: 'drop-shadow(0 5px 20px rgba(0,0,0,1))' }}>
+          <p className="text-lg md:text-xl lg:text-2xl font-light max-w-2xl mx-auto leading-relaxed tracking-wide" style={{ color: '#FFFFFF', filter: 'drop-shadow(0 5px 20px rgba(0,0,0,1))' }}>
             טכנולוגיית קריסטליזציה מתקדמת לתשתיות קריטיות
           </p>
         </div>
@@ -41,19 +48,33 @@ export default function OurStoryPage() {
           <GridDotBackground className="opacity-10" />
           <div className="relative z-10 container mx-auto px-4">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {[
-                { num: '80+', label: 'שנות ניסיון', color: 'from-blue-600 to-blue-700' },
-                { num: '100+', label: 'מדינות', color: 'from-cyan-600 to-blue-600' },
-                { num: '1969', label: 'שנת ייסוד', color: 'from-blue-700 to-indigo-700' },
-                { num: '∞', label: 'פעיל לצמיתות', color: 'from-indigo-600 to-purple-600' }
-              ].map((stat, i) => (
-                <div key={i} className="text-center group cursor-default">
-                  <div className={`text-3xl md:text-4xl font-bold bg-gradient-to-br ${stat.color} bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300`}>
-                    {stat.num}
-                  </div>
-                  <div className="text-gray-600 font-medium text-sm">{stat.label}</div>
+              <div ref={yearsRef} className="text-center group cursor-default">
+                <div className="text-3xl md:text-4xl font-bold bg-gradient-to-br from-blue-600 to-blue-700 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
+                  {yearsCount}+
                 </div>
-              ))}
+                <div className="text-gray-600 font-medium text-sm">שנות ניסיון</div>
+              </div>
+
+              <div ref={countriesRef} className="text-center group cursor-default">
+                <div className="text-3xl md:text-4xl font-bold bg-gradient-to-br from-cyan-600 to-blue-600 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
+                  {countriesCount}+
+                </div>
+                <div className="text-gray-600 font-medium text-sm">מדינות</div>
+              </div>
+
+              <div ref={foundedRef} className="text-center group cursor-default">
+                <div className="text-3xl md:text-4xl font-bold bg-gradient-to-br from-blue-700 to-indigo-700 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
+                  {foundedCount}
+                </div>
+                <div className="text-gray-600 font-medium text-sm">שנת ייסוד</div>
+              </div>
+
+              <div className="text-center group cursor-default">
+                <div className="text-3xl md:text-4xl font-bold bg-gradient-to-br from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
+                  ∞
+                </div>
+                <div className="text-gray-600 font-medium text-sm">פעיל לצמיתות</div>
+              </div>
             </div>
           </div>
         </section>
