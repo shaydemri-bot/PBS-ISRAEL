@@ -63,11 +63,8 @@ export default function LogoCarousel() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-xs font-semibold tracking-[0.3em] uppercase text-[#f59e0b] mb-3">
-            שותפים אסטרטגיים
-          </p>
-          <h2 className="text-3xl md:text-4xl font-black text-[#003366]">
-            מובילי התשתיות בישראל
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
+            השותפים שלנו
           </h2>
         </motion.div>
 

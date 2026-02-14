@@ -2,7 +2,25 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { useState } from 'react';
 import type { Product } from '@/data/technical-catalog';
+
+/**
+ * Product Image Mapper - Maps product IDs to EXACT filenames in public/images/Prod/
+ * SCANNED FROM ACTUAL FOLDER - NO GUESSING
+ */
+const productImageMap: Record<string, string> = {
+  'admix-c-series': '/images/Prod/Admix-Series.png.webp',
+  'bio-san-c500': '/images/Prod/Bio-San.jpg',
+  'concentrate': '/images/Prod/CONCENTRATE.PNG',
+  'modified': '/images/Prod/Modified.png',
+  'gamma-cure': '/images/Prod/gamma.png',
+  'patch-n-plug': "/images/Prod/patch'nplug.png",
+};
+
+const getProductImagePath = (productId: string) => {
+  return productImageMap[productId] || `/images/Prod/${productId}.jpg`;
+};
 
 interface ProductCardProps {
   product: Product;
@@ -20,6 +38,10 @@ export default function ProductCard({ product, index, expanded, onToggleExpand }
   const tdsUrl = `/pdfs/${product.id}-tds.pdf`;
   const sdsUrl = `/pdfs/${product.id}-sds.pdf`;
 
+  // Product image system
+  const productImagePath = getProductImagePath(product.id);
+  const [imageError, setImageError] = useState(false);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 60 }}
@@ -31,20 +53,33 @@ export default function ProductCard({ product, index, expanded, onToggleExpand }
         borderColor: 'var(--border-color)',
       }}
     >
-      {/* Product Thumbnail - Xypex Style */}
+      {/* Product Thumbnail - Real Image or Premium Placeholder */}
       <div className="relative h-64 w-full bg-gradient-to-br from-blue-900 to-blue-700 overflow-hidden">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center p-8">
-            {/* Large Product Name */}
-            <h3 className="text-6xl font-black text-white/30 mb-4 leading-none">
-              {product.name.split(' ')[1] || product.name.split(' ')[0]}
-            </h3>
-            {/* Xypex Logo Watermark */}
-            <div className="text-lg font-bold text-white/40 tracking-[0.3em]">
-              XYPEX
+        {!imageError ? (
+          /* Real Product Image */
+          <Image
+            src={productImagePath}
+            alt={product.hebrewName}
+            fill
+            className="object-cover"
+            onError={() => setImageError(true)}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        ) : (
+          /* High-End Styled Placeholder */
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="text-center p-8">
+              {/* Large Product Name */}
+              <h3 className="text-6xl font-black text-white/30 mb-4 leading-none">
+                {product.name.split(' ')[1] || product.name.split(' ')[0]}
+              </h3>
+              {/* Xypex Logo Watermark */}
+              <div className="text-lg font-bold text-white/40 tracking-[0.3em]">
+                XYPEX
+              </div>
             </div>
           </div>
-        </div>
+        )}
 
         {/* Category Badge */}
         <div className="absolute top-4 right-4 px-4 py-2 rounded-lg font-bold text-xs uppercase tracking-wider shadow-lg"

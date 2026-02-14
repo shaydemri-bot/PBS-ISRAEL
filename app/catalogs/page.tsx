@@ -22,45 +22,29 @@ export default function CatalogsPage() {
       <Header />
 
       {/* ═══════════════════════════════════════════════════ */}
-      {/* HERO: Ultra-Large Typography                        */}
+      {/* EDITORIAL PAGE HERO: Architectural & Authoritative  */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="relative min-h-[70vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/WhatsApp Image 2026-02-13 at 22.02.11.jpeg"
-            alt="Xypex Technical Catalog - PBS Israel"
-            fill
-            priority
-            quality={90}
-            className="brightness-105"
-            sizes="100vw"
-            style={{ objectFit: 'cover', objectPosition: 'center' }}
-          />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent z-[1]"></div>
+      <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
+        {/* Wide Architectural Background - No Over-Zoom */}
+        <div
+          className="absolute inset-0 bg-slate-900"
+          style={{
+            backgroundImage: 'url(/images/WhatsApp Image 2026-02-13 at 22.02.11.jpeg)',
+            backgroundSize: '100% auto',
+            backgroundPosition: 'top center',
+            backgroundRepeat: 'no-repeat',
+            filter: 'brightness(0.95)',
+          }}
+        />
+        <div className="absolute inset-0 bg-black/40 z-[1]"></div>
 
-        <div className="relative z-10 w-full px-8 md:px-16 py-32">
-          <div className="max-w-7xl mx-auto">
-            <GlassmorphismCard className="max-w-6xl border-r-8 border-[#003366]" padding="xl">
-              <div className="inline-flex items-center gap-3 px-6 py-3 bg-[#003366] text-white text-xs font-black mb-12 uppercase tracking-[0.3em]">
-                <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
-                קטלוג טכני
-              </div>
-
-              <h1 className="text-7xl md:text-8xl lg:text-9xl font-extralight text-[#003366] leading-[0.85] mb-12 tracking-tight">
-                מוצרי
-                <br />
-                <span className="font-black">Xypex</span>
-              </h1>
-
-              <div className="w-32 h-px bg-[#003366] mb-12"></div>
-
-              <p className="text-2xl md:text-3xl text-[#475569] font-light leading-relaxed max-w-4xl">
-                טכנולוגיית קריסטליזציה מתקדמת לאיטום והגנה על מבני בטון -
-                <span className="font-bold text-[#003366]"> תקני ISO, ASTM, NSF 61</span>
-              </p>
-            </GlassmorphismCard>
-          </div>
+        <div className="relative z-10 text-center px-6">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tighter leading-tight mb-6" style={{ filter: 'drop-shadow(0 4px 16px rgba(0,0,0,0.8))' }}>
+            מוצרי Xypex
+          </h1>
+          <p className="text-xl md:text-2xl text-slate-200 font-medium max-w-3xl mx-auto leading-relaxed" style={{ filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.8))' }}>
+            טכנולוגיית קריסטליזציה מתקדמת לאיטום והגנה על מבני בטון
+          </p>
         </div>
       </section>
 
@@ -104,8 +88,8 @@ export default function CatalogsPage() {
       <section className="py-40 bg-white relative">
         <GridDotBackground className="opacity-30" />
 
-        <div className="max-w-7xl mx-auto px-8 md:px-16 relative z-10">
-          <div className="grid md:grid-cols-2 gap-20">
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             {filteredProducts.map((product, i) => (
               <motion.div
                 key={product.id}

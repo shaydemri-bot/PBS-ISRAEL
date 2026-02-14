@@ -22,45 +22,27 @@ export default function ProjectsPage() {
       <Header />
 
       {/* ═══════════════════════════════════════════════════ */}
-      {/* HERO: Ultra-Large Typography                        */}
+      {/* EDITORIAL PAGE HERO: Architectural & Authoritative  */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="relative min-h-[70vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/WhatsApp Image 2026-02-13 at 22.02.19.jpeg"
-            alt="PBS Israel Projects - Critical Infrastructure with Xypex"
-            fill
-            priority
-            quality={90}
-            className="brightness-105"
-            sizes="100vw"
-            style={{ objectFit: 'cover', objectPosition: 'center' }}
-          />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent z-[1]"></div>
+      <section className="relative w-full aspect-[16/9] md:aspect-[21/9] lg:aspect-[3.5/1] flex items-center justify-center overflow-hidden">
+        {/* DOLFVIEW - NEXT/IMAGE OPTIMIZED, PRIORITY LOADING */}
+        <Image
+          src="/images/DOLFVIEW.jpeg"
+          alt="PBS Israel Projects - Critical Infrastructure with Xypex"
+          fill
+          priority
+          quality={90}
+          sizes="100vw"
+          className="object-cover object-[center_40%]"
+        />
 
-        <div className="relative z-10 w-full px-8 md:px-16 py-32">
-          <div className="max-w-7xl mx-auto">
-            <GlassmorphismCard className="max-w-6xl border-r-8 border-[#003366]" padding="xl">
-              <div className="inline-flex items-center gap-3 px-6 py-3 bg-[#003366] text-white text-xs font-black mb-12 uppercase tracking-[0.3em]">
-                <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
-                הפרויקטים שלנו
-              </div>
-
-              <h1 className="text-7xl md:text-8xl lg:text-9xl font-extralight text-[#003366] leading-[0.85] mb-12 tracking-tight">
-                תשתיות
-                <br />
-                <span className="font-black">קריטיות</span>
-              </h1>
-
-              <div className="w-32 h-px bg-[#003366] mb-12"></div>
-
-              <p className="text-2xl md:text-3xl text-[#475569] font-light leading-relaxed max-w-4xl">
-                <span className="font-bold text-[#003366]">{projects.length} פרויקטים</span> ברחבי ישראל -
-                מתקני התפלה, מנהרות מטרו, מגדלים ותשתיות קריטיות מאוטמים בטכנולוגיית Xypex
-              </p>
-            </GlassmorphismCard>
-          </div>
+        <div className="relative z-10 text-center px-6">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-tight mb-6" style={{ color: '#FFFFFF', filter: 'drop-shadow(0 5px 20px rgba(0,0,0,1))' }}>
+            הפרויקטים שלנו
+          </h1>
+          <p className="text-xl md:text-2xl font-bold max-w-3xl mx-auto leading-relaxed" style={{ color: '#FFFFFF', filter: 'drop-shadow(0 5px 20px rgba(0,0,0,1))' }}>
+            {projects.length} פרויקטים של תשתיות קריטיות ברחבי ישראל
+          </p>
         </div>
       </section>
 
@@ -99,13 +81,13 @@ export default function ProjectsPage() {
       <ArchitecturalDivider />
 
       {/* ═══════════════════════════════════════════════════ */}
-      {/* PROJECTS GRID: 1px Borders, Perfect Alignment       */}
+      {/* POWER GRID: Large, Impactful Cards                  */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="py-40 bg-white relative">
+      <section className="py-24 bg-white relative">
         <GridDotBackground className="opacity-30" />
 
-        <div className="max-w-7xl mx-auto px-8 md:px-16 relative z-10">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-16">
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             {filteredProjects.map((project, i) => (
               <motion.div
                 key={project.id}
@@ -113,90 +95,30 @@ export default function ProjectsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: i * 0.1 }}
-                className="group"
+                className="group pb-8 border-b border-slate-200"
               >
-                {/* Project Image - Clean, Bright */}
-                <div className="relative aspect-[4/3] overflow-hidden border border-[#003366]/10 mb-10 group-hover:border-[#003366] transition-all duration-500">
+                {/* Project Image - Clean, No Overlays */}
+                <div className="relative aspect-[4/3] overflow-hidden mb-6">
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
                     quality={90}
-                    className="object-cover brightness-105 group-hover:scale-105 transition-transform duration-700"
+                    className="object-cover brightness-105 group-hover:brightness-110 transition-all duration-500"
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
-                  {/* Year Badge */}
-                  <div className="absolute top-6 right-6 bg-[#003366] text-white px-5 py-2 text-xs font-black uppercase tracking-wider">
-                    {project.year}
-                  </div>
                 </div>
 
-                {/* Project Info - Perfect RTL Alignment */}
-                <div className="space-y-6">
-                  {/* Location */}
-                  <div className="text-sm font-black text-[#0284c7] uppercase tracking-[0.2em]">
-                    {project.location}
-                  </div>
-
-                  {/* Project Title - Massive */}
-                  <h3 className="text-4xl font-bold text-[#003366] leading-tight group-hover:text-[#0284c7] transition-colors">
+                {/* Content Below - Clean Typography */}
+                <div className="space-y-3 text-right">
+                  {/* Title */}
+                  <h3 className="text-xl font-bold text-[#003366] leading-tight">
                     {project.title}
                   </h3>
 
-                  {/* Scale Badge */}
-                  {project.scale && (
-                    <div className="inline-block px-5 py-2 bg-[#f8fafc] border border-[#003366]/20 text-[#003366] text-sm font-bold">
-                      {project.scale}
-                    </div>
-                  )}
-
-                  {/* Challenge Section */}
-                  <div className="pt-6 border-t border-[#003366]/10">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-8 h-8 bg-[#003366]/10 rounded-full flex items-center justify-center">
-                        <svg className="w-5 h-5 text-[#003366]" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-                        </svg>
-                      </div>
-                      <h4 className="text-sm font-black text-[#003366] uppercase tracking-wider">
-                        האתגר ההנדסי
-                      </h4>
-                    </div>
-                    <p className="text-[#64748b] leading-relaxed text-base">
-                      {expandedProject === project.id
-                        ? project.challenge
-                        : `${project.challenge.substring(0, 120)}...`
-                      }
-                    </p>
-                  </div>
-
-                  {/* Solution Section */}
-                  <div className="pt-6 border-t border-[#003366]/10">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-8 h-8 bg-[#003366] rounded-full flex items-center justify-center">
-                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                      </div>
-                      <h4 className="text-sm font-black text-[#003366] uppercase tracking-wider">
-                        פתרון Xypex
-                      </h4>
-                    </div>
-                    <p className="text-[#64748b] leading-relaxed text-base">
-                      {expandedProject === project.id
-                        ? project.solution
-                        : `${project.solution.substring(0, 120)}...`
-                      }
-                    </p>
-                    <button
-                      onClick={() => setExpandedProject(expandedProject === project.id ? null : project.id)}
-                      className="mt-4 text-[#0284c7] font-bold text-sm hover:text-[#003366] transition-colors inline-flex items-center gap-2"
-                    >
-                      <span>{expandedProject === project.id ? 'הצג פחות' : 'קרא עוד'}</span>
-                      <svg className={`w-4 h-4 transition-transform ${expandedProject === project.id ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </button>
+                  {/* Location */}
+                  <div className="text-xs font-bold text-[#003366] uppercase tracking-widest">
+                    {project.location}
                   </div>
                 </div>
               </motion.div>

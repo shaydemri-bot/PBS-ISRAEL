@@ -40,39 +40,26 @@ export default function LoadingScreen() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8, ease: 'easeInOut' }}
-          className="fixed inset-0 z-[9999] flex items-center justify-center h-screen w-screen"
+          className="fixed inset-0 z-[9999] flex items-center justify-center w-screen h-screen"
         >
-          {/* Shafdan Project Background - Full View, No Crop */}
-          <div className="absolute inset-0 w-full h-full">
+          {/* Shafdan Background Image - CONTAIN Strategy for Full Project Visibility */}
+          <div className="absolute inset-0 w-full h-full bg-slate-900">
             <div
               className="absolute inset-0 w-full h-full"
               style={{
                 backgroundImage: 'url(/images/shafdan.jpeg)',
                 backgroundSize: 'contain',
-                backgroundPosition: 'center',
+                backgroundPosition: 'center center',
                 backgroundRepeat: 'no-repeat',
                 filter: 'brightness(1.15) contrast(1.1) saturate(1.3)',
               }}
             />
-            {/* Ultra-minimal overlay - Show full infrastructure (20% only) */}
-            <div className="absolute inset-0 w-full h-full bg-black/20" />
+            {/* Subtle dark overlay for logo visibility */}
+            <div className="absolute inset-0 w-full h-full bg-black/30" />
           </div>
 
-          {/* Animated gradient overlay - Smooth ambient motion */}
-          <motion.div
-            className="absolute inset-0 z-[1]"
-            animate={{
-              background: [
-                'radial-gradient(circle at 20% 50%, rgba(245, 158, 11, 0.1) 0%, transparent 50%)',
-                'radial-gradient(circle at 80% 50%, rgba(245, 158, 11, 0.1) 0%, transparent 50%)',
-                'radial-gradient(circle at 20% 50%, rgba(245, 158, 11, 0.1) 0%, transparent 50%)',
-              ],
-            }}
-            transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
-          />
-
           {/* Professional Logo Hierarchy - PBS Israel Dominant (Brightest Element) */}
-          <div className="relative z-10 px-6">
+          <div className="relative z-10 px-6 translate-y-24">
             {/* Official Xypex Global Logo - Top Center (Secondary) */}
             <motion.div
               initial={{ opacity: 0, y: -20 }}

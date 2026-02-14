@@ -7,65 +7,26 @@ export default function OurStoryPage() {
     <div dir="rtl">
       <Header />
       
-      {/* Hero - Minimalist Clarity */}
-      <section className="relative overflow-hidden min-h-[70vh] flex items-center py-20">
-        {/* Background Image - BRIGHT & CLEAR */}
-        <div className="absolute inset-0">
-          <Image
-            src="/images/WhatsApp Image 2026-01-21 at 13.06.05.jpeg"
-            alt="Xypex Crystalline Technology"
-            fill
-            priority
-            quality={85}
-            className="object-cover brightness-105"
-            sizes="100vw"
-          />
-          {/* Minimal gradient - bottom 30% only */}
-          <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
-        </div>
+      {/* Hero - CHIN Technical Focus */}
+      <section className="relative w-full aspect-[16/9] md:aspect-[21/9] lg:aspect-[3.5/1] flex items-center justify-center overflow-hidden">
+        {/* CHIN - NEXT/IMAGE OPTIMIZED, PRIORITY LOADING */}
+        <Image
+          src="/images/chin.jpeg"
+          alt="PBS Israel Solutions - Advanced Waterproofing Technology"
+          fill
+          priority
+          quality={90}
+          sizes="100vw"
+          className="object-cover object-[center_30%]"
+        />
 
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl">
-            {/* Glassmorphism Content Card */}
-            <div className="backdrop-blur-xl bg-white/95 rounded-2xl p-8 md:p-10 shadow-2xl border border-white/50">
-              <div className="inline-flex items-center gap-2 px-5 py-2 bg-[#003366]/5 rounded-full border border-[#003366]/20 mb-6">
-                <span className="w-2 h-2 bg-[#003366] rounded-full"></span>
-                <span className="text-[#003366] font-bold text-sm">טכנולוגיה קריסטלית מתקדמת</span>
-              </div>
-
-              <h1 className="text-5xl md:text-6xl font-black text-[#003366] mb-6 leading-tight">
-                מערכת לאיטום גבישי
-              </h1>
-
-              <p className="text-xl md:text-2xl text-[#475569] font-semibold leading-relaxed mb-8">
-                המערכת משתתפת בפרויקטי ענק ביותר מ-100 מדינות כבר 80 שנה
-              </p>
-
-              {/* Quick benefits bullets */}
-              <div className="grid md:grid-cols-2 gap-3">
-                {[
-                  'עמידה בלחץ הידרוסטטי',
-                  'איטום סדקים שיער לצמיתות',
-                  'התחדשות עצמית בנוכחות מים',
-                  'עמידות כימית גבוהה'
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-3 text-[#003366]">
-                    <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="font-semibold">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom wave */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg className="w-full h-16 text-white" preserveAspectRatio="none" viewBox="0 0 1440 48" fill="currentColor">
-            <path d="M0,48 L1440,48 L1440,24 C1140,8 840,0 540,8 C240,16 120,32 0,24 Z"></path>
-          </svg>
+        <div className="relative z-10 text-center px-6">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-tight mb-6" style={{ color: '#FFFFFF', filter: 'drop-shadow(0 5px 20px rgba(0,0,0,1))' }}>
+            הפתרונות שלנו:<br />איטום ושיקום מתקדם
+          </h1>
+          <p className="text-xl md:text-2xl font-bold max-w-3xl mx-auto leading-relaxed" style={{ color: '#FFFFFF', filter: 'drop-shadow(0 5px 20px rgba(0,0,0,1))' }}>
+            טכנולוגיית קריסטליזציה מתקדמת לתשתיות קריטיות
+          </p>
         </div>
       </section>
 
@@ -178,6 +139,35 @@ export default function OurStoryPage() {
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* VIDEO 1 - Technical Prestige Showcase */}
+        <section className="py-24 bg-slate-900">
+          <div className="container mx-auto px-6">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                  טכנולוגיית Xypex בפעולה
+                </h2>
+                <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+                  הדגמה טכנית של מערכת האיטום הגבישית
+                </p>
+              </div>
+
+              <div className="relative aspect-video rounded-2xl overflow-hidden border-4 border-white/10 shadow-2xl">
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-full object-cover"
+                >
+                  <source src="/images/video1.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
               </div>
             </div>
           </div>
