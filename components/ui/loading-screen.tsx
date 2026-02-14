@@ -5,10 +5,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 
 /**
- * Premium Cinematic Splash Screen - HORIZONTAL TWIN ROWS
- * Row 1: GOBI 42 (side-by-side, horizontal)
- * Row 2: XYPEX ISRAEL (side-by-side, horizontal)
- * Both rows: flex-row with whitespace-nowrap to prevent stacking
+ * Premium Cinematic Splash Screen - STRICT HORIZONTAL PAIRS
+ * ROW 1: P.B.S ISRAEL (flex-row, gap-3, horizontal)
+ * ROW 2: GOBI 42 (flex-row, gap-3, horizontal)
+ * Container: flex-col gap-6 to stack the two rows vertically
  * Duration: 3 seconds (DO NOT REDUCE - this is intentional!)
  * Rollback: loading-screen.STABLE_OLD.tsx contains previous version
  */
@@ -61,59 +61,57 @@ export default function LoadingScreen() {
             <div className="absolute inset-0 w-full h-full bg-black/30" />
           </div>
 
-          {/* STRICT HORIZONTAL LAYOUT - Two Side-by-Side Rows */}
-          <div className="relative z-10 px-6 translate-y-20">
-            {/* Row 1: GOBI 42 (HORIZONTAL - Same Line) */}
+          {/* VERTICAL STACK OF 2 HORIZONTAL ROWS */}
+          <div className="relative z-10 px-6 translate-y-20 flex flex-col items-center gap-6">
+            {/* ROW 1: P.B.S ISRAEL (Horizontal) */}
             <motion.div
               initial={{ opacity: 0, y: -30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="mb-10"
+              className="flex flex-row items-baseline justify-center gap-3"
             >
-              <div className="flex flex-row items-baseline justify-center gap-6">
-                {/* GOBI - White, Bold */}
-                <span className="text-6xl md:text-7xl lg:text-8xl font-black text-white tracking-tight leading-none whitespace-nowrap" style={{ textShadow: '3px 3px 15px rgba(0,0,0,0.95), 0 0 30px rgba(255,255,255,0.3)' }}>
-                  GOBI
-                </span>
-                {/* 42 - Amber, Smaller, Lighter */}
-                <span className="text-4xl md:text-5xl lg:text-6xl font-light text-amber-400 tracking-tight leading-none whitespace-nowrap" style={{ textShadow: '2px 2px 12px rgba(0,0,0,0.9), 0 0 20px rgba(251,191,36,0.4)' }}>
-                  42
-                </span>
-              </div>
+              {/* P.B.S - White, Bold, Large */}
+              <span className="text-6xl md:text-7xl lg:text-8xl font-black text-white tracking-tight leading-none whitespace-nowrap" style={{ textShadow: '3px 3px 15px rgba(0,0,0,0.95), 0 0 30px rgba(255,255,255,0.3)' }}>
+                P.B.S
+              </span>
+              {/* ISRAEL - Amber, Smaller, Light */}
+              <span className="text-4xl md:text-5xl lg:text-6xl font-light text-amber-400 tracking-tight leading-none uppercase whitespace-nowrap" style={{ textShadow: '2px 2px 12px rgba(0,0,0,0.9), 0 0 20px rgba(251,191,36,0.4)' }}>
+                ISRAEL
+              </span>
             </motion.div>
 
-            {/* Row 2: XYPEX ISRAEL (HORIZONTAL - Same Line) */}
+            {/* ROW 2: GOBI 42 (Horizontal) */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="mb-12"
+              className="flex flex-row items-baseline justify-center gap-3"
             >
-              <div className="flex flex-row items-baseline justify-center gap-6">
-                {/* XYPEX - White, Bold */}
-                <span className="text-6xl md:text-7xl lg:text-8xl font-black text-white tracking-tight leading-none whitespace-nowrap" style={{ textShadow: '3px 3px 15px rgba(0,0,0,0.95), 0 0 30px rgba(255,255,255,0.3)' }}>
-                  XYPEX
-                </span>
-                {/* ISRAEL - Amber, Smaller, Lighter */}
-                <span className="text-4xl md:text-5xl lg:text-6xl font-light text-amber-400 tracking-tight leading-none uppercase whitespace-nowrap" style={{ textShadow: '2px 2px 12px rgba(0,0,0,0.9), 0 0 20px rgba(251,191,36,0.4)' }}>
-                  ISRAEL
-                </span>
-              </div>
-              {/* Decorative Line */}
-              <div className="h-1.5 w-96 max-w-full mx-auto mt-8 bg-gradient-to-r from-transparent via-amber-400 to-transparent" style={{ filter: 'drop-shadow(0 0 8px rgba(251,191,36,0.6))' }} />
+              {/* GOBI - White, Bold, Large (same size as P.B.S) */}
+              <span className="text-6xl md:text-7xl lg:text-8xl font-black text-white tracking-tight leading-none whitespace-nowrap" style={{ textShadow: '3px 3px 15px rgba(0,0,0,0.95), 0 0 30px rgba(255,255,255,0.3)' }}>
+                GOBI
+              </span>
+              {/* 42 - Amber, Smaller, Light (same size as ISRAEL) */}
+              <span className="text-4xl md:text-5xl lg:text-6xl font-light text-amber-400 tracking-tight leading-none whitespace-nowrap" style={{ textShadow: '2px 2px 12px rgba(0,0,0,0.9), 0 0 20px rgba(251,191,36,0.4)' }}>
+                42
+              </span>
             </motion.div>
+
+            {/* Decorative Line */}
+            <div className="h-1.5 w-96 max-w-full mx-auto mt-6 bg-gradient-to-r from-transparent via-amber-400 to-transparent" style={{ filter: 'drop-shadow(0 0 8px rgba(251,191,36,0.6))' }} />
 
             {/* Partnership Badge */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="text-center"
+              className="text-center mt-6"
             >
               <div className="text-base md:text-lg font-black text-white tracking-[0.25em] uppercase" style={{ textShadow: '3px 3px 12px rgba(0,0,0,0.95)' }}>
-                GOBI 42 XYPEX ISRAEL
+                PBS ISRAEL GOBI 42
               </div>
             </motion.div>
+          </div>
 
             {/* Tagline */}
             <motion.div
