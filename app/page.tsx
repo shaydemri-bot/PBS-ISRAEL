@@ -90,7 +90,7 @@ export default function Home() {
                 <div className="relative w-full overflow-hidden rounded-2xl shadow-2xl border border-slate-200" style={{ paddingBottom: '56.25%' }}>
                   <iframe
                     className="absolute top-0 left-0 w-full h-full"
-                    src="https://www.youtube.com/embed/VozKO84Rgzk?rel=0&modestbranding=1&showinfo=0"
+                    src="https://www.youtube.com/embed/b8koiNWcqX8?rel=0&modestbranding=1&showinfo=0"
                     title="Xypex Crystalline Technology"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
