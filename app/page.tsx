@@ -36,7 +36,7 @@ export default function Home() {
         <section className="relative py-20 md:py-28 bg-white">
           <GridDotBackground className="opacity-10" />
           <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8">
-            {/* Architectural Heading */}
+            {/* Section Heading - Extra-light, Wide-tracked */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -52,7 +52,8 @@ export default function Home() {
 
             {/* Dual Video Grid - Perfect Symmetry */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 max-w-6xl mx-auto">
-              {/* LEFT VIDEO: Global Impact (Time-Trimmed 14s-44s) */}
+
+              {/* LEFT VIDEO: Xypex Advertisement (14s-44s Time-Trimmed) */}
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -63,23 +64,21 @@ export default function Home() {
                 <div className="relative w-full overflow-hidden rounded-2xl shadow-2xl border border-slate-200" style={{ paddingBottom: '56.25%' }}>
                   <iframe
                     className="absolute top-0 left-0 w-full h-full"
-                    src="https://www.youtube.com/embed/kY6fA8Yp5Ww?start=14&end=44&rel=0&modestbranding=1&showinfo=0"
-                    title="Xypex Global Impact"
+                    src="https://www.youtube.com/embed/b8koiNWcqX8?start=14&end=44&rel=0&modestbranding=1&showinfo=0"
+                    title="Xypex World Impact"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                     loading="lazy"
-                    style={{
-                      border: 0,
-                    }}
+                    style={{ border: 0 }}
                   />
                 </div>
                 {/* Video Label */}
                 <p className="text-center mt-4 text-sm md:text-base text-slate-600 font-light tracking-wide">
-                  Global Infrastructure Projects
+                  World Impact
                 </p>
               </motion.div>
 
-              {/* RIGHT VIDEO: Technical Explanation */}
+              {/* RIGHT VIDEO: Crystalline Technology (Full Video) */}
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -90,21 +89,20 @@ export default function Home() {
                 <div className="relative w-full overflow-hidden rounded-2xl shadow-2xl border border-slate-200" style={{ paddingBottom: '56.25%' }}>
                   <iframe
                     className="absolute top-0 left-0 w-full h-full"
-                    src="https://www.youtube.com/embed/b8koiNWcqX8?rel=0&modestbranding=1&showinfo=0"
+                    src="https://www.youtube.com/embed/VozKO84Rgzk?rel=0&modestbranding=1&showinfo=0"
                     title="Xypex Crystalline Technology"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                     loading="lazy"
-                    style={{
-                      border: 0,
-                    }}
+                    style={{ border: 0 }}
                   />
                 </div>
                 {/* Video Label */}
                 <p className="text-center mt-4 text-sm md:text-base text-slate-600 font-light tracking-wide">
-                  Crystalline Technology Explained
+                  Our Technology
                 </p>
               </motion.div>
+
             </div>
 
             {/* Section Caption */}
