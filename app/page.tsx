@@ -26,8 +26,14 @@ export default function Home() {
         {/* 1. HERO SECTION - Full Screen with Live Swapper */}
         <HeroClassic />
 
-        {/* 2. THE TECHNOLOGY VIDEO - Premium YouTube Integration */}
-        <section className="relative py-16 md:py-24 bg-slate-50">
+        {/* CONSTRUCTION YELLOW DIVIDER - Clean Visual Break */}
+        <section className="bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-400 border-y-4 border-amber-500 h-12"></section>
+
+        {/* 2. TRUSTED BY - Infinite Scrolling Logos */}
+        <LogoCarousel />
+
+        {/* 3. THE TECHNOLOGY VIDEO - Premium YouTube Integration */}
+        <section className="relative py-20 md:py-28 bg-white">
           <GridDotBackground className="opacity-10" />
           <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8">
             {/* Architectural Heading */}
@@ -36,12 +42,12 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-center mb-12"
+              className="text-center mb-16"
             >
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-extralight text-[#003366] tracking-[0.3em] uppercase mb-4 leading-tight">
+              <h2 className="text-5xl md:text-6xl lg:text-7xl font-extralight text-[#003366] tracking-[0.3em] uppercase mb-6 leading-none">
                 THE TECHNOLOGY
               </h2>
-              <div className="h-px w-32 mx-auto bg-[#003366]/20"></div>
+              <div className="h-px w-40 mx-auto bg-[#003366]/20"></div>
             </motion.div>
 
             {/* Premium Video Container */}
@@ -73,19 +79,13 @@ export default function Home() {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="text-center mt-6 text-sm md:text-base text-slate-600 font-light tracking-wide leading-relaxed"
+                className="text-center mt-8 text-base md:text-lg text-slate-600 font-light tracking-wide leading-relaxed"
               >
                 See how Xypex crystalline technology permanently waterproofs concrete.
               </motion.p>
             </motion.div>
           </div>
         </section>
-
-        {/* CONSTRUCTION YELLOW DIVIDER - Clean Visual Break */}
-        <section className="bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-400 border-y-4 border-amber-500 h-12"></section>
-
-        {/* 2. TRUSTED BY - Infinite Scrolling Logos */}
-        <LogoCarousel />
 
         {/* 3. TECHNOLOGY - Brief Visual Explanation with Background */}
         <section className="relative py-10 px-4 overflow-hidden">
