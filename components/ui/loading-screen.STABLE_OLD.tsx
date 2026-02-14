@@ -5,10 +5,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 
 /**
- * Premium Cinematic Splash Screen - UNIFIED BRAND EXPERIENCE
- * GOBI 42 + PBS ISRAEL with equal visual power
+ * Premium Cinematic Splash Screen - CORE BRAND EXPERIENCE
+ * PBS Israel + Xypex Global logos with hero-bg.jpg background
  * Duration: 3 seconds (DO NOT REDUCE - this is intentional!)
- * Rollback: loading-screen.STABLE_OLD.tsx contains previous version
  */
 export default function LoadingScreen() {
   const [isLoading, setIsLoading] = useState(true);
@@ -59,58 +58,48 @@ export default function LoadingScreen() {
             <div className="absolute inset-0 w-full h-full bg-black/30" />
           </div>
 
-          {/* Unified Brand Hierarchy - GOBI 42 & PBS ISRAEL as Equal Partners */}
-          <div className="relative z-10 px-6 translate-y-10">
-            {/* GOBI 42 - Equal Power to PBS (NEW UNIFIED DESIGN) */}
+          {/* Professional Logo Hierarchy - PBS Israel Dominant (Brightest Element) */}
+          <div className="relative z-10 px-6 translate-y-24">
+            {/* Official Xypex Global Logo - Top Center (Secondary) */}
             <motion.div
-              initial={{ opacity: 0, y: -30 }}
+              initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              className="text-center mb-12"
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-center mb-8"
             >
-              <h1 className="flex items-center justify-center gap-3">
-                {/* GOBI */}
-                <span className="text-7xl md:text-8xl lg:text-9xl font-black text-white tracking-tight leading-none" style={{ textShadow: '3px 3px 15px rgba(0,0,0,0.95), 0 0 30px rgba(255,255,255,0.3)' }}>
-                  GOBI
-                </span>
-                {/* 42 - Same size and weight */}
-                <span className="text-7xl md:text-8xl lg:text-9xl font-black text-white tracking-tight leading-none" style={{ textShadow: '3px 3px 15px rgba(0,0,0,0.95), 0 0 30px rgba(255,255,255,0.3)' }}>
-                  42
-                </span>
-              </h1>
-            </motion.div>
-
-            {/* PBS ISRAEL - Matching Power (REFINED COMPACT BLOCK) */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-center mb-12"
-            >
-              {/* Unified Brand Container with Border */}
-              <div className="inline-block px-12 py-8 border-2 border-white/20 rounded-lg backdrop-blur-sm bg-black/20" style={{ boxShadow: '0 8px 32px rgba(0,0,0,0.3)' }}>
-                {/* PBS - Same Size as GOBI 42 */}
-                <h1 className="text-7xl md:text-8xl lg:text-9xl font-black text-white tracking-tight leading-none mb-2" style={{ textShadow: '3px 3px 15px rgba(0,0,0,0.95), 0 0 30px rgba(255,255,255,0.3)' }}>
-                  P.B.S
-                </h1>
-                {/* ISRAEL - Amber, Smaller, Tight Gap (8px) */}
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-amber-400 tracking-[0.15em] uppercase" style={{ textShadow: '2px 2px 12px rgba(0,0,0,0.9), 0 0 20px rgba(251,191,36,0.4)' }}>
-                  ISRAEL
-                </h2>
+              <div className="text-3xl md:text-4xl font-bold text-white/60 tracking-wider leading-none" style={{ textShadow: '2px 2px 10px rgba(0,0,0,0.9)' }}>
+                XYPEX
               </div>
-              {/* Decorative Line Below Container */}
-              <div className="h-1.5 w-96 max-w-full mx-auto mt-8 bg-gradient-to-r from-transparent via-amber-400 to-transparent" style={{ filter: 'drop-shadow(0 0 8px rgba(251,191,36,0.6))' }} />
+              <div className="text-xs md:text-sm font-light text-amber-400/80 tracking-[0.4em] uppercase mt-1" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}>
+                GLOBAL
+              </div>
             </motion.div>
 
-            {/* Partnership Badge */}
+            {/* PBS Israel - ABSOLUTELY DOMINANT (Brightest Element) */}
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: [0.21, 0.47, 0.32, 0.98] }}
+              className="text-center mb-12"
+            >
+              <h1 className="text-9xl md:text-[10rem] lg:text-[14rem] font-black text-white tracking-tight leading-none mb-6" style={{ textShadow: '3px 3px 15px rgba(0,0,0,0.95), 0 0 30px rgba(255,255,255,0.3)' }}>
+                PBS
+              </h1>
+              <h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-amber-400 tracking-[0.3em] uppercase" style={{ textShadow: '2px 2px 12px rgba(0,0,0,0.9), 0 0 20px rgba(251,191,36,0.4)' }}>
+                ISRAEL
+              </h2>
+              <div className="h-1.5 w-[32rem] max-w-7xl mx-auto mt-10 bg-gradient-to-r from-transparent via-amber-400 to-transparent" style={{ filter: 'drop-shadow(0 0 8px rgba(251,191,36,0.6))' }} />
+            </motion.div>
+
+            {/* Partnership Badge - Below PBS */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
               className="text-center"
             >
-              <div className="text-lg md:text-xl font-black text-white tracking-[0.25em] uppercase" style={{ textShadow: '3px 3px 12px rgba(0,0,0,0.95)' }}>
-                GOBI 42 PBS ISRAEL
+              <div className="text-lg md:text-xl font-black text-white tracking-[0.4em] uppercase" style={{ textShadow: '3px 3px 12px rgba(0,0,0,0.95)', fontFamily: 'system-ui, -apple-system, sans-serif', letterSpacing: '0.25em' }}>
+                XYPEX PBS ISRAEL
               </div>
             </motion.div>
 
