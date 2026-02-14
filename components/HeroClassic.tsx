@@ -1,13 +1,14 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { useAnimatedCounter } from '@/hooks/useAnimatedCounter';
 
 /**
- * Premium Hero Section - Live Visual Preview
- * Click bottom corner buttons to switch images in real-time
+ * Premium Hero Section - Adaptive Image Display
+ * Desktop: Starts with Image #1 | Mobile: Starts with Image #2
+ * Manual navigation via bottom-right buttons
  */
 
 // Define all available hero images - Corrected configuration
@@ -18,7 +19,29 @@ const HERO_IMAGES = {
 };
 
 export default function HeroClassic() {
-  const [activeHero, setActiveHero] = useState(1); // Default to Image 1 (Main)
+  // Adaptive default: Desktop starts at 1, Mobile starts at 2
+  const [activeHero, setActiveHero] = useState(1);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect screen size and set adaptive default image
+  useEffect(() => {
+    const checkMobile = () => {
+      const mobile = window.innerWidth < 768; // md breakpoint
+      setIsMobile(mobile);
+
+      // Set default image based on screen size (only on initial load)
+      if (activeHero === 1 || activeHero === 2) {
+        setActiveHero(mobile ? 2 : 1);
+      }
+    };
+
+    // Check on mount
+    checkMobile();
+
+    // Listen for resize events
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []); // Empty dependency - only run on mount
 
   // Animated counters for stats
   const { count: projectsCount, ref: projectsRef } = useAnimatedCounter(300, 2000);
@@ -74,8 +97,33 @@ export default function HeroClassic() {
       {/* Vignette Gradient - Natural corner darkening */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30 z-[1]" />
 
-      {/* Content Container - POWER CENTER (Mobile Optimized) */}
-      {/* TEMPORARILY HIDDEN FOR MINIMALIST TEST - Remove 'hidden' class to restore */}
+      {/* Content Container - Centered Tagline & Navigation */}
+      <div className="relative z-10 h-full flex flex-col items-center justify-center px-4 md:px-12 text-center">
+        {/* Centered Logo & Tagline */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="max-w-4xl mx-auto"
+        >
+          {/* PBS Israel Logo Text */}
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-extralight text-white tracking-tight leading-none mb-4" style={{ filter: 'drop-shadow(0 15px 30px rgba(0,0,0,0.9))' }}>
+            PBS ISRAEL
+          </h1>
+
+          {/* The Science Behind Waterproofing Tagline */}
+          <p className="text-lg md:text-xl lg:text-2xl font-light text-white/90 tracking-wide leading-relaxed" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.8))' }}>
+            The Science Behind Waterproofing
+          </p>
+
+          {/* Hebrew Subtitle */}
+          <p className="text-sm md:text-base text-white/80 mt-3 font-light tracking-wider" style={{ filter: 'drop-shadow(0 8px 16px rgba(0,0,0,0.7))' }}>
+            המדע מאחורי איטום
+          </p>
+        </motion.div>
+      </div>
+
+      {/* BACKUP: Full Stats Content (Hidden) - Uncomment if needed */}
       <div className="hidden relative z-10 h-full flex flex-col items-center px-4 md:px-12 text-center pt-20 md:pt-32">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -186,34 +234,34 @@ export default function HeroClassic() {
             />
           </svg>
         </motion.div>
-
-        {/* Live Hero Image Switcher - Compact Mobile Design */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
-          className="absolute bottom-3 md:bottom-10 right-3 md:right-10 flex gap-1.5 md:gap-3 bg-black/50 backdrop-blur-xl px-2 md:px-5 py-1.5 md:py-4 rounded-full border border-white/20 md:border-2 shadow-2xl"
-        >
-          {[1, 2, 3].map((num) => (
-            <button
-              key={num}
-              onClick={() => setActiveHero(num)}
-              className={`
-                w-7 h-7 md:w-12 md:h-12 rounded-full border md:border-2 transition-all duration-300
-                flex items-center justify-center text-xs md:text-base font-black
-                ${activeHero === num
-                  ? 'bg-amber-400 text-black border-amber-400 scale-110 shadow-xl'
-                  : 'bg-white/10 text-white border-white/40 hover:border-amber-400 hover:bg-amber-400/20 hover:text-amber-400 hover:scale-105'
-                }
-              `}
-              title={HERO_IMAGES[num as keyof typeof HERO_IMAGES].label}
-              aria-label={`Switch to ${HERO_IMAGES[num as keyof typeof HERO_IMAGES].label}`}
-            >
-              {num}
-            </button>
-          ))}
-        </motion.div>
       </div>
+
+      {/* Live Hero Image Switcher - Always Visible */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1 }}
+        className="absolute bottom-3 md:bottom-10 right-3 md:right-10 flex gap-1.5 md:gap-3 bg-black/50 backdrop-blur-xl px-2 md:px-5 py-1.5 md:py-4 rounded-full border border-white/20 md:border-2 shadow-2xl z-20"
+      >
+        {[1, 2, 3].map((num) => (
+          <button
+            key={num}
+            onClick={() => setActiveHero(num)}
+            className={`
+              w-7 h-7 md:w-12 md:h-12 rounded-full border md:border-2 transition-all duration-300
+              flex items-center justify-center text-xs md:text-base font-black
+              ${activeHero === num
+                ? 'bg-amber-400 text-black border-amber-400 scale-110 shadow-xl'
+                : 'bg-white/10 text-white border-white/40 hover:border-amber-400 hover:bg-amber-400/20 hover:text-amber-400 hover:scale-105'
+              }
+            `}
+            title={HERO_IMAGES[num as keyof typeof HERO_IMAGES].label}
+            aria-label={`Switch to ${HERO_IMAGES[num as keyof typeof HERO_IMAGES].label}`}
+          >
+            {num}
+          </button>
+        ))}
+      </motion.div>
     </section>
   );
 }
