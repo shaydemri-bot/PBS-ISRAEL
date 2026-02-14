@@ -1,40 +1,142 @@
-import Link from 'next/link';
+'use client';
 
+import Link from 'next/link';
+import Image from 'next/image';
+import { usePathname } from 'next/navigation';
+import { motion } from 'framer-motion';
+
+/**
+ * Premium Global Header - Permanent Pure White
+ * PBS Israel (left) + Xypex Global (right) in original colors
+ * Professional navigation in dark gray/PBS blue
+ */
 export default function Header() {
+  const pathname = usePathname();
+
+  const isActive = (path: string) => pathname === path;
+
   return (
-    <header className="bg-white shadow-md sticky top-0 z-50">
+    <motion.header
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
+      className="fixed top-0 left-0 right-0 z-50 shadow-lg"
+      style={{
+        background: '#FFFFFF',
+        borderBottom: '1px solid #e2e8f0',
+      }}
+    >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-3">
-            <img 
-              src="https://static.wixstatic.com/media/38df06_1d91e07781cf4f88a2f818cfc5746e62~mv2.png/v1/fill/w_256,h_66,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/xypex_logo_no_background.png"
-              alt="Xypex Logo"
-              className="h-12 w-auto"
-            />
-            <span className="text-xl font-bold text-gray-800">PBS Israel</span>
+          {/* Left Side: PBS Israel Logo - Original Colors */}
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="relative h-14 w-36">
+              <Image
+                src="/images/logo.jpg"
+                alt="PBS Israel - Xypex Representative"
+                fill
+                className="object-contain group-hover:scale-105 transition-transform duration-300"
+                priority
+              />
+            </div>
           </Link>
 
-          {/* Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
-            <Link href="/" className="text-gray-700 hover:text-blue-600 font-medium transition">
-              בית
-            </Link>
-            <Link href="/our-story" className="text-gray-700 hover:text-blue-600 font-medium transition">
-              מערכת זייפקס
-            </Link>
-            <Link href="/projects" className="text-gray-700 hover:text-blue-600 font-medium transition">
-              פרויקטים
-            </Link>
-            <Link href="/catalogs" className="text-gray-700 hover:text-blue-600 font-medium transition">
-              קטלוגים
-            </Link>
-            <Link href="/contact" className="text-gray-700 hover:text-blue-600 font-medium transition">
-              צור קשר
-            </Link>
+          {/* Center: Navigation - Dark Gray */}
+          <nav className="hidden md:flex items-center gap-1">
+            <NavLink href="/" active={isActive('/')}>
+              Home
+            </NavLink>
+            <NavLink href="/projects" active={isActive('/projects')}>
+              Projects
+            </NavLink>
+            <NavLink href="/catalogs" active={isActive('/catalogs')}>
+              Products
+            </NavLink>
+            <NavLink href="/technical-library" active={isActive('/technical-library')}>
+              Technical Library
+            </NavLink>
           </nav>
+
+          {/* Right Side: Xypex Global Logo + CTA */}
+          <div className="flex items-center gap-6">
+            {/* Xypex Global Logo - Original Colors */}
+            <div className="hidden lg:flex items-center gap-3">
+              <div className="text-right">
+                <div className="text-2xl font-bold text-[#003366] tracking-wider leading-none">
+                  XYPEX
+                </div>
+                <div className="text-xs text-[#f59e0b] tracking-[0.2em] uppercase">
+                  Global
+                </div>
+              </div>
+            </div>
+
+            {/* CTA Button - PBS Blue */}
+            <Link
+              href="tel:+972-52-1234567"
+              className="px-6 py-2.5 rounded-lg font-semibold transition-all shadow-md hover:shadow-lg hover:scale-105"
+              style={{
+                background: '#003366',
+                color: '#FFFFFF',
+              }}
+            >
+              Contact
+            </Link>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button className="md:hidden p-2" style={{ color: '#003366' }} aria-label="Menu">
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
         </div>
       </div>
-    </header>
+    </motion.header>
+  );
+}
+
+/**
+ * Navigation Link Component
+ * Professional dark gray with PBS blue active state
+ */
+function NavLink({
+  href,
+  active,
+  children,
+}: {
+  href: string;
+  active: boolean;
+  children: React.ReactNode;
+}) {
+  return (
+    <Link
+      href={href}
+      className={`
+        relative px-4 py-2 rounded-lg font-semibold text-sm uppercase tracking-wider
+        transition-all duration-300
+        ${active ? 'text-[#003366] font-bold' : 'text-[#475569] hover:text-[#003366]'}
+      `}
+    >
+      {children}
+      {active && (
+        <motion.div
+          layoutId="activeNav"
+          className="absolute bottom-0 left-0 right-0 h-0.5"
+          style={{ background: '#003366' }}
+          transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
+        />
+      )}
+    </Link>
   );
 }

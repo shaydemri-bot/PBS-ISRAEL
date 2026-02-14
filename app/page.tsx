@@ -1,246 +1,277 @@
+'use client';
+
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import Hero from '@/components/Hero';
+import ThemeToggle from '@/components/theme/ThemeToggle';
+import HeroClassic from '@/components/HeroClassic';
+import LoadingScreen from '@/components/ui/loading-screen';
+import { BentoCard } from '@/components/bento/BentoGrid';
+import TechnologyReveal3D from '@/components/bento/TechnologyReveal3D';
+import ProjectMap from '@/components/bento/ProjectMap';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
 
+/**
+ * Homepage - Xypex.com Flow
+ * Hero → Technology → Featured Products → Projects List → Contact
+ */
 export default function Home() {
   return (
-    <div dir="rtl">
-      <Header />
-      <Hero />
-      
-      {/* אודות - טקסט פשוט */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
-            <p className="text-2xl text-gray-700 leading-relaxed mb-8">
-              לפני יותר מחמישים שנה, פיתוח הטכנולוגיה הקריסטלית על ידי צוות מדענים ב-Xypex Chemical Corporation חולל מהפכה באופן שבו בטון מוגן מנוזלים חודרניים.
-            </p>
-            <p className="text-xl text-gray-600 leading-relaxed">
-              המפתח לטכנולוגיית איטום הבטון של Xypex הוא הגישה החדשנית שלה לטיפול בבטון ברמה המיקרוסקופית. באמצעות מחויבות למצוינות ומחקר ובדיקות מתמשכים, טכנולוגיית Xypex Crystalline התפתחה למשפחת מוצרי איטום שפותרת בעיות מים בבנייה ומגינה לצמיתות על מבני בטון בסביבות מאתגרות בכל האקלים ברחבי העולם.
-            </p>
-          </div>
-        </div>
-      </section>
+    <>
+      {/* Cinematic Splash Screen */}
+      <LoadingScreen />
 
-      {/* תמונה full-width */}
-      <section className="w-full">
-        <img 
-          src="https://www.xypex.com/wp-content/uploads/2021/08/7a9c0b48b7ebe00eaedd74a15fa9faa6.jpg" 
-          alt="Xypex Projects"
-          className="w-full h-[500px] object-cover"
-        />
-      </section>
+      <div dir="rtl" className="min-h-screen transition-colors duration-300">
+        <Header />
+        <ThemeToggle />
 
-      {/* Xypex מייצר ערך מיידי */}
-      <section className="py-24 bg-gray-50">
-        <div className="container mx-auto px-6">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-4xl font-bold text-gray-900 mb-12">
-              Xypex מייצר ערך מיידי
-            </h2>
-            
-            <div className="space-y-6">
-              {[
-                'אינו דורש מזג אוויר יבש ליישום',
-                'Xypex אינו דורש הכנת משטח יקרה או פילוס לפני היישום',
-                'Xypex אינו דורש איטום, חפיפה וגימור של תפרים בפינות, בקצוות או בין ממברנות',
-                'תיקון מהיר על משטחים רטובים - Xypex אינו דורש משטח יבש; למעשה, משטח רטוב הוא הכרחי',
-                'לא ניתן לנקב, לקרוע או להתפרק בתפרים',
-                'אינו דורש הגנה במהלך חזרת אדמה או במהלך הנחת פלדה, רשת תיל או חומרים אחרים',
-                'ניתן ליישום משני צידי משטח הבטון - הצד השלילי או החיובי (לחץ מים)'
-              ].map((item, i) => (
-                <div key={i} className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-3 flex-shrink-0"></div>
-                  <p className="text-xl text-gray-700 leading-relaxed">{item}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+        {/* 1. HERO SECTION - Full Screen */}
+        <HeroClassic />
 
-      {/* Xypex מספק ערך לטווח ארוך */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-4xl font-bold text-gray-900 mb-12">
-              Xypex מספק ערך לטווח ארוך
-            </h2>
-            
-            <div className="space-y-6">
-              {[
-                'יישום חד-פעמי קבוע, Xypex מתחדש ומתרפא עצמית בכל פעם שמים נוכחים',
-                'מוריד את עלות מחזור החיים של הפרויקט',
-                'מוריד עלויות תחזוקה ושיקום',
-                'מאריך את חיי השירות של המבנה עד פי שלושה'
-              ].map((item, i) => (
-                <div key={i} className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-3 flex-shrink-0"></div>
-                  <p className="text-xl text-gray-700 leading-relaxed">{item}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Xypex הוא בר-קיימא */}
-      <section className="py-24 bg-gray-50">
-        <div className="container mx-auto px-6">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-4xl font-bold text-gray-900 mb-12">
-              Xypex הוא בר-קיימא
-            </h2>
-            
-            <div className="grid md:grid-cols-2 gap-x-16 gap-y-6">
-              {[
-                'מאריך את חיי השירות',
-                'ללא VOC',
-                'מפחית זמן בנייה',
-                'מפחית תחזוקה',
-                'ניתן למיחזור ב-100%',
-                'מפחית נוכחות אנושית באתר',
-                'הסמכת LEED'
-              ].map((item, i) => (
-                <div key={i} className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-3 flex-shrink-0"></div>
-                  <p className="text-xl text-gray-700 leading-relaxed">{item}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* תמונה + טקסט */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-6">
+        {/* 2. TECHNOLOGY SECTION */}
+        <section className="py-24 px-6 md:px-12 lg:px-20">
           <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-16 items-center">
-              <div>
-                <h2 className="text-4xl font-bold text-gray-900 mb-8">
-                  Xypex, הארכת חיי השירות של בטון
-                </h2>
-                <p className="text-xl text-gray-700 leading-relaxed mb-6">
-                  כחומר בנייה, אין ספק שבטון הוא ללא תחרות, וזו הסיבה שחלק גדול מהסביבה הבנויה שלנו, הרחק לעתיד, ימשיך להיות תלוי בבטון למבניו ותשתיותיו.
-                </p>
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  עם זאת, כחומר בנייה, בטון מתמודד עם שני אתגרים עיקריים: הבטחה שבטון שומר על הביצועים שלו לאורך זמן וטביעת הרגל הפחמנית הגבוהה שמגיעה איתו.
-                </p>
-              </div>
-              <div className="bg-gray-200 aspect-video rounded-lg flex items-center justify-center">
-                <svg className="w-24 h-24 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* פרויקטים נבחרים - גלריה */}
-      <section className="py-24 bg-gray-50">
-        <div className="container mx-auto px-6">
-          <div className="max-w-7xl mx-auto">
-            <div className="mb-16">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
-                פרויקטים נבחרים
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-4xl md:text-5xl font-bold mb-4"
+                style={{ color: 'var(--foreground)' }}
+              >
+                Crystalline <span style={{ color: 'var(--accent)' }}>Technology</span>
               </h2>
-              <p className="text-xl text-gray-600">
-                מוצרי ושירותי Xypex זמינים ביותר מ-100 מדינות
+              <p className="text-lg opacity-70"
+                style={{ color: 'var(--foreground)' }}
+              >
+                Self-Healing Waterproofing System
               </p>
-            </div>
+            </motion.div>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            {/* Technology Reveal - Large Interactive Card */}
+            <BentoCard colSpan={1} rowSpan={1}>
+              <TechnologyReveal3D />
+            </BentoCard>
+          </div>
+        </section>
+
+        {/* 3. FEATURED PRODUCTS SECTION */}
+        <section className="py-24 px-6 md:px-12 lg:px-20" style={{ background: 'var(--glass-bg)' }}>
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-4xl md:text-5xl font-bold mb-4"
+                style={{ color: 'var(--foreground)' }}
+              >
+                Featured <span style={{ color: 'var(--accent)' }}>Products</span>
+              </h2>
+              <p className="text-lg opacity-70"
+                style={{ color: 'var(--foreground)' }}
+              >
+                Complete Waterproofing Solutions
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-3 gap-6 mb-12">
               {[
-                {
-                  title: 'Vietcombank Tower',
-                  location: 'וייטנאם',
-                  category: 'מבני תשתית כלליים'
-                },
-                {
-                  title: '409 and 499 Illinois',
-                  location: 'ארה"ב',
-                  category: 'מבני תשתית כלליים'
-                },
-                {
-                  title: 'The Rihand Dam',
-                  location: 'הודו',
-                  category: 'סכרים והשקיה'
-                },
-                {
-                  title: 'ION Orchard',
-                  location: 'סינגפור',
-                  category: 'מבני תשתית כלליים'
-                },
-                {
-                  title: 'Studio City',
-                  location: 'מקאו',
-                  category: 'מבני תשתית כלליים'
-                },
-                {
-                  title: 'United States Air Force Academy',
-                  location: 'ארה"ב',
-                  category: 'מבני תשתית כלליים'
-                }
-              ].map((project, i) => (
-                <a 
-                  key={i}
-                  href="/projects"
-                  className="group block bg-white overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                { name: 'Xypex Admix', desc: 'Integral Crystalline Admixture', icon: '🧪' },
+                { name: 'Xypex Concentrate', desc: 'Surface Coating System', icon: '🎨' },
+                { name: "Patch'n Plug", desc: 'Rapid Repair System', icon: '⚡' },
+              ].map((product, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1, duration: 0.6 }}
+                  className="p-8 rounded-lg border text-center"
+                  style={{
+                    background: 'var(--glass-bg)',
+                    borderColor: 'var(--border-color)',
+                  }}
                 >
-                  <div className="aspect-[4/3] bg-gray-300 overflow-hidden">
-                    <div className="w-full h-full bg-gradient-to-br from-gray-400 to-gray-500 group-hover:scale-105 transition-transform duration-500"></div>
-                  </div>
-                  <div className="p-6">
-                    <div className="text-sm text-blue-600 font-semibold mb-2 uppercase tracking-wide">
-                      {project.category}
-                    </div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="text-gray-600">
-                      {project.location}
-                    </p>
-                  </div>
-                </a>
+                  <div className="text-5xl mb-4">{product.icon}</div>
+                  <h3 className="text-xl font-bold mb-2"
+                    style={{ color: 'var(--foreground)' }}
+                  >
+                    {product.name}
+                  </h3>
+                  <p className="text-sm opacity-70 mb-4"
+                    style={{ color: 'var(--foreground)' }}
+                  >
+                    {product.desc}
+                  </p>
+                  <Link
+                    href="/catalogs"
+                    className="text-sm font-semibold"
+                    style={{ color: 'var(--accent)' }}
+                  >
+                    Learn More →
+                  </Link>
+                </motion.div>
               ))}
             </div>
 
-            <div className="mt-12 text-center">
-              <a 
-                href="/projects" 
-                className="inline-block border-2 border-gray-900 text-gray-900 px-12 py-4 text-lg font-bold hover:bg-gray-900 hover:text-white transition-colors"
+            <div className="text-center">
+              <Link
+                href="/catalogs"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all hover:scale-105"
+                style={{
+                  background: 'var(--accent)',
+                  color: '#ffffff',
+                }}
               >
-                צפה בארכיון הפרויקטים
+                <span>View All Products</span>
+                <span>→</span>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* 4. PROJECTS SECTION with Small Map */}
+        <section className="py-24 px-6 md:px-12 lg:px-20">
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-4xl md:text-5xl font-bold mb-4"
+                style={{ color: 'var(--foreground)' }}
+              >
+                Critical <span style={{ color: 'var(--accent)' }}>Infrastructure</span>
+              </h2>
+              <p className="text-lg opacity-70"
+                style={{ color: 'var(--foreground)' }}
+              >
+                Protecting Billions in National Infrastructure
+              </p>
+            </motion.div>
+
+            <div className="flex flex-col md:flex-row gap-12 items-start">
+              {/* Projects List (60% width) */}
+              <div className="flex-1 space-y-4">
+                {[
+                  { name: 'Sorek B Desalination Plant', location: 'Palmachim, Israel', value: '$1.5B', year: '2023' },
+                  { name: 'Tel Aviv Metro (Red Line)', location: 'Tel Aviv, Israel', value: '$49B', year: '2025' },
+                  { name: 'Haifa Bay Port Expansion', location: 'Haifa, Israel', value: '$2B', year: '2022' },
+                  { name: 'National Water Carrier', location: 'Multiple Sites', value: '$800M', year: '2021' },
+                ].map((project, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.05, duration: 0.4 }}
+                    className="flex items-center justify-between p-6 rounded-lg border"
+                    style={{
+                      borderColor: 'var(--border-color)',
+                      background: 'var(--glass-bg)',
+                    }}
+                  >
+                    <div>
+                      <h3 className="text-xl font-bold mb-1"
+                        style={{ color: 'var(--foreground)' }}
+                      >
+                        {project.name}
+                      </h3>
+                      <p className="text-sm opacity-60"
+                        style={{ color: 'var(--foreground)' }}
+                      >
+                        {project.location} • {project.year}
+                      </p>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-2xl font-black"
+                        style={{ color: 'var(--accent)' }}
+                      >
+                        {project.value}
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Compact Map (40% width) */}
+              <div className="w-full md:w-2/5">
+                <BentoCard colSpan={1} rowSpan={1}>
+                  <ProjectMap />
+                </BentoCard>
+              </div>
+            </div>
+
+            <div className="text-center mt-12">
+              <Link
+                href="/projects"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all hover:scale-105"
+                style={{
+                  background: 'var(--accent)',
+                  color: '#ffffff',
+                }}
+              >
+                <span>View All Projects</span>
+                <span>→</span>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* 5. CONTACT SECTION */}
+        <section className="py-24 px-6 md:px-12 lg:px-20" style={{ background: 'var(--glass-bg)' }}>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-4xl mx-auto text-center"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-6"
+              style={{ color: 'var(--foreground)' }}
+            >
+              Ready to Start Your Project?
+            </h2>
+            <p className="text-xl mb-10 opacity-70"
+              style={{ color: 'var(--foreground)' }}
+            >
+              Our team of experts is ready to provide technical consultation, customized solutions, and professional support throughout your project.
+            </p>
+            <div className="flex flex-col md:flex-row gap-4 justify-center">
+              <a
+                href="tel:+972-52-1234567"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105 shadow-lg"
+                style={{
+                  background: 'var(--accent)',
+                  color: '#ffffff',
+                }}
+              >
+                <span>052-123-4567</span>
+                <span>☎️</span>
+              </a>
+              <a
+                href="mailto:info@pbs-israel.com"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-bold text-lg border-2 transition-all hover:scale-105"
+                style={{
+                  borderColor: 'var(--accent)',
+                  color: 'var(--accent)',
+                }}
+              >
+                <span>info@pbs-israel.com</span>
+                <span>📧</span>
               </a>
             </div>
-          </div>
-        </div>
-      </section>
+          </motion.div>
+        </section>
 
-      {/* CTA פשוט */}
-      <section className="py-32 bg-gray-900">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-5xl font-bold text-white mb-8">
-              מוכנים להתחיל?
-            </h2>
-            <p className="text-2xl text-gray-300 mb-12">
-              צור קשר עם נציג Xypex המקומי שלך
-            </p>
-            <a 
-              href="/contact" 
-              className="inline-block bg-blue-600 text-white px-16 py-5 text-xl font-bold hover:bg-blue-700 transition-colors"
-            >
-              צור קשר
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 }

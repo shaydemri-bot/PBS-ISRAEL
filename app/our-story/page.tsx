@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -6,49 +7,56 @@ export default function OurStoryPage() {
     <div dir="rtl">
       <Header />
       
-      {/* Hero עם gradient מתקדם */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 min-h-[70vh] flex items-center">
-        {/* Pattern background */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)',
-            backgroundSize: '32px 32px'
-          }}></div>
+      {/* Hero - Minimalist Clarity */}
+      <section className="relative overflow-hidden min-h-[70vh] flex items-center py-20">
+        {/* Background Image - BRIGHT & CLEAR */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/WhatsApp Image 2026-01-21 at 13.06.05.jpeg"
+            alt="Xypex Crystalline Technology"
+            fill
+            priority
+            quality={85}
+            className="object-cover brightness-105"
+            sizes="100vw"
+          />
+          {/* Minimal gradient - bottom 30% only */}
+          <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
         </div>
-        
-        {/* Animated gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-blue-900/50 via-transparent to-transparent"></div>
-        
-        <div className="container mx-auto px-6 py-20 relative z-10">
-          <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-2 px-5 py-2 bg-blue-500/10 backdrop-blur-md rounded-full border border-blue-400/20 text-blue-200 text-sm font-medium mb-8 animate-pulse">
-              <span className="w-2 h-2 bg-blue-400 rounded-full"></span>
-              טכנולוגיה קריסטלית מתקדמת
-            </div>
-            
-            <h1 className="text-6xl md:text-7xl font-bold text-white mb-8 leading-[1.1]">
-              מערכת לאיטום גבישי
-            </h1>
-            
-            <p className="text-2xl md:text-3xl text-blue-100 leading-relaxed mb-12 font-light">
-              המערכת משתתפת בפרויקטי ענק ביותר מ-100 מדינות כבר 80 שנה
-            </p>
 
-            {/* Quick benefits bullets - בסגנון Xypex */}
-            <div className="grid md:grid-cols-2 gap-3 max-w-3xl">
-              {[
-                'עמידה בלחץ הידרוסטטי',
-                'איטום סדקים שיער לצמיתות',
-                'התחדשות עצמית בנוכחות מים',
-                'עמידות כימית גבוהה'
-              ].map((item, i) => (
-                <div key={i} className="flex items-center gap-3 text-white/90">
-                  <svg className="w-5 h-5 text-green-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                  <span className="text-lg">{item}</span>
-                </div>
-              ))}
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="max-w-4xl">
+            {/* Glassmorphism Content Card */}
+            <div className="backdrop-blur-xl bg-white/95 rounded-2xl p-8 md:p-10 shadow-2xl border border-white/50">
+              <div className="inline-flex items-center gap-2 px-5 py-2 bg-[#003366]/5 rounded-full border border-[#003366]/20 mb-6">
+                <span className="w-2 h-2 bg-[#003366] rounded-full"></span>
+                <span className="text-[#003366] font-bold text-sm">טכנולוגיה קריסטלית מתקדמת</span>
+              </div>
+
+              <h1 className="text-5xl md:text-6xl font-black text-[#003366] mb-6 leading-tight">
+                מערכת לאיטום גבישי
+              </h1>
+
+              <p className="text-xl md:text-2xl text-[#475569] font-semibold leading-relaxed mb-8">
+                המערכת משתתפת בפרויקטי ענק ביותר מ-100 מדינות כבר 80 שנה
+              </p>
+
+              {/* Quick benefits bullets */}
+              <div className="grid md:grid-cols-2 gap-3">
+                {[
+                  'עמידה בלחץ הידרוסטטי',
+                  'איטום סדקים שיער לצמיתות',
+                  'התחדשות עצמית בנוכחות מים',
+                  'עמידות כימית גבוהה'
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-3 text-[#003366]">
+                    <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                    <span className="font-semibold">{item}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -134,33 +142,39 @@ export default function OurStoryPage() {
                 </div>
               </div>
 
-              {/* Banner עם תמונת רקע מהאתר המקורי */}
+              {/* Banner - Minimalist Clarity */}
               <div className="relative overflow-hidden rounded-2xl shadow-xl">
-                {/* תמונת רקע */}
+                {/* Background Image - BRIGHT & CLEAR */}
                 <div className="absolute inset-0">
-                  <div className="absolute inset-0 bg-gradient-to-l from-blue-900/95 to-slate-900/95"></div>
-                  <div className="absolute inset-0" style={{
-                    backgroundImage: 'url("https://static.wixstatic.com/media/42f70c_611e46ae5e0040e1828b5d1f514e0046~mv2.jpg/v1/fill/w_827,h_620,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/42f70c_611e46ae5e0040e1828b5d1f514e0046~mv2.jpg")',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center'
-                  }}></div>
+                  <Image
+                    src="/images/WhatsApp Image 2026-01-21 at 11.42.28 (4).jpeg"
+                    alt="Xypex Technology Implementation"
+                    fill
+                    quality={85}
+                    className="object-cover brightness-105"
+                    sizes="(max-width: 1024px) 100vw, 1024px"
+                  />
+                  {/* Subtle overlay only */}
+                  <div className="absolute inset-0 bg-[#003366]/30"></div>
                 </div>
-                
-                {/* תוכן */}
+
+                {/* Glassmorphism Content */}
                 <div className="relative z-10 p-10 md:p-12">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-14 h-14 bg-blue-500/20 backdrop-blur-sm rounded-xl flex items-center justify-center border border-blue-400/30">
-                      <svg className="w-7 h-7 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                      </svg>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-2xl font-bold text-white mb-4">ההבדל המהותי</h3>
-                      <p className="text-lg text-blue-100 leading-relaxed">
-                        חומרי Xypex לאיטום גבישי הינם חומרי איטום על בסיס צמנט. 
-                        <strong className="text-white"> ההבדל המרכזי:</strong> הם אוטמים את הבטון <strong className="text-white">מבפנים</strong> ולא כשכבה חיצונית. 
-                        איטום בעזרת Xypex מאפשר איטום מלא לכל שטח חתך הבטון.
-                      </p>
+                  <div className="backdrop-blur-xl bg-white/95 rounded-xl p-8 border border-white/50 shadow-xl">
+                    <div className="flex items-start gap-4">
+                      <div className="flex-shrink-0 w-14 h-14 bg-[#003366]/10 rounded-xl flex items-center justify-center border border-[#003366]/20">
+                        <svg className="w-7 h-7 text-[#003366]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-2xl font-bold text-[#003366] mb-4">ההבדל המהותי</h3>
+                        <p className="text-lg text-[#475569] leading-relaxed">
+                          חומרי Xypex לאיטום גבישי הינם חומרי איטום על בסיס צמנט.
+                          <strong className="text-[#003366]"> ההבדל המרכזי:</strong> הם אוטמים את הבטון <strong className="text-[#003366]">מבפנים</strong> ולא כשכבה חיצונית.
+                          איטום בעזרת Xypex מאפשר איטום מלא לכל שטח חתך הבטון.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -318,38 +332,49 @@ export default function OurStoryPage() {
           </div>
         </section>
 
-        {/* CTA - מעוצב מחדש */}
-        <section className="relative py-24 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900"></div>
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0)',
-            backgroundSize: '32px 32px'
-          }}></div>
-          
+        {/* CTA - Clean Design */}
+        <section className="relative py-20 overflow-hidden">
+          {/* Background Image - BRIGHT */}
+          <div className="absolute inset-0">
+            <Image
+              src="/images/WhatsApp Image 2026-02-13 at 22.02.24.jpeg"
+              alt="Contact PBS Israel"
+              fill
+              quality={85}
+              className="object-cover brightness-105"
+              sizes="100vw"
+            />
+            {/* Subtle overlay only */}
+            <div className="absolute inset-0 bg-[#003366]/40"></div>
+          </div>
+
           <div className="container mx-auto px-6 relative z-10">
-            <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                מעוניינים ליישם את מערכת Xypex?
-              </h2>
-              <p className="text-xl text-blue-100 mb-10 leading-relaxed">
-                הצוות המקצועי שלנו ילווה אתכם בכל שלב - מתכנון ראשוני ועד ביצוע מושלם באתר
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a 
-                  href="/contact" 
-                  className="inline-flex items-center justify-center gap-3 bg-white text-blue-600 px-10 py-5 rounded-xl font-bold text-lg hover:bg-blue-50 transition-all shadow-2xl hover:shadow-xl hover:scale-105 group"
-                >
-                  <span>צור קשר</span>
-                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                  </svg>
-                </a>
-                <a 
-                  href="/" 
-                  className="inline-flex items-center justify-center gap-3 border-2 border-white text-white px-10 py-5 rounded-xl font-bold text-lg hover:bg-white hover:text-blue-600 transition-all"
-                >
-                  <span>חזרה לעמוד הבית</span>
-                </a>
+            <div className="max-w-4xl mx-auto">
+              {/* Glassmorphism Card */}
+              <div className="backdrop-blur-xl bg-white/95 rounded-2xl p-10 md:p-12 shadow-2xl border border-white/50 text-center">
+                <h2 className="text-4xl md:text-5xl font-black text-[#003366] mb-6 leading-tight">
+                  מעוניינים ליישם את מערכת Xypex?
+                </h2>
+                <p className="text-xl text-[#475569] mb-10 leading-relaxed font-semibold">
+                  הצוות המקצועי שלנו ילווה אתכם בכל שלב - מתכנון ראשוני ועד ביצוע מושלם באתר
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <a
+                    href="/contact"
+                    className="inline-flex items-center justify-center gap-3 bg-[#003366] text-white px-10 py-5 rounded-xl font-bold text-lg hover:bg-[#004080] transition-all shadow-lg hover:scale-[1.02] group"
+                  >
+                    <span>צור קשר</span>
+                    <svg className="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </a>
+                  <a
+                    href="/"
+                    className="inline-flex items-center justify-center gap-3 border-2 border-[#003366] text-[#003366] px-10 py-5 rounded-xl font-bold text-lg hover:bg-[#003366] hover:text-white transition-all"
+                  >
+                    <span>חזרה לעמוד הבית</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
