@@ -115,38 +115,16 @@ export default function CatalogsPage() {
                 transition={{ duration: 0.7, delay: i * 0.1 }}
                 className="border border-[#003366]/10 hover:border-[#003366] transition-all duration-500 overflow-hidden"
               >
-                {/* Product Image - High-End Branded Placeholder */}
+                {/* Product Image - Real Image from Prod Folder */}
                 <div className="relative h-96 w-full overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-blue-950">
-                  {/* Grid Pattern Overlay */}
-                  <div className="absolute inset-0" style={{
-                    backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0)',
-                    backgroundSize: '40px 40px'
-                  }}></div>
-
-                  {/* Product Visualization */}
-                  <div className="absolute inset-0 flex items-center justify-center p-12">
-                    <div className="text-center">
-                      {/* Large Product Name */}
-                      <h3 className="text-7xl font-black text-white/20 mb-6 leading-none tracking-tight">
-                        {product.name.includes('Xypex')
-                          ? product.name.replace('Xypex ', '')
-                          : product.name}
-                      </h3>
-
-                      {/* Xypex Logo Watermark */}
-                      <div className="text-3xl font-bold text-white/30 tracking-[0.4em] mb-4">
-                        XYPEX
-                      </div>
-
-                      {/* Product Type */}
-                      <div className="inline-block px-6 py-2 bg-white/10 backdrop-blur-sm rounded-lg">
-                        <div className="text-white/70 text-sm font-bold uppercase tracking-wider">
-                          {product.category === 'admixtures' ? 'Crystalline Admixture' :
-                           product.category === 'coatings' ? 'Surface Coating' : 'Repair System'}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <Image
+                    src={product.image}
+                    alt={product.hebrewName}
+                    fill
+                    className="object-contain p-8"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    quality={90}
+                  />
 
                   {/* Category Badge - Overlaid on Image */}
                   <div className="absolute top-6 right-6 px-4 py-2 bg-[#003366] text-white text-xs font-black uppercase tracking-wider shadow-lg">

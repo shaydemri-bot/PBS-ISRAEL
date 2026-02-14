@@ -64,7 +64,7 @@ export const products: Product[] = [
       coverage: '0.5-1.5% ממשקל הבטון (תלוי ביישום ודרישות)',
       shelfLife: '12 חודשים באחסון יבש',
     },
-    image: '/images/products/admix-c-series.jpg',
+    image: '/images/Prod/Admix-Series.png.webp',
     datasheet: '/catalogs/xypex-admix-c-series.pdf',
   },
   {
@@ -96,7 +96,7 @@ export const products: Product[] = [
       coverage: '1-2% ממשקל הבטון',
       shelfLife: '12 חודשים באחסון יבש',
     },
-    image: '/images/products/bio-san.jpg',
+    image: '/images/Prod/Bio-San.jpg',
     datasheet: '/catalogs/bio-san-c500.pdf',
   },
 
@@ -131,7 +131,7 @@ export const products: Product[] = [
       coverage: '0.8-1.0 ק"ג/מ"ר לשתי שכבות',
       shelfLife: '12 חודשים באחסון יבש',
     },
-    image: '/images/products/concentrate.jpg',
+    image: '/images/Prod/CONCENTRATE.PNG',
     datasheet: '/catalogs/xypex-concentrate.pdf',
   },
   {
@@ -162,7 +162,7 @@ export const products: Product[] = [
       coverage: '1.0-1.2 ק"ג/מ"ר לשתי שכבות',
       shelfLife: '12 חודשים באחסון יבש',
     },
-    image: '/images/products/modified.jpg',
+    image: '/images/Prod/Modified.png',
     datasheet: '/catalogs/xypex-modified.pdf',
   },
 
@@ -196,7 +196,7 @@ export const products: Product[] = [
       coverage: 'תלוי בגודל הסדק והתיקון',
       shelfLife: '12 חודשים באחסון יבש',
     },
-    image: '/images/products/patch-n-plug.jpg',
+    image: '/images/Prod/patch\'nplug.png',
     datasheet: '/catalogs/xypex-patch-n-plug.pdf',
   },
   {
@@ -225,7 +225,7 @@ export const products: Product[] = [
       coverage: '4-6 מ"ר/ליטר',
       shelfLife: '12 חודשים',
     },
-    image: '/images/products/gamma-cure.jpg',
+    image: '/images/Prod/gamma.png',
     datasheet: '/catalogs/gamma-cure.pdf',
   },
 ];
