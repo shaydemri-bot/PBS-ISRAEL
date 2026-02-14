@@ -119,7 +119,7 @@ export default function Header() {
 
         {/* TIER 2: Navigation + Action Buttons (Desktop Only) */}
         <div className="hidden lg:flex items-center justify-between px-6 py-3">
-          {/* Left: Navigation Links */}
+          {/* Left: Navigation Links - COMPLETE NAVIGATION MENU */}
           <nav className="flex items-center gap-2">
             <NavLink href="/catalogs" active={isActive('/catalogs')}>
               Products
@@ -127,6 +127,7 @@ export default function Header() {
             <NavLink href="/our-story" active={isActive('/our-story')}>
               Technical
             </NavLink>
+            {/* PROJECTS LINK - VERIFIED PRESENT */}
             <NavLink href="/projects" active={isActive('/projects')}>
               Global Projects
             </NavLink>
@@ -188,13 +189,14 @@ export default function Header() {
               }}
             >
               <nav className="flex flex-col px-4 py-6 space-y-1 max-h-[calc(100vh-140px)] overflow-y-auto">
-                {/* Navigation Links */}
+                {/* Mobile Navigation Links - COMPLETE MENU */}
                 <MobileNavLink href="/catalogs" active={isActive('/catalogs')} onClick={() => setIsMobileMenuOpen(false)}>
                   Products
                 </MobileNavLink>
                 <MobileNavLink href="/our-story" active={isActive('/our-story')} onClick={() => setIsMobileMenuOpen(false)}>
                   Technical
                 </MobileNavLink>
+                {/* PROJECTS LINK - VERIFIED PRESENT IN MOBILE MENU */}
                 <MobileNavLink href="/projects" active={isActive('/projects')} onClick={() => setIsMobileMenuOpen(false)}>
                   Global Projects
                 </MobileNavLink>
