@@ -94,50 +94,7 @@ export default function HeroClassic() {
         </motion.div>
       </AnimatePresence>
 
-      {/* Vignette Gradient - Natural corner darkening */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30 z-[1]" />
-
-      {/* Content Container - Upper-Center Positioning */}
-      <div className="relative z-10 h-full flex flex-col items-center justify-start pt-24 md:pt-32 px-6 md:px-12 text-center">
-        {/* Logo Stack - Text + Graphic */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-4xl mx-auto"
-        >
-          {/* PBS ISRAEL Text Logo - Enhanced Visibility */}
-          <h1
-            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extralight text-white tracking-tight leading-none mb-6 md:mb-8"
-            style={{
-              filter: 'drop-shadow(0 0 20px rgba(255,255,255,0.5)) drop-shadow(0 8px 24px rgba(0,0,0,0.9)) drop-shadow(0 0 40px rgba(255,255,255,0.3))',
-              textShadow: '0 0 30px rgba(255,255,255,0.6), 0 0 60px rgba(255,255,255,0.4), 0 4px 20px rgba(0,0,0,1)'
-            }}
-          >
-            PBS ISRAEL
-          </h1>
-
-          {/* PBS Graphic Logo */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex justify-center"
-          >
-            <Image
-              src="/images/PBSLOGO.jpg"
-              alt="PBS Israel Logo"
-              width={200}
-              height={80}
-              className="w-32 sm:w-40 md:w-48 lg:w-56 h-auto"
-              style={{
-                filter: 'drop-shadow(0 0 15px rgba(255,255,255,0.4)) drop-shadow(0 6px 20px rgba(0,0,0,0.8))',
-              }}
-              priority
-            />
-          </motion.div>
-        </motion.div>
-      </div>
+      {/* Clean Hero - Pure Architectural Photography, No Overlays */}
 
       {/* BACKUP: Full Stats Content (Hidden) - Uncomment if needed */}
       <div className="hidden relative z-10 h-full flex flex-col items-center px-4 md:px-12 text-center pt-20 md:pt-32">

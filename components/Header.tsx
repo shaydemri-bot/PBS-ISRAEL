@@ -35,13 +35,13 @@ export default function Header() {
   return (
     <header
       dir="ltr"
-      className={`fixed top-0 left-0 right-0 z-50 bg-white shadow-sm transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 w-full bg-white shadow-sm transition-all duration-300 ${
         isScrolled ? 'shadow-md' : ''
       }`}
     >
-      <div className="max-w-7xl mx-auto">
-        {/* TIER 1: Logo + Utilities */}
-        <div className="flex items-center justify-between px-3 sm:px-4 md:px-6 py-3 sm:py-4 border-b border-gray-200">
+      <div className="w-full">
+        {/* TIER 1: Logo + Utilities - Full Width */}
+        <div className="flex items-center justify-between px-6 py-3 sm:py-4 border-b border-gray-200">
           {/* Left: Xypex Logo - Responsive & Clear */}
           <Link href="/" className="flex-shrink-0 group transition-all duration-300">
             <div style={{ isolation: 'isolate' }}>
