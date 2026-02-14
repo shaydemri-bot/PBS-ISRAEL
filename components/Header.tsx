@@ -39,8 +39,9 @@ export default function Header() {
         isScrolled ? 'shadow-md' : ''
       }`}
     >
-      <div className="w-full">
-        {/* TIER 1: Logo + Utilities - Full Width */}
+      {/* Max-Width Container for Content */}
+      <div className="max-w-[1440px] mx-auto">
+        {/* TIER 1: Logo + Utilities */}
         <div className="flex items-center justify-between px-6 py-3 sm:py-4 border-b border-gray-200">
           {/* Left: Xypex Logo - Responsive & Clear */}
           <Link href="/" className="flex-shrink-0 group transition-all duration-300">

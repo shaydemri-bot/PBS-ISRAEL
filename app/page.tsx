@@ -35,7 +35,7 @@ export default function Home() {
         {/* 3. DUAL VIDEO GRID - Global Impact & Technology */}
         <section className="relative py-20 md:py-28 bg-white">
           <GridDotBackground className="opacity-10" />
-          <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8">
+          <div className="relative z-10 max-w-[1440px] mx-auto px-4 md:px-8">
             {/* Section Heading - Extra-light, Wide-tracked */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
