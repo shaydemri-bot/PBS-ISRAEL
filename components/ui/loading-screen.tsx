@@ -5,8 +5,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 
 /**
- * Premium Cinematic Splash Screen - UNIFIED BRAND EXPERIENCE
- * GOBI 42 + PBS ISRAEL with equal visual power
+ * Premium Cinematic Splash Screen - PERFECT SYMMETRY DESIGN
+ * GOBI 42 (White + Amber) | P.B.S ISRAEL (White + Amber)
+ * Twin rows with identical visual pattern
  * Duration: 3 seconds (DO NOT REDUCE - this is intentional!)
  * Rollback: loading-screen.STABLE_OLD.tsx contains previous version
  */
@@ -59,46 +60,45 @@ export default function LoadingScreen() {
             <div className="absolute inset-0 w-full h-full bg-black/30" />
           </div>
 
-          {/* Unified Brand Hierarchy - GOBI 42 & PBS ISRAEL as Equal Partners */}
-          <div className="relative z-10 px-6 translate-y-10">
-            {/* GOBI 42 - Equal Power to PBS (NEW UNIFIED DESIGN) */}
+          {/* Perfect Symmetry - GOBI 42 & PBS ISRAEL as Twin Rows */}
+          <div className="relative z-10 px-6 translate-y-20">
+            {/* Top Row: GOBI 42 (White + Amber) */}
             <motion.div
               initial={{ opacity: 0, y: -30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="text-center mb-12"
+              className="text-center mb-8"
             >
-              <h1 className="flex items-center justify-center gap-3">
-                {/* GOBI */}
-                <span className="text-7xl md:text-8xl lg:text-9xl font-black text-white tracking-tight leading-none" style={{ textShadow: '3px 3px 15px rgba(0,0,0,0.95), 0 0 30px rgba(255,255,255,0.3)' }}>
+              <h1 className="flex items-center justify-center gap-6">
+                {/* GOBI - White, Bold */}
+                <span className="text-6xl md:text-7xl lg:text-8xl font-black text-white tracking-tight leading-none" style={{ textShadow: '3px 3px 15px rgba(0,0,0,0.95), 0 0 30px rgba(255,255,255,0.3)' }}>
                   GOBI
                 </span>
-                {/* 42 - Same size and weight */}
-                <span className="text-7xl md:text-8xl lg:text-9xl font-black text-white tracking-tight leading-none" style={{ textShadow: '3px 3px 15px rgba(0,0,0,0.95), 0 0 30px rgba(255,255,255,0.3)' }}>
+                {/* 42 - Amber, Smaller, Lighter */}
+                <span className="text-4xl md:text-5xl lg:text-6xl font-light text-amber-400 tracking-tight leading-none" style={{ textShadow: '2px 2px 12px rgba(0,0,0,0.9), 0 0 20px rgba(251,191,36,0.4)' }}>
                   42
                 </span>
               </h1>
             </motion.div>
 
-            {/* PBS ISRAEL - Matching Power (REFINED COMPACT BLOCK) */}
+            {/* Bottom Row: P.B.S ISRAEL (White + Amber) */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
               className="text-center mb-12"
             >
-              {/* Unified Brand Container with Border */}
-              <div className="inline-block px-12 py-8 border-2 border-white/20 rounded-lg backdrop-blur-sm bg-black/20" style={{ boxShadow: '0 8px 32px rgba(0,0,0,0.3)' }}>
-                {/* PBS - Same Size as GOBI 42 */}
-                <h1 className="text-7xl md:text-8xl lg:text-9xl font-black text-white tracking-tight leading-none mb-2" style={{ textShadow: '3px 3px 15px rgba(0,0,0,0.95), 0 0 30px rgba(255,255,255,0.3)' }}>
+              <h2 className="flex items-center justify-center gap-6">
+                {/* P.B.S - White, Bold */}
+                <span className="text-6xl md:text-7xl lg:text-8xl font-black text-white tracking-tight leading-none" style={{ textShadow: '3px 3px 15px rgba(0,0,0,0.95), 0 0 30px rgba(255,255,255,0.3)' }}>
                   P.B.S
-                </h1>
-                {/* ISRAEL - Amber, Smaller, Tight Gap (8px) */}
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-amber-400 tracking-[0.15em] uppercase" style={{ textShadow: '2px 2px 12px rgba(0,0,0,0.9), 0 0 20px rgba(251,191,36,0.4)' }}>
+                </span>
+                {/* ISRAEL - Amber, Smaller, Lighter */}
+                <span className="text-4xl md:text-5xl lg:text-6xl font-light text-amber-400 tracking-tight leading-none uppercase" style={{ textShadow: '2px 2px 12px rgba(0,0,0,0.9), 0 0 20px rgba(251,191,36,0.4)' }}>
                   ISRAEL
-                </h2>
-              </div>
-              {/* Decorative Line Below Container */}
+                </span>
+              </h2>
+              {/* Decorative Line */}
               <div className="h-1.5 w-96 max-w-full mx-auto mt-8 bg-gradient-to-r from-transparent via-amber-400 to-transparent" style={{ filter: 'drop-shadow(0 0 8px rgba(251,191,36,0.6))' }} />
             </motion.div>
 
@@ -109,7 +109,7 @@ export default function LoadingScreen() {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="text-center"
             >
-              <div className="text-lg md:text-xl font-black text-white tracking-[0.25em] uppercase" style={{ textShadow: '3px 3px 12px rgba(0,0,0,0.95)' }}>
+              <div className="text-base md:text-lg font-black text-white tracking-[0.25em] uppercase" style={{ textShadow: '3px 3px 12px rgba(0,0,0,0.95)' }}>
                 GOBI 42 PBS ISRAEL
               </div>
             </motion.div>
