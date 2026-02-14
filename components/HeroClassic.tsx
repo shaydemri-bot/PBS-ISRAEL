@@ -61,19 +61,19 @@ export default function HeroClassic() {
           className="absolute inset-0 z-0"
         >
           {activeHero === 2 ? (
-            /* TOHA2 - Special Framing with Background CSS */
+            /* TOHA2 - Special Framing with Background CSS (Mobile Optimized) */
             <div
               className="absolute inset-0 w-full h-full"
               style={{
                 backgroundImage: `url(${HERO_IMAGES[2].src})`,
-                backgroundSize: '100% auto',
+                backgroundSize: 'cover',
                 backgroundPosition: 'center center',
                 backgroundRepeat: 'no-repeat',
                 filter: 'brightness(1.15) contrast(1.1) saturate(1.3)',
               }}
             />
           ) : (
-            /* Other Images - Standard Next.js Image */
+            /* Other Images - Standard Next.js Image (Mobile Optimized) */
             <Image
               src={HERO_IMAGES[activeHero as keyof typeof HERO_IMAGES].src}
               alt="PBS Israel - Critical Infrastructure Waterproofing"
@@ -83,9 +83,9 @@ export default function HeroClassic() {
               style={{
                 filter: 'brightness(1.15) contrast(1.1) saturate(1.3)',
                 objectFit: 'cover',
-                objectPosition: 'center',
+                objectPosition: 'center center',
               }}
-              className="object-cover"
+              className="object-cover object-center"
               sizes="100vw"
               placeholder="blur"
               blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCeAAA/9k="
@@ -97,9 +97,9 @@ export default function HeroClassic() {
       {/* Vignette Gradient - Natural corner darkening */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30 z-[1]" />
 
-      {/* Content Container - Centered Tagline & Navigation */}
-      <div className="relative z-10 h-full flex flex-col items-center justify-center px-4 md:px-12 text-center">
-        {/* Centered Logo & Tagline */}
+      {/* Content Container - Hidden on Mobile, Visible on Desktop */}
+      <div className="hidden md:flex relative z-10 h-full flex-col items-center justify-center px-4 md:px-12 text-center">
+        {/* Centered Logo & Tagline - Desktop Only */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
