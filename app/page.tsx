@@ -52,7 +52,7 @@ export default function Home() {
 
             {/* Dual Video Grid - Perfect Symmetry */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 max-w-6xl mx-auto">
-              {/* LEFT VIDEO: Global Impact (Time-Trimmed 16s-44s) */}
+              {/* LEFT VIDEO: Global Impact (Time-Trimmed 14s-44s) */}
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -63,7 +63,7 @@ export default function Home() {
                 <div className="relative w-full overflow-hidden rounded-2xl shadow-2xl border border-slate-200" style={{ paddingBottom: '56.25%' }}>
                   <iframe
                     className="absolute top-0 left-0 w-full h-full"
-                    src="https://www.youtube.com/embed/kY6fA8Yp5Ww?start=16&end=44&rel=0&modestbranding=1&showinfo=0"
+                    src="https://www.youtube.com/embed/kY6fA8Yp5Ww?start=14&end=44&rel=0&modestbranding=1&showinfo=0"
                     title="Xypex Global Impact"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
