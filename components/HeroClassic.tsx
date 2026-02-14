@@ -108,14 +108,14 @@ export default function HeroClassic() {
           </p>
         </motion.div>
 
-        {/* POWER CENTER: Stats - Mobile Optimized Sizing */}
+        {/* POWER CENTER: Stats - Vertical Stack on Mobile */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mb-6 md:mb-10"
         >
-          <div className="flex items-center justify-center gap-3 md:gap-10 lg:gap-16 mb-4 md:mb-8">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-10 lg:gap-16 mb-4 md:mb-8">
             <div className="text-center">
               <div className="text-3xl md:text-6xl lg:text-8xl font-black text-amber-400 tracking-tighter leading-none mb-1 md:mb-2" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
                 +300
@@ -180,20 +180,20 @@ export default function HeroClassic() {
           </svg>
         </motion.div>
 
-        {/* Live Hero Image Switcher - Mobile Repositioned */}
+        {/* Live Hero Image Switcher - Compact Mobile Design */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
-          className="absolute bottom-4 md:bottom-10 right-4 md:right-10 flex gap-2 md:gap-3 bg-black/50 backdrop-blur-xl px-3 md:px-5 py-2 md:py-4 rounded-full border-2 border-white/20 shadow-2xl"
+          className="absolute bottom-3 md:bottom-10 right-3 md:right-10 flex gap-1.5 md:gap-3 bg-black/50 backdrop-blur-xl px-2 md:px-5 py-1.5 md:py-4 rounded-full border border-white/20 md:border-2 shadow-2xl"
         >
           {[1, 2, 3].map((num) => (
             <button
               key={num}
               onClick={() => setActiveHero(num)}
               className={`
-                w-10 h-10 md:w-12 md:h-12 rounded-full border-2 transition-all duration-300
-                flex items-center justify-center text-sm md:text-base font-black
+                w-7 h-7 md:w-12 md:h-12 rounded-full border md:border-2 transition-all duration-300
+                flex items-center justify-center text-xs md:text-base font-black
                 ${activeHero === num
                   ? 'bg-amber-400 text-black border-amber-400 scale-110 shadow-xl'
                   : 'bg-white/10 text-white border-white/40 hover:border-amber-400 hover:bg-amber-400/20 hover:text-amber-400 hover:scale-105'
