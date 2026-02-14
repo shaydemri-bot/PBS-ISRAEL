@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
 
 /**
  * Premium Cinematic Splash Screen - CORE BRAND EXPERIENCE
@@ -66,22 +65,19 @@ export default function LoadingScreen() {
               transition={{ duration: 0.8, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
               className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16"
             >
-              {/* PBS Israel Logo - Actual Local File */}
+              {/* PBS Israel Logo - Text Style */}
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="text-center"
               >
-                <div className="relative w-48 h-32 md:w-64 md:h-40 mx-auto">
-                  <Image
-                    src="/images/logo.jpg"
-                    alt="PBS Israel"
-                    fill
-                    className="object-contain brightness-0 invert"
-                    priority
-                  />
-                </div>
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-wider leading-none">
+                  PBS
+                  <span className="block text-xl md:text-2xl lg:text-3xl font-light text-slate-300 mt-2 tracking-[0.2em]">
+                    ISRAEL
+                  </span>
+                </h1>
               </motion.div>
 
               {/* Divider - Vertical on desktop, horizontal on mobile */}

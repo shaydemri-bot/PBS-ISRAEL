@@ -8,13 +8,29 @@ import Image from 'next/image';
  * NO parallax (performance killer)
  * Sharp branding, perfectly aligned
  */
+
+// ═══════════════════════════════════════════════════════════════════════
+// HERO BACKGROUND IMAGE SWAPPER
+// Change this single variable to swap the hero background
+// ═══════════════════════════════════════════════════════════════════════
+
+const HERO_IMAGE = '/images/WhatsApp Image 2026-01-21 at 12.28.56.jpeg'; // Sorek B (Infrastructure) - DEFAULT
+
+// ALTERNATIVE OPTIONS (uncomment to use):
+// const HERO_IMAGE = '/images/WhatsApp Image 2026-01-21 at 13.04.40.jpeg';    // Tunnel
+// const HERO_IMAGE = '/images/WhatsApp Image 2026-02-13 at 22.02.11.jpeg';    // Water Plant
+// const HERO_IMAGE = '/images/WhatsApp Image 2026-01-21 at 14.40.19.jpeg';    // Construction Site
+// const HERO_IMAGE = '/images/WhatsApp Image 2026-01-21 at 11.42.28 (3).jpeg'; // Industrial Facility
+
+// ═══════════════════════════════════════════════════════════════════════
+
 export default function HeroClassic() {
   return (
     <section className="relative h-screen w-full overflow-hidden">
       {/* Optimized Background Image - NO parallax */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/WhatsApp Image 2026-01-21 at 12.28.56.jpeg"
+          src={HERO_IMAGE}
           alt="PBS Israel - Critical Infrastructure Waterproofing"
           fill
           priority
