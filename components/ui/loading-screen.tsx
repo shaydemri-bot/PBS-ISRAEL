@@ -61,40 +61,38 @@ export default function LoadingScreen() {
             <div className="absolute inset-0 w-full h-full bg-black/30" />
           </div>
 
-          {/* VERTICAL STACK OF 2 HORIZONTAL ROWS */}
-          <div className="relative z-10 px-6 translate-y-20 flex flex-col items-center gap-6">
-            {/* ROW 1: P.B.S ISRAEL (Horizontal) */}
+          {/* STRICT LTR HORIZONTAL LAYOUT - FORCE LEFT-TO-RIGHT */}
+          <div dir="ltr" className="relative z-10 px-6 translate-y-20 flex flex-col items-center gap-6">
+            {/* ROW 1: P.B.S ISRAEL (STRICT HORIZONTAL - NO STACKING) */}
             <motion.div
               initial={{ opacity: 0, y: -30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="flex flex-row items-baseline justify-center gap-3"
             >
-              {/* P.B.S - White, Bold, Large */}
-              <span className="text-6xl md:text-7xl lg:text-8xl font-black text-white tracking-tight leading-none whitespace-nowrap" style={{ textShadow: '3px 3px 15px rgba(0,0,0,0.95), 0 0 30px rgba(255,255,255,0.3)' }}>
-                P.B.S
-              </span>
-              {/* ISRAEL - Amber, Smaller, Light */}
-              <span className="text-4xl md:text-5xl lg:text-6xl font-light text-amber-400 tracking-tight leading-none uppercase whitespace-nowrap" style={{ textShadow: '2px 2px 12px rgba(0,0,0,0.9), 0 0 20px rgba(251,191,36,0.4)' }}>
-                ISRAEL
-              </span>
+              <div className="flex flex-row items-baseline justify-center gap-2">
+                <span className="text-6xl md:text-7xl lg:text-8xl font-black text-white tracking-tight leading-none whitespace-nowrap" style={{ textShadow: '3px 3px 15px rgba(0,0,0,0.95), 0 0 30px rgba(255,255,255,0.3)' }}>
+                  P.B.S
+                </span>
+                <span className="text-4xl md:text-5xl lg:text-6xl font-light text-amber-400 tracking-tight leading-none uppercase whitespace-nowrap" style={{ textShadow: '2px 2px 12px rgba(0,0,0,0.9), 0 0 20px rgba(251,191,36,0.4)' }}>
+                  ISRAEL
+                </span>
+              </div>
             </motion.div>
 
-            {/* ROW 2: GOBI 42 (Horizontal) */}
+            {/* ROW 2: GOBI 42 (STRICT HORIZONTAL - NO STACKING) */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="flex flex-row items-baseline justify-center gap-3"
             >
-              {/* GOBI - White, Bold, Large (same size as P.B.S) */}
-              <span className="text-6xl md:text-7xl lg:text-8xl font-black text-white tracking-tight leading-none whitespace-nowrap" style={{ textShadow: '3px 3px 15px rgba(0,0,0,0.95), 0 0 30px rgba(255,255,255,0.3)' }}>
-                GOBI
-              </span>
-              {/* 42 - Amber, Smaller, Light (same size as ISRAEL) */}
-              <span className="text-4xl md:text-5xl lg:text-6xl font-light text-amber-400 tracking-tight leading-none whitespace-nowrap" style={{ textShadow: '2px 2px 12px rgba(0,0,0,0.9), 0 0 20px rgba(251,191,36,0.4)' }}>
-                42
-              </span>
+              <div className="flex flex-row items-baseline justify-center gap-2">
+                <span className="text-6xl md:text-7xl lg:text-8xl font-black text-white tracking-tight leading-none whitespace-nowrap" style={{ textShadow: '3px 3px 15px rgba(0,0,0,0.95), 0 0 30px rgba(255,255,255,0.3)' }}>
+                  GOBI
+                </span>
+                <span className="text-4xl md:text-5xl lg:text-6xl font-light text-amber-400 tracking-tight leading-none whitespace-nowrap" style={{ textShadow: '2px 2px 12px rgba(0,0,0,0.9), 0 0 20px rgba(251,191,36,0.4)' }}>
+                  42
+                </span>
+              </div>
             </motion.div>
 
             {/* Decorative Line */}
