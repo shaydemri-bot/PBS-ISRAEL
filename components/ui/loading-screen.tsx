@@ -62,7 +62,7 @@ export default function LoadingScreen() {
           </div>
 
           {/* STRICT LTR HORIZONTAL LAYOUT - FORCE LEFT-TO-RIGHT */}
-          <div dir="ltr" className="relative z-10 px-6 translate-y-20 flex flex-col items-center gap-6">
+          <div dir="ltr" className="relative z-10 px-6 translate-y-40 flex flex-col items-center gap-6">
             {/* ROW 1: P.B.S ISRAEL (STRICT HORIZONTAL - NO STACKING) */}
             <motion.div
               initial={{ opacity: 0, y: -30 }}

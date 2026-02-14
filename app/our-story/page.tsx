@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import GridDotBackground from '@/components/GridDotBackground';
 
 export default function OurStoryPage() {
   return (
@@ -36,8 +37,9 @@ export default function OurStoryPage() {
       <main className="bg-white">
         
         {/* Stats Bar - משודרג בסגנון Xypex */}
-        <section className="py-8 bg-white border-b border-gray-100">
-          <div className="container mx-auto px-4">
+        <section className="relative py-8 bg-white border-b border-gray-100">
+          <GridDotBackground className="opacity-10" />
+          <div className="relative z-10 container mx-auto px-4">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {[
                 { num: '80+', label: 'שנות ניסיון', color: 'from-blue-600 to-blue-700' },

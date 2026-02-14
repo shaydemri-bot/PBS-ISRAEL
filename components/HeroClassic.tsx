@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import { useAnimatedCounter } from '@/hooks/useAnimatedCounter';
 
 /**
  * Premium Hero Section - Live Visual Preview
@@ -18,6 +19,12 @@ const HERO_IMAGES = {
 
 export default function HeroClassic() {
   const [activeHero, setActiveHero] = useState(1); // Default to Image 1 (Main)
+
+  // Animated counters for stats
+  const { count: projectsCount, ref: projectsRef } = useAnimatedCounter(300, 2000);
+  const { count: countriesCount, ref: countriesRef } = useAnimatedCounter(100, 2200);
+  const { count: yearsCount, ref: yearsRef } = useAnimatedCounter(55, 2400);
+
   return (
     <section className="relative min-h-[85vh] w-full overflow-hidden">
       {/* Optimized Background Image - Live Switchable */}
@@ -79,9 +86,9 @@ export default function HeroClassic() {
           {/* PBS Israel + Xypex - Responsive Sizing */}
           <div className="flex items-center justify-center gap-4 md:gap-8 lg:gap-12 mb-4 md:mb-6">
             <div className="text-center">
-              <h1 className="text-3xl md:text-5xl lg:text-7xl font-black text-white tracking-tighter leading-none" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
+              <h1 className="text-5xl md:text-7xl lg:text-9xl font-extralight text-white tracking-tighter leading-none" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
                 PBS
-                <span className="block text-lg md:text-2xl lg:text-4xl font-light text-amber-400 mt-1 md:mt-2 tracking-wide" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
+                <span className="block text-2xl md:text-4xl lg:text-6xl font-light text-amber-400 mt-2 md:mt-3 tracking-wide" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
                   ISRAEL
                 </span>
               </h1>
@@ -90,9 +97,9 @@ export default function HeroClassic() {
             <div className="w-px h-16 md:h-24 lg:h-32 bg-gradient-to-b from-transparent via-amber-400 to-transparent" style={{ filter: 'drop-shadow(0 0 4px rgba(251,191,36,0.5))' }} />
 
             <div className="text-center">
-              <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold text-white tracking-wider leading-none" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
+              <h2 className="text-4xl md:text-6xl lg:text-8xl font-light text-white tracking-wider leading-none" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
                 XYPEX
-                <span className="block text-base md:text-xl lg:text-2xl font-light text-white mt-1 md:mt-2 tracking-[0.2em]" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
+                <span className="block text-xl md:text-2xl lg:text-4xl font-extralight text-white mt-2 md:mt-3 tracking-[0.2em]" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
                   GLOBAL
                 </span>
               </h2>
@@ -116,25 +123,25 @@ export default function HeroClassic() {
           className="mb-6 md:mb-10"
         >
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-10 lg:gap-16 mb-4 md:mb-8">
-            <div className="text-center">
+            <div className="text-center" ref={projectsRef}>
               <div className="text-3xl md:text-6xl lg:text-8xl font-black text-amber-400 tracking-tighter leading-none mb-1 md:mb-2" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
-                +300
+                +{projectsCount}
               </div>
               <div className="text-[10px] md:text-sm lg:text-base text-white uppercase tracking-wide md:tracking-wider font-extrabold" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
                 פרויקטים בישראל
               </div>
             </div>
-            <div className="text-center">
+            <div className="text-center" ref={countriesRef}>
               <div className="text-3xl md:text-6xl lg:text-8xl font-black text-amber-400 tracking-tighter leading-none mb-1 md:mb-2" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
-                +100
+                +{countriesCount}
               </div>
               <div className="text-[10px] md:text-sm lg:text-base text-white uppercase tracking-wide md:tracking-wider font-extrabold" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
                 מדינות
               </div>
             </div>
-            <div className="text-center">
+            <div className="text-center" ref={yearsRef}>
               <div className="text-3xl md:text-6xl lg:text-8xl font-black text-amber-400 tracking-tighter leading-none mb-1 md:mb-2" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
-                +55
+                +{yearsCount}
               </div>
               <div className="text-[10px] md:text-sm lg:text-base text-white uppercase tracking-wide md:tracking-wider font-extrabold" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
                 שנות ניסיון

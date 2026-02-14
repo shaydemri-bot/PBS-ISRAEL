@@ -34,6 +34,7 @@ export default function Header() {
 
   return (
     <header
+      dir="ltr"
       className={`fixed top-0 left-0 right-0 z-50 bg-white shadow-sm transition-all duration-300 ${
         isScrolled ? 'shadow-md' : ''
       }`}
@@ -59,23 +60,6 @@ export default function Header() {
               />
             </div>
           </Link>
-
-          {/* Right: Utilities (Desktop Only) */}
-          <div className="hidden lg:flex items-center gap-6">
-            <button className="flex items-center gap-2 text-xs text-gray-700 hover:text-[#0071bb] transition-colors font-semibold uppercase tracking-wider">
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <span>SELECT A COUNTRY</span>
-            </button>
-            <div className="w-px h-4 bg-gray-300"></div>
-            <button className="flex items-center gap-2 text-xs text-gray-700 hover:text-[#0071bb] transition-colors font-semibold uppercase tracking-wider">
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-              <span>SEARCH</span>
-            </button>
-          </div>
 
           {/* Mobile: Search Icon + Hamburger */}
           <div className="flex items-center gap-3 lg:hidden">
@@ -113,6 +97,23 @@ export default function Header() {
                   />
                 )}
               </svg>
+            </button>
+          </div>
+
+          {/* Right: Utilities (Desktop Only) */}
+          <div className="hidden lg:flex items-center gap-6">
+            <button className="flex items-center gap-2 text-xs text-gray-700 hover:text-[#0071bb] transition-colors font-semibold uppercase tracking-wider">
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+              <span>SEARCH</span>
+            </button>
+            <div className="w-px h-4 bg-gray-300"></div>
+            <button className="flex items-center gap-2 text-xs text-gray-700 hover:text-[#0071bb] transition-colors font-semibold uppercase tracking-wider">
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>SELECT A COUNTRY</span>
             </button>
           </div>
         </div>

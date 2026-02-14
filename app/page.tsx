@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import HeroClassic from '@/components/HeroClassic';
 import LoadingScreen from '@/components/ui/loading-screen';
 import LogoCarousel from '@/components/LogoCarousel';
+import GridDotBackground from '@/components/GridDotBackground';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -111,8 +112,9 @@ export default function Home() {
         </section>
 
         {/* 4. CORE SOLUTIONS - 3 Clean Columns with Background Images */}
-        <section className="py-10 px-4 bg-slate-50">
-          <div className="max-w-4xl mx-auto">
+        <section className="relative py-10 px-4 bg-slate-50">
+          <GridDotBackground className="opacity-10" />
+          <div className="relative z-10 max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}

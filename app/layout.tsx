@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Providers from "./providers";
+import ProgressBar from "@/components/ProgressBar";
 
 export const metadata: Metadata = {
   title: "PBS Israel - פתרונות Xypex לאיטום בטון",
@@ -45,6 +46,7 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
+        <ProgressBar />
         <Providers>
           {children}
         </Providers>
