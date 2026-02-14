@@ -67,93 +67,93 @@ export default function HeroClassic() {
       {/* Vignette Gradient - Natural corner darkening */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30 z-[1]" />
 
-      {/* Content Container - POWER CENTER (Everything Centered & Bold) */}
-      <div className="relative z-10 h-full flex flex-col items-center px-6 md:px-12 text-center top-[25%]">
-        {/* Logo Section - Sharp & Perfectly Aligned */}
+      {/* Content Container - POWER CENTER (Mobile Optimized) */}
+      <div className="relative z-10 h-full flex flex-col items-center px-4 md:px-12 text-center pt-20 md:pt-32">
+        {/* Logo Section - Mobile Scaled */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="mb-12"
+          className="mb-6 md:mb-12"
         >
-          {/* PBS Israel + Xypex - Side by Side */}
-          <div className="flex items-center justify-center gap-8 md:gap-12 mb-6">
+          {/* PBS Israel + Xypex - Responsive Sizing */}
+          <div className="flex items-center justify-center gap-4 md:gap-8 lg:gap-12 mb-4 md:mb-6">
             <div className="text-center">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tighter leading-none" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
+              <h1 className="text-3xl md:text-5xl lg:text-7xl font-black text-white tracking-tighter leading-none" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
                 PBS
-                <span className="block text-2xl md:text-3xl lg:text-4xl font-light text-amber-400 mt-2 tracking-wide" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
+                <span className="block text-lg md:text-2xl lg:text-4xl font-light text-amber-400 mt-1 md:mt-2 tracking-wide" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
                   ISRAEL
                 </span>
               </h1>
             </div>
 
-            <div className="w-px h-24 md:h-32 bg-gradient-to-b from-transparent via-amber-400 to-transparent" style={{ filter: 'drop-shadow(0 0 4px rgba(251,191,36,0.5))' }} />
+            <div className="w-px h-16 md:h-24 lg:h-32 bg-gradient-to-b from-transparent via-amber-400 to-transparent" style={{ filter: 'drop-shadow(0 0 4px rgba(251,191,36,0.5))' }} />
 
             <div className="text-center">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-wider leading-none" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
+              <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold text-white tracking-wider leading-none" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
                 XYPEX
-                <span className="block text-xl md:text-2xl font-light text-white mt-2 tracking-[0.2em]" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
+                <span className="block text-base md:text-xl lg:text-2xl font-light text-white mt-1 md:mt-2 tracking-[0.2em]" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
                   GLOBAL
                 </span>
               </h2>
             </div>
           </div>
 
-          {/* Divider */}
-          <div className="h-px w-72 md:w-96 mx-auto bg-gradient-to-r from-transparent via-amber-400 to-transparent mb-6" style={{ filter: 'drop-shadow(0 0 4px rgba(251,191,36,0.5))' }} />
+          {/* Divider - Responsive Width */}
+          <div className="h-px w-48 md:w-72 lg:w-96 mx-auto bg-gradient-to-r from-transparent via-amber-400 to-transparent mb-3 md:mb-6" style={{ filter: 'drop-shadow(0 0 4px rgba(251,191,36,0.5))' }} />
 
           {/* Partnership Label */}
-          <p className="text-xs md:text-sm text-white tracking-[0.25em] uppercase font-medium" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
+          <p className="text-xs md:text-sm text-white tracking-[0.2em] md:tracking-[0.25em] uppercase font-medium" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
             שותפות בלעדית
           </p>
         </motion.div>
 
-        {/* POWER CENTER: Massive Yellow Stats */}
+        {/* POWER CENTER: Stats - Mobile Optimized Sizing */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mb-10"
+          className="mb-6 md:mb-10"
         >
-          <div className="flex items-center justify-center gap-10 md:gap-16 mb-8">
+          <div className="flex items-center justify-center gap-3 md:gap-10 lg:gap-16 mb-4 md:mb-8">
             <div className="text-center">
-              <div className="text-6xl md:text-7xl lg:text-8xl font-black text-amber-400 tracking-tighter leading-none mb-2" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
-                300+
+              <div className="text-3xl md:text-6xl lg:text-8xl font-black text-amber-400 tracking-tighter leading-none mb-1 md:mb-2" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
+                +300
               </div>
-              <div className="text-sm md:text-base text-white uppercase tracking-wider font-extrabold" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
+              <div className="text-[10px] md:text-sm lg:text-base text-white uppercase tracking-wide md:tracking-wider font-extrabold" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
                 פרויקטים בישראל
               </div>
             </div>
             <div className="text-center">
-              <div className="text-6xl md:text-7xl lg:text-8xl font-black text-amber-400 tracking-tighter leading-none mb-2" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
-                100+
+              <div className="text-3xl md:text-6xl lg:text-8xl font-black text-amber-400 tracking-tighter leading-none mb-1 md:mb-2" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
+                +100
               </div>
-              <div className="text-sm md:text-base text-white uppercase tracking-wider font-extrabold" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
+              <div className="text-[10px] md:text-sm lg:text-base text-white uppercase tracking-wide md:tracking-wider font-extrabold" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
                 מדינות
               </div>
             </div>
             <div className="text-center">
-              <div className="text-6xl md:text-7xl lg:text-8xl font-black text-amber-400 tracking-tighter leading-none mb-2" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
-                55+
+              <div className="text-3xl md:text-6xl lg:text-8xl font-black text-amber-400 tracking-tighter leading-none mb-1 md:mb-2" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
+                +55
               </div>
-              <div className="text-sm md:text-base text-white uppercase tracking-wider font-extrabold" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
-                שנות פעילות
+              <div className="text-[10px] md:text-sm lg:text-base text-white uppercase tracking-wide md:tracking-wider font-extrabold" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
+                שנות ניסיון
               </div>
             </div>
           </div>
         </motion.div>
 
-        {/* Descriptive Text - Pure White & Extra Bold */}
+        {/* Descriptive Text - Mobile Optimized */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="max-w-4xl"
+          className="max-w-4xl px-2"
         >
-          <p className="text-xl md:text-2xl lg:text-3xl font-extrabold tracking-tight leading-tight mb-3" style={{ color: '#F5F5F7', filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
+          <p className="text-base md:text-xl lg:text-3xl font-extrabold tracking-tight leading-tight mb-2 md:mb-3" style={{ color: '#F5F5F7', filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
             פתרונות מתקדמים לאיטום
           </p>
-          <p className="text-base md:text-lg text-white font-bold" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
+          <p className="text-sm md:text-base lg:text-lg text-white font-bold" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,1)) drop-shadow(0 2px 2px rgba(0,0,0,1))' }}>
             Advanced Waterproofing Solutions for Critical Infrastructure
           </p>
         </motion.div>
@@ -180,20 +180,20 @@ export default function HeroClassic() {
           </svg>
         </motion.div>
 
-        {/* Live Hero Image Switcher - Bottom Right Corner - Maximum Visibility */}
+        {/* Live Hero Image Switcher - Mobile Repositioned */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
-          className="absolute bottom-10 right-10 flex gap-3 bg-black/50 backdrop-blur-xl px-5 py-4 rounded-full border-2 border-white/20 shadow-2xl"
+          className="absolute bottom-4 md:bottom-10 right-4 md:right-10 flex gap-2 md:gap-3 bg-black/50 backdrop-blur-xl px-3 md:px-5 py-2 md:py-4 rounded-full border-2 border-white/20 shadow-2xl"
         >
           {[1, 2, 3].map((num) => (
             <button
               key={num}
               onClick={() => setActiveHero(num)}
               className={`
-                w-12 h-12 rounded-full border-2 transition-all duration-300
-                flex items-center justify-center text-base font-black
+                w-10 h-10 md:w-12 md:h-12 rounded-full border-2 transition-all duration-300
+                flex items-center justify-center text-sm md:text-base font-black
                 ${activeHero === num
                   ? 'bg-amber-400 text-black border-amber-400 scale-110 shadow-xl'
                   : 'bg-white/10 text-white border-white/40 hover:border-amber-400 hover:bg-amber-400/20 hover:text-amber-400 hover:scale-105'
