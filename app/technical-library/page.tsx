@@ -2,19 +2,18 @@
 
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import ThemeToggle from '@/components/theme/ThemeToggle';
 import TechnicalPDFTable from '@/components/technical/TechnicalPDFTable';
 import { motion } from 'framer-motion';
 
 /**
- * Technical Library Page
+ * Technical Library Page - Production Ready
  * Searchable database of all Xypex technical documentation
+ * Architect (Dark Luxury) theme as permanent default
  */
 export default function TechnicalLibraryPage() {
   return (
     <div dir="rtl" className="min-h-screen bg-background text-foreground transition-colors duration-300">
       <Header />
-      <ThemeToggle />
 
       <section className="pt-32 pb-20 px-6 md:px-12 lg:px-20">
         <div className="max-w-[1600px] mx-auto">
