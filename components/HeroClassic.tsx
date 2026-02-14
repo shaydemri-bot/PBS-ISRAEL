@@ -49,7 +49,7 @@ export default function HeroClassic() {
   const { count: yearsCount, ref: yearsRef } = useAnimatedCounter(55, 2400);
 
   return (
-    <section className="relative min-h-[85vh] w-full overflow-hidden">
+    <section className="relative h-screen md:min-h-[85vh] w-full overflow-hidden">
       {/* Optimized Background Image - Live Switchable */}
       <AnimatePresence mode="wait">
         <motion.div
@@ -97,27 +97,27 @@ export default function HeroClassic() {
       {/* Vignette Gradient - Natural corner darkening */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30 z-[1]" />
 
-      {/* Content Container - Hidden on Mobile, Visible on Desktop */}
-      <div className="hidden md:flex relative z-10 h-full flex-col items-center justify-center px-4 md:px-12 text-center">
-        {/* Centered Logo & Tagline - Desktop Only */}
+      {/* Content Container - Perfectly Centered (Mobile & Desktop) */}
+      <div className="relative z-10 h-full flex flex-col items-center justify-center px-6 md:px-12 text-center">
+        {/* Centered Logo & Tagline - Mobile Scaled */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="max-w-4xl mx-auto"
         >
-          {/* PBS Israel Logo Text */}
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-extralight text-white tracking-tight leading-none mb-4" style={{ filter: 'drop-shadow(0 15px 30px rgba(0,0,0,0.9))' }}>
+          {/* PBS Israel Logo Text - Mobile Scaled */}
+          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extralight text-white tracking-tight leading-none mb-3 md:mb-4" style={{ filter: 'drop-shadow(0 15px 30px rgba(0,0,0,0.9))' }}>
             PBS ISRAEL
           </h1>
 
-          {/* The Science Behind Waterproofing Tagline */}
-          <p className="text-lg md:text-xl lg:text-2xl font-light text-white/90 tracking-wide leading-relaxed" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.8))' }}>
+          {/* The Science Behind Waterproofing Tagline - Mobile Scaled */}
+          <p className="text-sm sm:text-base md:text-xl lg:text-2xl font-light text-white/90 tracking-wide leading-relaxed px-4" style={{ filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.8))' }}>
             The Science Behind Waterproofing
           </p>
 
-          {/* Hebrew Subtitle */}
-          <p className="text-sm md:text-base text-white/80 mt-3 font-light tracking-wider" style={{ filter: 'drop-shadow(0 8px 16px rgba(0,0,0,0.7))' }}>
+          {/* Hebrew Subtitle - Mobile Scaled */}
+          <p className="text-xs sm:text-sm md:text-base text-white/80 mt-2 md:mt-3 font-light tracking-wider" style={{ filter: 'drop-shadow(0 8px 16px rgba(0,0,0,0.7))' }}>
             המדע מאחורי איטום
           </p>
         </motion.div>
@@ -236,23 +236,23 @@ export default function HeroClassic() {
         </motion.div>
       </div>
 
-      {/* Live Hero Image Switcher - Always Visible */}
+      {/* Live Hero Image Switcher - Subtle & Clean */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        animate={{ opacity: 0.7 }}
         transition={{ delay: 1 }}
-        className="absolute bottom-3 md:bottom-10 right-3 md:right-10 flex gap-1.5 md:gap-3 bg-black/50 backdrop-blur-xl px-2 md:px-5 py-1.5 md:py-4 rounded-full border border-white/20 md:border-2 shadow-2xl z-20"
+        className="absolute bottom-4 md:bottom-10 right-4 md:right-10 flex gap-2 md:gap-3 bg-black/30 backdrop-blur-md px-2 md:px-5 py-2 md:py-4 rounded-full border border-white/10 md:border-white/20 shadow-lg z-20"
       >
         {[1, 2, 3].map((num) => (
           <button
             key={num}
             onClick={() => setActiveHero(num)}
             className={`
-              w-7 h-7 md:w-12 md:h-12 rounded-full border md:border-2 transition-all duration-300
-              flex items-center justify-center text-xs md:text-base font-black
+              w-6 h-6 md:w-12 md:h-12 rounded-full border transition-all duration-300
+              flex items-center justify-center text-[10px] md:text-base font-bold
               ${activeHero === num
-                ? 'bg-amber-400 text-black border-amber-400 scale-110 shadow-xl'
-                : 'bg-white/10 text-white border-white/40 hover:border-amber-400 hover:bg-amber-400/20 hover:text-amber-400 hover:scale-105'
+                ? 'bg-amber-400 text-black border-amber-400 scale-105 shadow-lg'
+                : 'bg-white/5 text-white/70 border-white/30 hover:border-amber-400/50 hover:bg-amber-400/10 hover:text-amber-400 hover:scale-105'
               }
             `}
             title={HERO_IMAGES[num as keyof typeof HERO_IMAGES].label}
