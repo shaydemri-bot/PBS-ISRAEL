@@ -26,6 +26,61 @@ export default function Home() {
         {/* 1. HERO SECTION - Full Screen with Live Swapper */}
         <HeroClassic />
 
+        {/* 2. THE TECHNOLOGY VIDEO - Premium YouTube Integration */}
+        <section className="relative py-16 md:py-24 bg-slate-50">
+          <GridDotBackground className="opacity-10" />
+          <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8">
+            {/* Architectural Heading */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-extralight text-[#003366] tracking-[0.3em] uppercase mb-4 leading-tight">
+                THE TECHNOLOGY
+              </h2>
+              <div className="h-px w-32 mx-auto bg-[#003366]/20"></div>
+            </motion.div>
+
+            {/* Premium Video Container */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="max-w-5xl mx-auto"
+            >
+              {/* 16:9 Aspect Ratio Container */}
+              <div className="relative w-full overflow-hidden rounded-2xl shadow-2xl border border-slate-200" style={{ paddingBottom: '56.25%' }}>
+                <iframe
+                  className="absolute top-0 left-0 w-full h-full"
+                  src="https://www.youtube.com/embed/VozKO84Rgzk?rel=0&modestbranding=1&showinfo=0"
+                  title="Xypex Crystalline Technology"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  loading="lazy"
+                  style={{
+                    border: 0,
+                  }}
+                />
+              </div>
+
+              {/* Caption */}
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="text-center mt-6 text-sm md:text-base text-slate-600 font-light tracking-wide leading-relaxed"
+              >
+                See how Xypex crystalline technology permanently waterproofs concrete.
+              </motion.p>
+            </motion.div>
+          </div>
+        </section>
+
         {/* CONSTRUCTION YELLOW DIVIDER - Clean Visual Break */}
         <section className="bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-400 border-y-4 border-amber-500 h-12"></section>
 
