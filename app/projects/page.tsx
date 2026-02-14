@@ -84,45 +84,79 @@ export default function ProjectsPage() {
       <ArchitecturalDivider />
 
       {/* ═══════════════════════════════════════════════════ */}
-      {/* POWER GRID: Large, Impactful Cards                  */}
+      {/* BRANDED MINIMALIST GRID: Swiss Engineering Design  */}
       {/* ═══════════════════════════════════════════════════ */}
-      <section className="py-10 bg-white relative">
+      <section className="py-20 md:py-28 bg-white relative">
         <GridDotBackground className="opacity-30" />
 
-        <div className="max-w-4xl mx-auto px-4 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-10 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
             {filteredProjects.map((project, i) => (
               <motion.div
                 key={project.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.06 }}
-                className="group pb-4 border-b border-slate-200 hover:scale-[1.02] hover:shadow-2xl transition-all duration-500 ease-in-out cursor-pointer"
+                transition={{ duration: 0.6, delay: i * 0.08 }}
+                className="group relative"
               >
-                {/* Project Image - Clean, No Overlays */}
-                <div className="relative aspect-[4/3] overflow-hidden mb-3">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    quality={90}
-                    className="object-cover brightness-105 group-hover:brightness-110 transition-all duration-500"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
-                </div>
+                {/* Branded Card Container */}
+                <div className="relative bg-slate-50 border border-slate-200/60 transition-all duration-500 hover:border-[#003366]/30 hover:shadow-2xl hover:shadow-[#003366]/5 overflow-hidden">
 
-                {/* Content Below - Clean Typography */}
-                <div className="space-y-1.5 text-right">
-                  {/* Title */}
-                  <h3 className="text-base font-bold text-[#003366] leading-tight">
-                    {project.title}
-                  </h3>
+                  {/* PBS Typographic Branding - Top Section */}
+                  <div className="relative h-48 md:h-56 flex items-center justify-center border-b border-slate-200/60 bg-gradient-to-br from-slate-50 to-slate-100/50">
+                    {/* Subtle Grid Pattern Overlay */}
+                    <div
+                      className="absolute inset-0 opacity-[0.03]"
+                      style={{
+                        backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(0,51,102,0.4) 1px, transparent 0)',
+                        backgroundSize: '24px 24px'
+                      }}
+                    />
 
-                  {/* Location */}
-                  <div className="text-[10px] font-bold text-[#003366] uppercase tracking-widest">
-                    {project.location}
+                    {/* Large PBS Monogram */}
+                    <div className="relative z-10 text-center">
+                      <div className="text-7xl md:text-8xl font-extralight text-[#003366]/8 tracking-[-0.05em] leading-none mb-2 group-hover:text-[#003366]/12 transition-colors duration-500">
+                        PBS
+                      </div>
+                      <div className="text-xs font-light text-[#003366]/20 tracking-[0.3em] uppercase group-hover:text-[#003366]/30 transition-colors duration-500">
+                        ISRAEL
+                      </div>
+                    </div>
+
+                    {/* Hover Accent Line */}
+                    <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#003366] group-hover:w-full transition-all duration-700 ease-out"></div>
                   </div>
+
+                  {/* Project Information - Bottom Section */}
+                  <div className="p-6 md:p-8 space-y-3 bg-white">
+                    {/* Project Title - Extra Light Typography */}
+                    <h3 className="text-lg md:text-xl font-extralight text-[#003366] leading-tight tracking-tight">
+                      {project.title}
+                    </h3>
+
+                    {/* Thin Divider */}
+                    <div className="w-12 h-px bg-[#003366]/20 group-hover:w-full group-hover:bg-[#003366]/40 transition-all duration-500"></div>
+
+                    {/* Location Badge */}
+                    <div className="inline-flex items-center gap-2 text-[10px] font-semibold text-[#003366]/60 uppercase tracking-[0.2em]">
+                      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                      {project.location}
+                    </div>
+
+                    {/* Subtle Category Indicator */}
+                    {project.category && (
+                      <div className="pt-2 text-[9px] font-medium text-[#003366]/40 uppercase tracking-[0.25em]">
+                        {project.category}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Corner Accent (Architectural Detail) */}
+                  <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-[#003366]/5 group-hover:border-[#003366]/15 transition-colors duration-500"></div>
                 </div>
               </motion.div>
             ))}
