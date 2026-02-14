@@ -111,14 +111,13 @@ export default function LoadingScreen() {
                 PBS ISRAEL GOBI 42
               </div>
             </motion.div>
-          </div>
 
             {/* Tagline */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.8 }}
-              className="text-center mt-12"
+              className="text-center mt-6"
             >
               <p className="text-slate-300 text-xs md:text-sm tracking-[0.35em] uppercase" style={{ textShadow: '2px 2px 6px rgba(0,0,0,0.8)' }}>
                 טכנולוגיית איטום גבישי
