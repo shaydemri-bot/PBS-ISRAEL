@@ -9,17 +9,17 @@ import Image from 'next/image';
  * Click bottom corner buttons to switch images in real-time
  */
 
-// Define all available hero images
+// Define all available hero images - Corrected configuration
 const HERO_IMAGES = {
-  1: { src: '/images/WhatsApp Image 2026-01-21 at 12.28.56.jpeg', label: 'Sorek B' },
-  2: { src: '/images/WhatsApp Image 2026-01-21 at 13.04.40.jpeg', label: 'Tunnel' },
-  3: { src: '/images/WhatsApp Image 2026-02-13 at 22.02.11.jpeg', label: 'Water Plant' },
+  1: { src: '/images/mainn.jpeg', label: 'Main Project' },
+  2: { src: '/images/TOHA2.jpeg', label: 'TOHA 2' },
+  3: { src: '/images/INST.jpeg', label: 'INST Project' },
 };
 
 export default function HeroClassic() {
-  const [activeHero, setActiveHero] = useState(2); // Default to Image 2 (Tunnel)
+  const [activeHero, setActiveHero] = useState(1); // Default to Image 1 (Main)
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section className="relative min-h-[85vh] w-full overflow-hidden">
       {/* Optimized Background Image - Live Switchable */}
       <AnimatePresence mode="wait">
         <motion.div
@@ -30,17 +30,37 @@ export default function HeroClassic() {
           transition={{ duration: 0.5 }}
           className="absolute inset-0 z-0"
         >
-          <Image
-            src={HERO_IMAGES[activeHero as keyof typeof HERO_IMAGES].src}
-            alt="PBS Israel - Critical Infrastructure Waterproofing"
-            fill
-            priority
-            quality={90}
-            className="object-cover brightness-110 contrast-105"
-            sizes="100vw"
-            placeholder="blur"
-            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCeAAA/9k="
-          />
+          {activeHero === 2 ? (
+            /* TOHA2 - Special Framing with Background CSS */
+            <div
+              className="absolute inset-0 w-full h-full"
+              style={{
+                backgroundImage: `url(${HERO_IMAGES[2].src})`,
+                backgroundSize: '100% auto',
+                backgroundPosition: 'center center',
+                backgroundRepeat: 'no-repeat',
+                filter: 'brightness(1.15) contrast(1.1) saturate(1.3)',
+              }}
+            />
+          ) : (
+            /* Other Images - Standard Next.js Image */
+            <Image
+              src={HERO_IMAGES[activeHero as keyof typeof HERO_IMAGES].src}
+              alt="PBS Israel - Critical Infrastructure Waterproofing"
+              fill
+              priority
+              quality={100}
+              style={{
+                filter: 'brightness(1.15) contrast(1.1) saturate(1.3)',
+                objectFit: 'cover',
+                objectPosition: 'center',
+              }}
+              className="object-cover"
+              sizes="100vw"
+              placeholder="blur"
+              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCeAAA/9k="
+            />
+          )}
         </motion.div>
       </AnimatePresence>
 
@@ -56,23 +76,23 @@ export default function HeroClassic() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="mb-10"
         >
-          {/* PBS Israel + Xypex - Side by Side */}
-          <div className="flex items-center justify-center gap-12 mb-8">
+          {/* PBS Israel + Xypex - Side by Side (Scaled for 100% zoom) */}
+          <div className="flex items-center justify-center gap-8 md:gap-12 mb-6">
             <div className="text-center">
-              <h1 className="text-7xl md:text-8xl lg:text-9xl font-black text-white tracking-tight leading-none" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight leading-none" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}>
                 PBS
-                <span className="block text-3xl md:text-4xl lg:text-5xl font-light text-amber-400 mt-2 tracking-wide" style={{ textShadow: '2px 2px 6px rgba(0,0,0,0.8)' }}>
+                <span className="block text-2xl md:text-3xl lg:text-4xl font-light text-amber-400 mt-2 tracking-wide" style={{ textShadow: '2px 2px 6px rgba(0,0,0,0.8)' }}>
                   ISRAEL
                 </span>
               </h1>
             </div>
 
-            <div className="w-px h-32 md:h-40 bg-gradient-to-b from-transparent via-amber-400 to-transparent" style={{ filter: 'drop-shadow(0 0 4px rgba(251,191,36,0.5))' }} />
+            <div className="w-px h-24 md:h-32 bg-gradient-to-b from-transparent via-amber-400 to-transparent" style={{ filter: 'drop-shadow(0 0 4px rgba(251,191,36,0.5))' }} />
 
             <div className="text-center">
-              <h2 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white tracking-wider leading-none" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-wider leading-none" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}>
                 XYPEX
-                <span className="block text-2xl md:text-3xl font-light text-slate-300 mt-2 tracking-[0.2em]" style={{ textShadow: '2px 2px 6px rgba(0,0,0,0.8)' }}>
+                <span className="block text-xl md:text-2xl font-light text-slate-300 mt-2 tracking-[0.2em]" style={{ textShadow: '2px 2px 6px rgba(0,0,0,0.8)' }}>
                   GLOBAL
                 </span>
               </h2>
@@ -80,51 +100,51 @@ export default function HeroClassic() {
           </div>
 
           {/* Divider */}
-          <div className="h-px w-96 mx-auto bg-gradient-to-r from-transparent via-amber-400 to-transparent mb-8" style={{ filter: 'drop-shadow(0 0 4px rgba(251,191,36,0.5))' }} />
+          <div className="h-px w-72 md:w-96 mx-auto bg-gradient-to-r from-transparent via-amber-400 to-transparent mb-6" style={{ filter: 'drop-shadow(0 0 4px rgba(251,191,36,0.5))' }} />
 
           {/* Partnership Label */}
-          <p className="text-sm md:text-base text-slate-300 tracking-[0.25em] uppercase" style={{ textShadow: '2px 2px 6px rgba(0,0,0,0.8)' }}>
+          <p className="text-xs md:text-sm text-slate-300 tracking-[0.25em] uppercase" style={{ textShadow: '2px 2px 6px rgba(0,0,0,0.8)' }}>
             שותפות בלעדית
           </p>
         </motion.div>
 
-        {/* Professional Engineering Tagline */}
+        {/* Professional Engineering Tagline (Scaled for 100% zoom) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="max-w-4xl"
+          className="max-w-3xl"
         >
-          <p className="text-2xl md:text-3xl lg:text-4xl text-white font-light leading-relaxed mb-4" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}>
+          <p className="text-xl md:text-2xl lg:text-3xl text-white font-light leading-relaxed mb-3" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}>
             פתרונות איטום מתקדמים לתשתיות קריטיות
           </p>
-          <p className="text-lg md:text-xl text-slate-300 font-light" style={{ textShadow: '2px 2px 6px rgba(0,0,0,0.8)' }}>
+          <p className="text-base md:text-lg text-slate-300 font-light" style={{ textShadow: '2px 2px 6px rgba(0,0,0,0.8)' }}>
             Advanced Waterproofing Solutions for Critical Infrastructure
           </p>
         </motion.div>
 
-        {/* Stats Bar - Simple fade */}
+        {/* Stats Bar - Scaled for 100% zoom */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-16 grid grid-cols-3 gap-8 md:gap-16"
+          className="mt-12 grid grid-cols-3 gap-6 md:gap-12"
         >
           <div className="text-center">
-            <div className="text-5xl md:text-6xl font-black text-amber-400 mb-2" style={{ textShadow: '2px 2px 6px rgba(0,0,0,0.8)' }}>55+</div>
-            <div className="text-sm md:text-base text-slate-300 uppercase tracking-wider" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+            <div className="text-3xl md:text-4xl lg:text-5xl font-black text-amber-400 mb-1" style={{ textShadow: '2px 2px 6px rgba(0,0,0,0.8)' }}>55+</div>
+            <div className="text-xs md:text-sm text-slate-300 uppercase tracking-wider" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
               שנות פעילות
             </div>
           </div>
           <div className="text-center">
-            <div className="text-5xl md:text-6xl font-black text-amber-400 mb-2" style={{ textShadow: '2px 2px 6px rgba(0,0,0,0.8)' }}>100+</div>
-            <div className="text-sm md:text-base text-slate-300 uppercase tracking-wider" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+            <div className="text-3xl md:text-4xl lg:text-5xl font-black text-amber-400 mb-1" style={{ textShadow: '2px 2px 6px rgba(0,0,0,0.8)' }}>100+</div>
+            <div className="text-xs md:text-sm text-slate-300 uppercase tracking-wider" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
               מדינות
             </div>
           </div>
           <div className="text-center">
-            <div className="text-5xl md:text-6xl font-black text-amber-400 mb-2" style={{ textShadow: '2px 2px 6px rgba(0,0,0,0.8)' }}>300+</div>
-            <div className="text-sm md:text-base text-slate-300 uppercase tracking-wider" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+            <div className="text-3xl md:text-4xl lg:text-5xl font-black text-amber-400 mb-1" style={{ textShadow: '2px 2px 6px rgba(0,0,0,0.8)' }}>300+</div>
+            <div className="text-xs md:text-sm text-slate-300 uppercase tracking-wider" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
               פרויקטים בישראל
             </div>
           </div>

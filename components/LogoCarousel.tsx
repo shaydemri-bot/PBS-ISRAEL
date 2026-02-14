@@ -71,7 +71,7 @@ export default function LogoCarousel() {
           </h2>
         </motion.div>
 
-        {/* Static Wall of Partners - All Logos Visible at Once */}
+        {/* Static Wall of Partners - All Logos Visible at Once - ENLARGED */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {companies.map((company, index) => (
             <motion.div
@@ -80,11 +80,11 @@ export default function LogoCarousel() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="flex items-center justify-center p-8 bg-white rounded-lg border-2 border-slate-200 hover:border-[#003366] hover:shadow-2xl transition-all duration-300 group"
-              style={{ minHeight: 160 }}
+              className="flex items-center justify-center p-10 bg-white rounded-lg border-2 border-slate-200 hover:border-[#003366] hover:shadow-2xl transition-all duration-300 group"
+              style={{ minHeight: 200 }}
             >
-              {/* Large Logo Display - FULL COLOR, h-28 = 112px */}
-              <div className="relative w-full h-28 opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300">
+              {/* Extra Large Logo Display - FULL COLOR, h-32 = 128px (was h-28) */}
+              <div className="relative w-full h-32 opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300">
                 <Image
                   src={company.logo}
                   alt={`${company.nameHe} - ${company.name}`}

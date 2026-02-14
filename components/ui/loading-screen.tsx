@@ -2,10 +2,11 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 
 /**
  * Premium Cinematic Splash Screen - CORE BRAND EXPERIENCE
- * PBS Israel + Xypex Global logos side-by-side with smooth fade-in
+ * PBS Israel + Xypex Global logos with hero-bg.jpg background
  * Duration: 3 seconds (DO NOT REDUCE - this is intentional!)
  */
 export default function LoadingScreen() {
@@ -39,96 +40,93 @@ export default function LoadingScreen() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8, ease: 'easeInOut' }}
-          className="fixed inset-0 z-[9999] flex items-center justify-center"
-          style={{
-            background: 'linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0a0a0f 100%)',
-          }}
+          className="fixed inset-0 z-[9999] flex items-center justify-center h-screen w-screen"
         >
+          {/* Shafdan Project Background - Full View, No Crop */}
+          <div className="absolute inset-0 w-full h-full">
+            <div
+              className="absolute inset-0 w-full h-full"
+              style={{
+                backgroundImage: 'url(/images/shafdan.jpeg)',
+                backgroundSize: 'contain',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                filter: 'brightness(1.15) contrast(1.1) saturate(1.3)',
+              }}
+            />
+            {/* Ultra-minimal overlay - Show full infrastructure (20% only) */}
+            <div className="absolute inset-0 w-full h-full bg-black/20" />
+          </div>
+
           {/* Animated gradient overlay - Smooth ambient motion */}
           <motion.div
-            className="absolute inset-0"
+            className="absolute inset-0 z-[1]"
             animate={{
               background: [
-                'radial-gradient(circle at 20% 50%, rgba(245, 158, 11, 0.15) 0%, transparent 50%)',
-                'radial-gradient(circle at 80% 50%, rgba(245, 158, 11, 0.15) 0%, transparent 50%)',
-                'radial-gradient(circle at 20% 50%, rgba(245, 158, 11, 0.15) 0%, transparent 50%)',
+                'radial-gradient(circle at 20% 50%, rgba(245, 158, 11, 0.1) 0%, transparent 50%)',
+                'radial-gradient(circle at 80% 50%, rgba(245, 158, 11, 0.1) 0%, transparent 50%)',
+                'radial-gradient(circle at 20% 50%, rgba(245, 158, 11, 0.1) 0%, transparent 50%)',
               ],
             }}
             transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
           />
 
-          {/* Dual Logo Container - Side by Side */}
+          {/* Professional Logo Hierarchy - PBS Israel Dominant (Brightest Element) */}
           <div className="relative z-10 px-6">
+            {/* Official Xypex Global Logo - Top Center (Secondary) */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-center mb-8"
             >
-              {/* PBS Israel Logo - Text Style */}
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="text-center"
-              >
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-wider leading-none">
-                  PBS
-                  <span className="block text-xl md:text-2xl lg:text-3xl font-light text-slate-300 mt-2 tracking-[0.2em]">
-                    ISRAEL
-                  </span>
-                </h1>
-              </motion.div>
+              <div className="text-3xl md:text-4xl font-bold text-white/60 tracking-wider leading-none" style={{ textShadow: '2px 2px 10px rgba(0,0,0,0.9)' }}>
+                XYPEX
+              </div>
+              <div className="text-xs md:text-sm font-light text-amber-400/80 tracking-[0.4em] uppercase mt-1" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}>
+                GLOBAL
+              </div>
+            </motion.div>
 
-              {/* Divider - Vertical on desktop, horizontal on mobile */}
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.6, duration: 0.6 }}
-                className="hidden md:block w-px h-32 bg-gradient-to-b from-transparent via-amber-400 to-transparent"
-              />
-              <motion.div
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ delay: 0.6, duration: 0.6 }}
-                className="md:hidden h-px w-48 bg-gradient-to-r from-transparent via-amber-400 to-transparent"
-              />
+            {/* PBS Israel - ABSOLUTELY DOMINANT (Brightest Element) */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: [0.21, 0.47, 0.32, 0.98] }}
+              className="text-center mb-12"
+            >
+              <h1 className="text-9xl md:text-[10rem] lg:text-[14rem] font-black text-white tracking-tight leading-none mb-6" style={{ textShadow: '3px 3px 15px rgba(0,0,0,0.95), 0 0 30px rgba(255,255,255,0.3)' }}>
+                PBS
+              </h1>
+              <h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-amber-400 tracking-[0.3em] uppercase" style={{ textShadow: '2px 2px 12px rgba(0,0,0,0.9), 0 0 20px rgba(251,191,36,0.4)' }}>
+                ISRAEL
+              </h2>
+              <div className="h-1.5 w-[32rem] max-w-full mx-auto mt-10 bg-gradient-to-r from-transparent via-amber-400 to-transparent" style={{ filter: 'drop-shadow(0 0 8px rgba(251,191,36,0.6))' }} />
+            </motion.div>
 
-              {/* Xypex Global Logo */}
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="text-center"
-              >
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-wider leading-none">
-                  XYPEX
-                  <span className="block text-xl md:text-2xl lg:text-3xl font-light text-slate-300 mt-2 tracking-[0.2em]">
-                    GLOBAL
-                  </span>
-                </h1>
-              </motion.div>
+            {/* Partnership Badge - Below PBS */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="text-center"
+            >
+              <div className="text-sm md:text-base font-semibold text-white/80 tracking-[0.3em] uppercase" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.85)' }}>
+                נציגות ייחודית של Xypex
+              </div>
             </motion.div>
 
             {/* Tagline */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.8 }}
+              transition={{ delay: 1, duration: 0.8 }}
               className="text-center mt-12"
             >
-              <p className="text-slate-400 text-sm md:text-base tracking-[0.3em] uppercase">
-                Crystalline Waterproofing Technology
+              <p className="text-slate-300 text-xs md:text-sm tracking-[0.35em] uppercase" style={{ textShadow: '2px 2px 6px rgba(0,0,0,0.8)' }}>
+                טכנולוגיית איטום גבישי
               </p>
             </motion.div>
-
-            {/* Underline */}
-            <motion.div
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ delay: 1, duration: 0.8 }}
-              className="h-0.5 w-64 md:w-96 mx-auto mt-8 bg-gradient-to-r from-transparent via-amber-400 to-transparent"
-            />
           </div>
 
           {/* Pulsing dots loading indicator */}

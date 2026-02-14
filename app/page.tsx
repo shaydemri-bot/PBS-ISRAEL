@@ -31,18 +31,21 @@ export default function Home() {
         <LogoCarousel />
 
         {/* 3. TECHNOLOGY - Brief Visual Explanation with Background */}
-        <section className="relative py-32 px-6 overflow-hidden">
-          {/* Background Image - 100% Clear, No Heavy Overlay */}
+        <section className="relative py-20 md:py-24 px-6 overflow-hidden">
+          {/* Shafdan Project Background - Wider View, No Over-Zoom */}
           <div className="absolute inset-0 z-0">
-            <Image
-              src="/images/WhatsApp Image 2026-02-13 at 22.02.22.jpeg"
-              alt="Xypex Technology Background"
-              fill
-              className="object-cover brightness-105"
-              quality={75}
+            <div
+              className="absolute inset-0 w-full h-full bg-shafdan-mobile md:bg-shafdan-desktop"
+              style={{
+                backgroundImage: 'url(/images/shafdan.jpeg)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center top',
+                backgroundRepeat: 'no-repeat',
+                filter: 'brightness(1.15) contrast(1.1) saturate(1.3)',
+              }}
             />
-            {/* Very subtle bottom gradient for text readability only */}
-            <div className="absolute inset-0 bg-gradient-to-t from-white/40 via-transparent to-transparent" />
+            {/* Ultra-minimal overlay - Show full project scale (20% only) */}
+            <div className="absolute inset-0 bg-white/20" />
           </div>
 
           <div className="relative z-10 max-w-6xl mx-auto">
@@ -53,13 +56,13 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               className="text-center mb-20"
             >
-              <p className="text-xs font-semibold tracking-[0.3em] uppercase text-[#f59e0b] mb-4" style={{ textShadow: '0 2px 8px rgba(255,255,255,0.9)' }}>
+              <p className="text-xs font-semibold tracking-[0.25em] uppercase text-[#f59e0b] mb-3" style={{ textShadow: '0 2px 8px rgba(255,255,255,0.9)' }}>
                 טכנולוגיית גבישים קטליטית
               </p>
-              <h2 className="text-6xl md:text-7xl font-black text-[#003366] mb-6 leading-tight" style={{ textShadow: '0 2px 12px rgba(255,255,255,0.95)' }}>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#003366] mb-4 leading-tight" style={{ textShadow: '0 2px 12px rgba(255,255,255,0.95)' }}>
                 איטום מבנים מורכבים<br />בטכנולוגיה גבישית
               </h2>
-              <p className="text-xl text-[#003366] leading-relaxed max-w-3xl mx-auto font-semibold" style={{ textShadow: '0 1px 8px rgba(255,255,255,0.9)' }}>
+              <p className="text-lg md:text-xl text-[#003366] leading-relaxed max-w-2xl mx-auto font-semibold" style={{ textShadow: '0 1px 8px rgba(255,255,255,0.9)' }}>
                 הגנה קבועה לבטון באמצעות חדירה גבישית קטליטית. המערכת אוטמת סדקים עד 0.5 מ"מ באופן אוטונומי, ומספקת איטום לכל החיים ללא ממברנות חיצוניות.
               </p>
             </motion.div>
@@ -107,7 +110,7 @@ export default function Home() {
         </section>
 
         {/* 4. CORE SOLUTIONS - 3 Clean Columns with Background Images */}
-        <section className="py-32 px-6 bg-slate-50">
+        <section className="py-20 md:py-24 px-6 bg-slate-50">
           <div className="max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -116,13 +119,13 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               className="text-center mb-20"
             >
-              <p className="text-xs font-semibold tracking-[0.3em] uppercase text-[#f59e0b] mb-4">
+              <p className="text-xs font-semibold tracking-[0.25em] uppercase text-[#f59e0b] mb-3">
                 פתרונות ליבה הנדסיים
               </p>
-              <h2 className="text-6xl md:text-7xl font-black text-[#003366] mb-6 leading-tight">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#003366] mb-4 leading-tight">
                 מערכות מהנדסות<br />לפי יישום
               </h2>
-              <p className="text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto">
+              <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
                 פתרונות איטום מותאמים לתשתיות לאומיות, בנייה למגורים ופרויקטים תעשייתיים.
               </p>
             </motion.div>
@@ -211,7 +214,7 @@ export default function Home() {
         </section>
 
         {/* 5. CONTACT SECTION with Background */}
-        <section className="relative py-32 px-6 overflow-hidden">
+        <section className="relative py-20 md:py-24 px-6 overflow-hidden">
           {/* Background Image with Dark Overlay */}
           <div className="absolute inset-0 z-0">
             <Image
@@ -231,13 +234,13 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="relative z-10 max-w-4xl mx-auto text-center"
           >
-            <p className="text-xs font-semibold tracking-[0.3em] uppercase text-[#f59e0b] mb-4">
+            <p className="text-xs font-semibold tracking-[0.25em] uppercase text-[#f59e0b] mb-3">
               צור קשר
             </p>
-            <h2 className="text-6xl md:text-7xl font-black text-white mb-6 leading-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 leading-tight">
               מוכנים להתחיל<br />את הפרויקט?
             </h2>
-            <p className="text-xl text-white/90 mb-12 leading-relaxed">
+            <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
               צוות המומחים שלנו מוכן לספק ייעוץ טכני, פתרונות מותאמים אישית ותמיכה מקצועית לאורך כל הפרויקט.
             </p>
             <div className="flex flex-col md:flex-row gap-6 justify-center">
