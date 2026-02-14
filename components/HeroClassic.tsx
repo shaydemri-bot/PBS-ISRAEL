@@ -75,8 +75,8 @@ export default function HeroClassic() {
       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30 z-[1]" />
 
       {/* Content Container - POWER CENTER (Mobile Optimized) */}
-      {/* TEMPORARILY HIDDEN FOR MINIMALIST TEST - UNCOMMENT TO RESTORE */}
-      {/* <div className="relative z-10 h-full flex flex-col items-center px-4 md:px-12 text-center pt-20 md:pt-32">
+      {/* TEMPORARILY HIDDEN FOR MINIMALIST TEST - Remove 'hidden' class to restore */}
+      <div className="hidden relative z-10 h-full flex flex-col items-center px-4 md:px-12 text-center pt-20 md:pt-32">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -213,7 +213,7 @@ export default function HeroClassic() {
             </button>
           ))}
         </motion.div>
-      </div> */}
+      </div>
     </section>
   );
 }
