@@ -32,7 +32,7 @@ export default function Home() {
         {/* 2. TRUSTED BY - Infinite Scrolling Logos */}
         <LogoCarousel />
 
-        {/* 3. THE TECHNOLOGY VIDEO - Premium YouTube Integration */}
+        {/* 3. DUAL VIDEO GRID - Global Impact & Technology */}
         <section className="relative py-20 md:py-28 bg-white">
           <GridDotBackground className="opacity-10" />
           <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8">
@@ -44,46 +44,79 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               className="text-center mb-16"
             >
-              <h2 className="text-5xl md:text-6xl lg:text-7xl font-extralight text-[#003366] tracking-[0.3em] uppercase mb-6 leading-none">
-                THE TECHNOLOGY
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-extralight text-[#003366] tracking-[0.3em] uppercase mb-6 leading-none">
+                GLOBAL IMPACT & TECHNOLOGY
               </h2>
               <div className="h-px w-40 mx-auto bg-[#003366]/20"></div>
             </motion.div>
 
-            {/* Premium Video Container */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="max-w-5xl mx-auto"
-            >
-              {/* 16:9 Aspect Ratio Container */}
-              <div className="relative w-full overflow-hidden rounded-2xl shadow-2xl border border-slate-200" style={{ paddingBottom: '56.25%' }}>
-                <iframe
-                  className="absolute top-0 left-0 w-full h-full"
-                  src="https://www.youtube.com/embed/VozKO84Rgzk?rel=0&modestbranding=1&showinfo=0"
-                  title="Xypex Crystalline Technology"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  loading="lazy"
-                  style={{
-                    border: 0,
-                  }}
-                />
-              </div>
-
-              {/* Caption */}
-              <motion.p
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
+            {/* Dual Video Grid - Perfect Symmetry */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 max-w-6xl mx-auto">
+              {/* LEFT VIDEO: Global Impact (Time-Trimmed 16s-44s) */}
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="text-center mt-8 text-base md:text-lg text-slate-600 font-light tracking-wide leading-relaxed"
+                transition={{ duration: 0.7, delay: 0.1 }}
               >
-                See how Xypex crystalline technology permanently waterproofs concrete.
-              </motion.p>
-            </motion.div>
+                {/* 16:9 Aspect Ratio Container */}
+                <div className="relative w-full overflow-hidden rounded-2xl shadow-2xl border border-slate-200" style={{ paddingBottom: '56.25%' }}>
+                  <iframe
+                    className="absolute top-0 left-0 w-full h-full"
+                    src="https://www.youtube.com/embed/kY6fA8Yp5Ww?start=16&end=44&rel=0&modestbranding=1&showinfo=0"
+                    title="Xypex Global Impact"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    loading="lazy"
+                    style={{
+                      border: 0,
+                    }}
+                  />
+                </div>
+                {/* Video Label */}
+                <p className="text-center mt-4 text-sm md:text-base text-slate-600 font-light tracking-wide">
+                  Global Infrastructure Projects
+                </p>
+              </motion.div>
+
+              {/* RIGHT VIDEO: Technical Explanation */}
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.2 }}
+              >
+                {/* 16:9 Aspect Ratio Container */}
+                <div className="relative w-full overflow-hidden rounded-2xl shadow-2xl border border-slate-200" style={{ paddingBottom: '56.25%' }}>
+                  <iframe
+                    className="absolute top-0 left-0 w-full h-full"
+                    src="https://www.youtube.com/embed/VozKO84Rgzk?rel=0&modestbranding=1&showinfo=0"
+                    title="Xypex Crystalline Technology"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    loading="lazy"
+                    style={{
+                      border: 0,
+                    }}
+                  />
+                </div>
+                {/* Video Label */}
+                <p className="text-center mt-4 text-sm md:text-base text-slate-600 font-light tracking-wide">
+                  Crystalline Technology Explained
+                </p>
+              </motion.div>
+            </div>
+
+            {/* Section Caption */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="text-center mt-12 text-base md:text-lg text-slate-600 font-light tracking-wide leading-relaxed max-w-3xl mx-auto"
+            >
+              See how Xypex crystalline technology permanently waterproofs concrete in critical infrastructure projects worldwide.
+            </motion.p>
           </div>
         </section>
 
