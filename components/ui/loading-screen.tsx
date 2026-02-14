@@ -98,8 +98,8 @@ export default function LoadingScreen() {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="text-center"
             >
-              <div className="text-sm md:text-base font-semibold text-white/80 tracking-[0.3em] uppercase" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.85)' }}>
-                נציגות ייחודית של Xypex
+              <div className="text-lg md:text-xl font-black text-white tracking-[0.4em] uppercase" style={{ textShadow: '3px 3px 12px rgba(0,0,0,0.95)', fontFamily: 'system-ui, -apple-system, sans-serif', letterSpacing: '0.25em' }}>
+                XYPEX PBS ISRAEL
               </div>
             </motion.div>
 

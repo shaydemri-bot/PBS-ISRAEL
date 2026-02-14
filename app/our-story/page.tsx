@@ -8,8 +8,8 @@ export default function OurStoryPage() {
       <Header />
       
       {/* Hero - CHIN Technical Focus */}
-      <section className="relative w-full aspect-[16/9] md:aspect-[21/9] lg:aspect-[3.5/1] flex items-center justify-center overflow-hidden">
-        {/* CHIN - NEXT/IMAGE OPTIMIZED, PRIORITY LOADING */}
+      <section className="relative w-full h-[500px] flex items-center justify-center overflow-hidden">
+        {/* CHIN - NO-ZOOM ARCHITECTURE */}
         <Image
           src="/images/chin.jpeg"
           alt="PBS Israel Solutions - Advanced Waterproofing Technology"
@@ -17,14 +17,17 @@ export default function OurStoryPage() {
           priority
           quality={90}
           sizes="100vw"
-          className="object-cover object-[center_30%]"
+          className="object-cover object-[center_40%]"
         />
 
+        {/* Gradient - Bottom 30% Only */}
+        <div className="absolute inset-x-0 bottom-0 h-[30%] bg-gradient-to-t from-black/60 to-transparent z-[1]"></div>
+
         <div className="relative z-10 text-center px-6">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-tight mb-6" style={{ color: '#FFFFFF', filter: 'drop-shadow(0 5px 20px rgba(0,0,0,1))' }}>
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tighter leading-tight mb-3 uppercase" style={{ color: '#FFFFFF', filter: 'drop-shadow(0 5px 20px rgba(0,0,0,1))' }}>
             הפתרונות שלנו:<br />איטום ושיקום מתקדם
           </h1>
-          <p className="text-xl md:text-2xl font-bold max-w-3xl mx-auto leading-relaxed" style={{ color: '#FFFFFF', filter: 'drop-shadow(0 5px 20px rgba(0,0,0,1))' }}>
+          <p className="text-base md:text-lg font-bold max-w-xl mx-auto leading-relaxed tracking-tight" style={{ color: '#FFFFFF', filter: 'drop-shadow(0 5px 20px rgba(0,0,0,1))' }}>
             טכנולוגיית קריסטליזציה מתקדמת לתשתיות קריטיות
           </p>
         </div>
@@ -33,9 +36,9 @@ export default function OurStoryPage() {
       <main className="bg-white">
         
         {/* Stats Bar - משודרג בסגנון Xypex */}
-        <section className="py-16 bg-white border-b border-gray-100">
-          <div className="container mx-auto px-6">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <section className="py-8 bg-white border-b border-gray-100">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {[
                 { num: '80+', label: 'שנות ניסיון', color: 'from-blue-600 to-blue-700' },
                 { num: '100+', label: 'מדינות', color: 'from-cyan-600 to-blue-600' },
@@ -43,10 +46,10 @@ export default function OurStoryPage() {
                 { num: '∞', label: 'פעיל לצמיתות', color: 'from-indigo-600 to-purple-600' }
               ].map((stat, i) => (
                 <div key={i} className="text-center group cursor-default">
-                  <div className={`text-6xl md:text-7xl font-bold bg-gradient-to-br ${stat.color} bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform duration-300`}>
+                  <div className={`text-3xl md:text-4xl font-bold bg-gradient-to-br ${stat.color} bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300`}>
                     {stat.num}
                   </div>
-                  <div className="text-gray-600 font-medium text-lg">{stat.label}</div>
+                  <div className="text-gray-600 font-medium text-sm">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -54,48 +57,48 @@ export default function OurStoryPage() {
         </section>
 
         {/* חברת זייפקס */}
-        <section className="py-24 md:py-32">
-          <div className="container mx-auto px-6">
-            <div className="max-w-5xl mx-auto">
-              <div className="mb-12">
-                <span className="inline-block px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-semibold mb-6">
+        <section className="py-12">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <div className="mb-8">
+                <span className="inline-block px-3 py-1.5 bg-blue-50 text-blue-600 rounded-full text-xs font-semibold mb-4">
                   הטכנולוגיה
                 </span>
-                <div className="mb-6">
-                  <div className="mb-6">
-                    <img 
+                <div className="mb-4">
+                  <div className="mb-4">
+                    <img
                       src="https://static.wixstatic.com/media/38df06_1d91e07781cf4f88a2f818cfc5746e62~mv2.png/v1/fill/w_256,h_66,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/xypex_logo_no_background.png"
                       alt="Xypex Logo"
-                      className="h-16 w-auto"
+                      className="h-10 w-auto"
                     />
                   </div>
-                  <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+                  <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
                     חברת Xypex העולמית
                   </h2>
                 </div>
               </div>
               
-              <div className="grid md:grid-cols-12 gap-12 items-center mb-16">
-                <div className="md:col-span-7 space-y-6 text-right">
-                  <p className="text-xl text-gray-700 leading-relaxed">
-                    חברת Xypex הקנדית פיתחה טכנולוגייה ייחודית לאיטום בטון בשנת <strong className="text-blue-600">1969</strong>. 
+              <div className="grid md:grid-cols-12 gap-8 items-center mb-8">
+                <div className="md:col-span-7 space-y-4 text-right">
+                  <p className="text-base text-gray-700 leading-relaxed">
+                    חברת Xypex הקנדית פיתחה טכנולוגייה ייחודית לאיטום בטון בשנת <strong className="text-blue-600">1969</strong>.
                     מאז, מוצרי Xypex לאיטום גבישי הוכיחו עצמם בלמעלה מ-100 מדינות ברחבי העולם.
                   </p>
-                  
-                  <p className="text-lg text-gray-600 leading-relaxed">
-                    המערכת שימשה בפרויקטי ענק: גשרים, סכרים, בריכות, תעלות, כורים גרעיניים, 
+
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                    המערכת שימשה בפרויקטי ענק: גשרים, סכרים, בריכות, תעלות, כורים גרעיניים,
                     מתקני טיהור שפכים, מתקני התפלה ועוד.
                   </p>
                 </div>
-                
+
                 <div className="md:col-span-5">
                   <div className="relative">
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-2xl transform rotate-3"></div>
-                    <div className="relative bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
-                      <div className="text-5xl font-bold text-blue-600 mb-2">1969</div>
-                      <div className="text-gray-600 mb-4">שנת הקמה</div>
-                      <div className="h-1 w-16 bg-gradient-to-l from-blue-600 to-cyan-500 rounded-full mb-6"></div>
-                      <p className="text-gray-700 text-sm leading-relaxed">
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-lg transform rotate-2"></div>
+                    <div className="relative bg-white p-6 rounded-lg shadow-xl border border-gray-100">
+                      <div className="text-3xl font-bold text-blue-600 mb-1.5">1969</div>
+                      <div className="text-gray-600 text-sm mb-3">שנת הקמה</div>
+                      <div className="h-0.5 w-12 bg-gradient-to-l from-blue-600 to-cyan-500 rounded-full mb-4"></div>
+                      <p className="text-gray-700 text-xs leading-relaxed">
                         למעלה מחצי מאה של חדשנות בתחום איטום הבטון
                       </p>
                     </div>
@@ -104,7 +107,7 @@ export default function OurStoryPage() {
               </div>
 
               {/* Banner - Minimalist Clarity */}
-              <div className="relative overflow-hidden rounded-2xl shadow-xl">
+              <div className="relative overflow-hidden rounded-lg shadow-xl">
                 {/* Background Image - BRIGHT & CLEAR */}
                 <div className="absolute inset-0">
                   <Image
@@ -120,17 +123,17 @@ export default function OurStoryPage() {
                 </div>
 
                 {/* Glassmorphism Content */}
-                <div className="relative z-10 p-10 md:p-12">
-                  <div className="backdrop-blur-xl bg-white/95 rounded-xl p-8 border border-white/50 shadow-xl">
-                    <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-14 h-14 bg-[#003366]/10 rounded-xl flex items-center justify-center border border-[#003366]/20">
-                        <svg className="w-7 h-7 text-[#003366]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="relative z-10 p-6 md:p-8">
+                  <div className="backdrop-blur-xl bg-white/95 rounded-lg p-6 border border-white/50 shadow-xl">
+                    <div className="flex items-start gap-3">
+                      <div className="flex-shrink-0 w-10 h-10 bg-[#003366]/10 rounded-lg flex items-center justify-center border border-[#003366]/20">
+                        <svg className="w-5 h-5 text-[#003366]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                         </svg>
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-2xl font-bold text-[#003366] mb-4">ההבדל המהותי</h3>
-                        <p className="text-lg text-[#475569] leading-relaxed">
+                        <h3 className="text-lg font-bold text-[#003366] mb-2">ההבדל המהותי</h3>
+                        <p className="text-sm text-[#475569] leading-relaxed">
                           חומרי Xypex לאיטום גבישי הינם חומרי איטום על בסיס צמנט.
                           <strong className="text-[#003366]"> ההבדל המרכזי:</strong> הם אוטמים את הבטון <strong className="text-[#003366]">מבפנים</strong> ולא כשכבה חיצונית.
                           איטום בעזרת Xypex מאפשר איטום מלא לכל שטח חתך הבטון.
@@ -144,20 +147,20 @@ export default function OurStoryPage() {
           </div>
         </section>
 
-        {/* VIDEO 1 - Technical Prestige Showcase */}
-        <section className="py-24 bg-slate-900">
-          <div className="container mx-auto px-6">
-            <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                  טכנולוגיית Xypex בפעולה
-                </h2>
-                <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+        {/* VIDEO 1 - Technical Engineering Showcase */}
+        <section className="py-12 bg-slate-900">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-8">
+                <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
                   הדגמה טכנית של מערכת האיטום הגבישית
+                </h2>
+                <p className="text-base text-slate-300 max-w-xl mx-auto">
+                  טכנולוגיית קריסטליזציה קטליטית לעמידות בטון ארוכת טווח בסביבות אגרסיביות
                 </p>
               </div>
 
-              <div className="relative aspect-video rounded-2xl overflow-hidden border-4 border-white/10 shadow-2xl">
+              <div className="relative aspect-video rounded-lg overflow-hidden border-2 border-white/10 shadow-2xl">
                 <video
                   autoPlay
                   muted
@@ -168,6 +171,145 @@ export default function OurStoryPage() {
                   <source src="/images/video1.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* WATERPROOFING FAILURES - Technical Report Section */}
+        <section className="py-12 bg-white relative overflow-hidden">
+          {/* Technical Grid Background */}
+          <div className="absolute inset-0 opacity-5">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: 'repeating-linear-gradient(0deg, #003366 0px, #003366 1px, transparent 1px, transparent 20px), repeating-linear-gradient(90deg, #003366 0px, #003366 1px, transparent 1px, transparent 20px)',
+                backgroundSize: '20px 20px'
+              }}
+            />
+          </div>
+
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-4xl mx-auto">
+              {/* Technical Header */}
+              <div className="mb-8 pb-4 border-b-2 border-[#003366]">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-1 h-8 bg-red-600"></div>
+                  <span className="text-xs font-bold tracking-[0.3em] uppercase text-red-600">
+                    ניתוח הנדסי
+                  </span>
+                </div>
+                <h2 className="text-2xl md:text-3xl font-black text-[#003366] tracking-tight">
+                  כשלים נפוצים במערכות איטום קונבנציונליות
+                </h2>
+                <p className="text-sm text-slate-600 mt-2 font-mono">
+                  דוח טכני // תשתיות קריטיות // 2026
+                </p>
+              </div>
+
+              {/* Failure Analysis Grid */}
+              <div className="grid md:grid-cols-2 gap-6 mb-8">
+                {[
+                  {
+                    code: 'F-01',
+                    title: 'סדקים מהרחבה תרמית',
+                    problem: 'מחזורי התרחבות והתכווצות תרמיים יוצרים סדקים בממברנות איטום חיצוניות',
+                    impact: 'חדירת מים • קורוזיה • הידרדרות מבנית',
+                    color: 'from-red-600 to-orange-600'
+                  },
+                  {
+                    code: 'F-02',
+                    title: 'כשל במישקים ובחיבורים',
+                    problem: 'נקודות תורפה במפגשי ממברנות, חדירות וחיבורים מכניים',
+                    impact: 'דליפות מוקדיות • נזקי מים • עלויות תחזוקה גבוהות',
+                    color: 'from-orange-600 to-amber-600'
+                  },
+                  {
+                    code: 'F-03',
+                    title: 'לחץ הידרוסטטי עודף',
+                    problem: 'איטום חיצוני נכשל תחת לחץ מים תת-קרקעי גבוה (>50m)',
+                    impact: 'חדירה מסיבית • הצפה • כשל מערכתי',
+                    color: 'from-amber-600 to-yellow-600'
+                  },
+                  {
+                    code: 'F-04',
+                    title: 'הידרדרות כימית',
+                    problem: 'סביבות אגרסיביות (מי ים, שפכים, כימיקלים) משפילות ממברנות אורגניות',
+                    impact: 'התפוררות • אובדן אטימות • החלפה תכופה',
+                    color: 'from-yellow-600 to-green-600'
+                  }
+                ].map((failure, i) => (
+                  <div key={i} className="relative group">
+                    {/* Technical Card */}
+                    <div className="bg-white border-2 border-slate-200 hover:border-red-600 transition-all duration-300 shadow-sm hover:shadow-xl">
+                      {/* Header Strip */}
+                      <div className={`h-1.5 bg-gradient-to-r ${failure.color}`}></div>
+
+                      {/* Content */}
+                      <div className="p-4">
+                        {/* Code Badge */}
+                        <div className="flex items-center justify-between mb-3">
+                          <span className="font-mono text-xs font-bold tracking-wider bg-red-50 text-red-600 px-2 py-1 border border-red-200">
+                            {failure.code}
+                          </span>
+                          <svg className="w-5 h-5 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                          </svg>
+                        </div>
+
+                        {/* Title */}
+                        <h3 className="text-base font-bold text-[#003366] mb-2 leading-tight">
+                          {failure.title}
+                        </h3>
+
+                        {/* Problem Description */}
+                        <div className="mb-3 pb-3 border-b border-slate-100">
+                          <p className="text-xs text-slate-700 leading-relaxed">
+                            <strong className="text-[#003366]">בעיה:</strong> {failure.problem}
+                          </p>
+                        </div>
+
+                        {/* Impact */}
+                        <div className="text-xs text-red-700 font-medium">
+                          <strong>השלכות:</strong> {failure.impact}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Xypex Solution Box */}
+              <div className="relative overflow-hidden rounded-lg border-4 border-[#003366] bg-gradient-to-br from-[#003366] to-[#002244] p-6 shadow-2xl">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16"></div>
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-full -ml-12 -mb-12"></div>
+
+                <div className="relative z-10">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 bg-green-500 rounded flex items-center justify-center">
+                      <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-black text-white">
+                      הפתרון ההנדסי: מערכת Xypex הגבישית
+                    </h3>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-4">
+                    {[
+                      { icon: '🔬', text: 'איטום פנימי קטליטי - לא ממברנה חיצונית' },
+                      { icon: '🛡️', text: 'עמידות לתנודות תרמיות ולחצים הידרוסטטיים' },
+                      { icon: '♻️', text: 'ריפוי עצמי אוטומטי של סדקים עד 0.5mm' },
+                      { icon: '⚗️', text: 'התנגדות כימית מלאה - חלק מהבטון עצמו' }
+                    ].map((solution, i) => (
+                      <div key={i} className="flex items-start gap-3 text-white/90 text-sm">
+                        <span className="text-lg flex-shrink-0">{solution.icon}</span>
+                        <span className="leading-tight">{solution.text}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>

@@ -1,109 +1,140 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { motion } from 'framer-motion';
 
 /**
- * Premium Global Header - Permanent Pure White
- * PBS Israel (left) + Xypex Global (right) in original colors
- * Professional navigation in dark gray/PBS blue
+ * ALIVE SLIM HEADER - PBS × Xypex Partnership
+ * Glassmorphism + Scroll Shrink + Animated Nav Hovers
+ * PBS anchors left | Navigation center | Xypex anchors right
  */
 export default function Header() {
   const pathname = usePathname();
-
   const isActive = (path: string) => pathname === path;
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <motion.header
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
-      className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200"
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-lg border-b border-slate-200 transition-all duration-300 ${
+        isScrolled ? 'shadow-lg py-2' : 'py-4'
+      }`}
     >
-      <div className="container mx-auto px-6 py-5">
-        <div className="flex items-center justify-between">
-          {/* Left Side: PBS Israel Logo - Enhanced Size */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative h-20 w-48">
+      <div className="container mx-auto px-6">
+        <div className="flex items-center justify-between gap-8">
+          {/* FAR LEFT: PBS Logo - Absolute Transparency Fix */}
+          <Link href="/" className="flex-shrink-0 group bg-transparent border-0 p-0">
+            <div className="relative h-16 overflow-hidden bg-transparent">
               <Image
-                src="/images/logo.jpg"
-                alt="PBS Israel - Xypex Representative"
-                fill
-                className="object-contain group-hover:scale-105 transition-transform duration-300"
+                src="/images/PBSLOGO.jpg"
+                alt="PBS Israel"
+                width={200}
+                height={80}
+                className="h-16 w-auto group-hover:opacity-80 transition-opacity duration-300 bg-transparent"
+                style={{
+                  mixBlendMode: 'multiply',
+                  filter: 'contrast(1.1) brightness(1.05)',
+                  objectFit: 'contain',
+                  transform: 'scale(1.1)',
+                  border: 'none',
+                  boxShadow: 'none',
+                  padding: 0,
+                  margin: 0,
+                  background: 'transparent'
+                }}
                 priority
               />
             </div>
           </Link>
 
-          {/* Center: Navigation - Professional Hebrew */}
-          <nav className="hidden md:flex items-center gap-1">
-            <NavLink href="/" active={isActive('/')}>
-              דף הבית
+          {/* CENTER: Navigation Links with Animated Underline */}
+          <nav className="hidden lg:flex items-center gap-8 flex-1 justify-center">
+            <NavLink href="/catalogs" active={isActive('/catalogs')}>
+              Products
             </NavLink>
             <NavLink href="/our-story" active={isActive('/our-story')}>
-              פתרונות
+              Solutions
             </NavLink>
             <NavLink href="/projects" active={isActive('/projects')}>
-              פרויקטים
+              Projects
             </NavLink>
-            <NavLink href="/catalogs" active={isActive('/catalogs')}>
-              קטלוגים
-            </NavLink>
-            <NavLink href="/contact" active={isActive('/contact')}>
-              צור קשר
+            <NavLink href="/" active={isActive('/')}>
+              About
             </NavLink>
           </nav>
 
-          {/* Right Side: Xypex Global Logo + CTA */}
-          <div className="flex items-center gap-6">
-            {/* Xypex Global Logo - Refined Size (85% scale) */}
-            <div className="hidden lg:flex items-center gap-3 pl-6">
-              <div className="text-right">
-                <div className="text-3xl font-black text-[#003366] tracking-wider leading-none">
-                  XYPEX
-                </div>
-                <div className="text-sm font-semibold text-[#f59e0b] tracking-[0.3em] uppercase mt-1">
-                  Global
-                </div>
-              </div>
-            </div>
-
-            {/* CTA Button - Pure Ghost Style */}
-            <Link
-              href="tel:+972-52-1234567"
-              className="px-6 py-2.5 rounded-lg font-semibold transition-all bg-transparent border border-[#003366] text-[#003366] hover:bg-[#003366] hover:text-white"
+          {/* FAR RIGHT: Instagram + Xypex Logo */}
+          <div className="flex items-center gap-3 flex-shrink-0">
+            {/* Follow Us - Instagram Button */}
+            <a
+              href="https://www.instagram.com/pbsisrael"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden xl:flex items-center gap-2 px-4 py-2 text-sm font-bold text-white bg-gradient-to-r from-purple-600 to-pink-600 rounded hover:from-purple-700 hover:to-pink-700 transition-all duration-300"
             >
-              צור קשר
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+              <span>Follow Us</span>
+            </a>
+
+            {/* Contact Us Button - Desktop Only */}
+            <Link
+              href="/contact"
+              className="hidden lg:flex px-4 py-2 text-sm font-bold text-white bg-[#003366] rounded hover:bg-[#002244] transition-all duration-300"
+            >
+              Contact Us
+            </Link>
+
+            {/* Xypex Logo - Absolute Transparency Fix */}
+            <Link href="/" className="group bg-transparent border-0 p-0">
+              <div className="relative h-16 overflow-hidden bg-transparent">
+                <Image
+                  src="/images/xypex-logo-png_seeklogo-154797.png"
+                  alt="Xypex - Crystalline Waterproofing Technology"
+                  width={280}
+                  height={80}
+                  className="h-16 w-auto group-hover:opacity-80 transition-opacity duration-300 bg-transparent"
+                  style={{
+                    mixBlendMode: 'multiply',
+                    filter: 'contrast(1.1) brightness(1.05)',
+                    objectFit: 'contain',
+                    transform: 'scale(1.1)',
+                    border: 'none',
+                    boxShadow: 'none',
+                    padding: 0,
+                    margin: 0,
+                    background: 'transparent'
+                  }}
+                  priority
+                />
+              </div>
             </Link>
           </div>
 
           {/* Mobile Menu Button */}
-          <button className="md:hidden p-2" style={{ color: '#003366' }} aria-label="Menu">
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
+          <button className="lg:hidden p-2 text-slate-700 hover:text-slate-900 flex-shrink-0" aria-label="Menu">
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
         </div>
       </div>
-    </motion.header>
+    </header>
   );
 }
 
 /**
- * Navigation Link Component
- * Professional dark gray with PBS blue active state
+ * Navigation Link Component - Animated Center-Out Underline
  */
 function NavLink({
   href,
@@ -118,20 +149,17 @@ function NavLink({
     <Link
       href={href}
       className={`
-        relative px-4 py-2 rounded-lg text-base uppercase tracking-wider
-        transition-all duration-300
-        ${active ? 'text-[#003366] font-bold' : 'text-slate-900 font-medium hover:text-[#003366]'}
+        relative text-sm font-bold tracking-wide transition-colors duration-300 group
+        ${active ? 'text-[#003366]' : 'text-slate-900 hover:text-[#003366]'}
       `}
     >
       {children}
-      {active && (
-        <motion.div
-          layoutId="activeNav"
-          className="absolute bottom-0 left-0 right-0 h-0.5"
-          style={{ background: '#003366' }}
-          transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
-        />
-      )}
+      {/* Animated Underline - Center Out */}
+      <span
+        className={`absolute bottom-[-4px] left-1/2 h-[2px] bg-[#003366] transition-all duration-300 ${
+          active ? 'w-full -translate-x-1/2' : 'w-0 group-hover:w-full -translate-x-1/2'
+        }`}
+      ></span>
     </Link>
   );
 }
