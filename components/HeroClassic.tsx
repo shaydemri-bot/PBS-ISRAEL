@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
 import { useAnimatedCounter } from '@/hooks/useAnimatedCounter';
 
@@ -22,6 +22,20 @@ export default function HeroClassic() {
   // Adaptive default: Desktop starts at 1, Mobile starts at 2
   const [activeHero, setActiveHero] = useState(1);
   const [isMobile, setIsMobile] = useState(false);
+
+  // Parallax scroll effect refs
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"]
+  });
+
+  // Transform scroll into parallax effects
+  // Background moves slower (40% speed) for depth perception
+  const parallaxY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
+
+  // Subtle scale effect - zooms in slightly as user scrolls
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
 
   // Detect screen size and set adaptive default image
   useEffect(() => {
@@ -49,8 +63,8 @@ export default function HeroClassic() {
   const { count: yearsCount, ref: yearsRef } = useAnimatedCounter(55, 2400);
 
   return (
-    <section className="relative h-[55vh] md:h-[70vh] w-full overflow-hidden">
-      {/* Optimized Background Image - Live Switchable */}
+    <section ref={heroRef} className="relative h-[55vh] md:h-[70vh] w-full overflow-hidden">
+      {/* Optimized Background Image - Live Switchable with Parallax */}
       <AnimatePresence mode="wait">
         <motion.div
           key={activeHero}
@@ -60,37 +74,46 @@ export default function HeroClassic() {
           transition={{ duration: 0.5 }}
           className="absolute inset-0 z-0"
         >
-          {activeHero === 2 ? (
-            /* TOHA2 - Special Framing with Background CSS (Mobile Optimized) */
-            <div
-              className="absolute inset-0 w-full h-full"
-              style={{
-                backgroundImage: `url(${HERO_IMAGES[2].src})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center 40%',
-                backgroundRepeat: 'no-repeat',
-                filter: 'brightness(1.15) contrast(1.1) saturate(1.3)',
-              }}
-            />
-          ) : (
-            /* Other Images - Standard Next.js Image (Mobile Optimized) */
-            <Image
-              src={HERO_IMAGES[activeHero as keyof typeof HERO_IMAGES].src}
-              alt="PBS Israel - Critical Infrastructure Waterproofing"
-              fill
-              priority
-              quality={100}
-              style={{
-                filter: 'brightness(1.15) contrast(1.1) saturate(1.3)',
-                objectFit: 'cover',
-                objectPosition: 'center 40%',
-              }}
-              className="object-cover"
-              sizes="100vw"
-              placeholder="blur"
-              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCeAAA/9k="
-            />
-          )}
+          {/* Parallax Container - Moves slower than scroll */}
+          <motion.div
+            className="absolute inset-0 w-full h-full"
+            style={{
+              y: parallaxY,
+              scale: scale,
+            }}
+          >
+            {activeHero === 2 ? (
+              /* TOHA2 - Special Framing with Background CSS (Mobile Optimized) */
+              <div
+                className="absolute inset-0 w-full h-full"
+                style={{
+                  backgroundImage: `url(${HERO_IMAGES[2].src})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center 40%',
+                  backgroundRepeat: 'no-repeat',
+                  filter: 'brightness(1.15) contrast(1.1) saturate(1.3)',
+                }}
+              />
+            ) : (
+              /* Other Images - Standard Next.js Image (Mobile Optimized) */
+              <Image
+                src={HERO_IMAGES[activeHero as keyof typeof HERO_IMAGES].src}
+                alt="PBS Israel - Critical Infrastructure Waterproofing"
+                fill
+                priority
+                quality={100}
+                style={{
+                  filter: 'brightness(1.15) contrast(1.1) saturate(1.3)',
+                  objectFit: 'cover',
+                  objectPosition: 'center 40%',
+                }}
+                className="object-cover"
+                sizes="100vw"
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCeAAA/9k="
+              />
+            )}
+          </motion.div>
         </motion.div>
       </AnimatePresence>
 
