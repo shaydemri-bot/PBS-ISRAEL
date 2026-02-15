@@ -13,7 +13,7 @@ import { useAnimatedCounter } from '@/hooks/useAnimatedCounter';
 
 // Define all available hero images
 const HERO_IMAGES = {
-  1: { src: '/images/mainn.jpeg', label: 'Main Project' },
+  1: { src: '/images/headoffset.jpeg', label: 'Main Project' }, // mobileheadoff.jpeg
   2: { src: '/images/TOHA2.jpeg', label: 'TOHA 2' },
   3: { src: '/images/INST.jpeg', label: 'INST Project' },
 };
@@ -23,19 +23,17 @@ export default function HeroClassic() {
   const [activeHero, setActiveHero] = useState(1);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Vertical Reveal Effect - Image moves slower to reveal hidden content
+  // True Vertical Reveal - Image moves UP at 30% speed as user scrolls DOWN
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"]
   });
 
-  // Background moves UP slowly (negative Y) as user scrolls DOWN
-  // This reveals the bottom portion of the image (cinematic reveal effect)
-  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]);
-
-  // Scale image slightly larger to ensure there's content to reveal
-  const bgScale = useTransform(scrollYProgress, [0, 1], [1.2, 1]);
+  // Parallax factor 0.3: Image moves at 30% of scroll speed
+  // Container is 200vh, so image moves 60vh total (200vh * 0.3)
+  // This reveals the bottom 60vh of the 160vh tall image
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0vh", "-60vh"]);
 
   // Detect screen size and set adaptive default image
   useEffect(() => {
@@ -66,7 +64,7 @@ export default function HeroClassic() {
     <div ref={containerRef} className="relative h-[200vh] w-full" style={{ zIndex: 1 }}>
       {/* Sticky Container - Pins the Hero during scroll transition */}
       <div className="sticky top-0 h-screen w-full overflow-hidden">
-        {/* Background Image - Vertical Reveal Effect */}
+        {/* Background Image - True Vertical Reveal (No Zoom) */}
         <AnimatePresence mode="wait">
           <motion.div
             key={activeHero}
@@ -74,43 +72,26 @@ export default function HeroClassic() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className="absolute inset-0 w-full h-full"
+            className="absolute top-0 left-0 w-full h-[160vh]"
             style={{
-              y: isMobile ? 0 : bgY, // Moves UP as user scrolls DOWN (reveals bottom)
-              scale: isMobile ? 1 : bgScale, // Starts larger, zooms to fit
+              y: isMobile ? 0 : bgY, // Moves UP at 30% speed (parallax 0.3)
             }}
           >
-            {activeHero === 2 ? (
-              /* TOHA2 - Special Framing with Background CSS */
-              <div
-                className="absolute inset-0 w-full h-full"
-                style={{
-                  backgroundImage: `url(${HERO_IMAGES[2].src})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center 40%',
-                  backgroundRepeat: 'no-repeat',
-                  filter: 'brightness(1.15) contrast(1.1) saturate(1.3)',
-                }}
-              />
-            ) : (
-              /* Other Images - Standard Next.js Image */
-              <Image
-                src={HERO_IMAGES[activeHero as keyof typeof HERO_IMAGES].src}
-                alt="PBS Israel - Critical Infrastructure Waterproofing"
-                fill
-                priority
-                quality={100}
-                style={{
-                  filter: 'brightness(1.15) contrast(1.1) saturate(1.3)',
-                  objectFit: 'cover',
-                  objectPosition: 'center 40%',
-                }}
-                className="object-cover"
-                sizes="100vw"
-                placeholder="blur"
-                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCeAAA/9k="
-              />
-            )}
+            {/* Vertical Reveal Image - 160vh tall, aligned to top */}
+            <Image
+              src={HERO_IMAGES[activeHero as keyof typeof HERO_IMAGES].src}
+              alt="PBS Israel - Critical Infrastructure Waterproofing"
+              fill
+              priority
+              quality={100}
+              style={{
+                filter: 'brightness(1.05) contrast(1.05)',
+                objectFit: 'cover',
+                objectPosition: 'center top', // Start aligned to top
+              }}
+              className="object-cover"
+              sizes="100vw"
+            />
           </motion.div>
         </AnimatePresence>
 
