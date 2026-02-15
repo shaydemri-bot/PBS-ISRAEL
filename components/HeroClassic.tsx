@@ -21,8 +21,8 @@ export default function HeroClassic() {
   });
 
   // Image moves UP slowly as user scrolls DOWN (reveals bottom)
-  // Parallax factor ~0.4 for smooth, natural exploration
-  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "-40%"]);
+  // Parallax factor 0.3 for subtle, professional reveal
+  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]);
 
   useEffect(() => {
     const checkMobile = () => {
