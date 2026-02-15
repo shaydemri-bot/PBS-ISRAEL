@@ -30,9 +30,12 @@ export default function HeroClassic() {
     offset: ["start start", "end start"]
   });
 
-  // Background moves at 50% scroll speed to create "reveal" effect
-  // As user scrolls down, more of the image becomes visible
-  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  // Background moves UP slowly (negative Y) as user scrolls DOWN
+  // This reveals the bottom portion of the image (cinematic reveal effect)
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]);
+
+  // Scale image slightly larger to ensure there's content to reveal
+  const bgScale = useTransform(scrollYProgress, [0, 1], [1.2, 1]);
 
   // Detect screen size and set adaptive default image
   useEffect(() => {
@@ -73,7 +76,8 @@ export default function HeroClassic() {
             transition={{ duration: 0.5 }}
             className="absolute inset-0 w-full h-full"
             style={{
-              y: isMobile ? 0 : bgY, // Disable parallax on mobile
+              y: isMobile ? 0 : bgY, // Moves UP as user scrolls DOWN (reveals bottom)
+              scale: isMobile ? 1 : bgScale, // Starts larger, zooms to fit
             }}
           >
             {activeHero === 2 ? (
