@@ -49,7 +49,7 @@ export default function HeroClassic() {
   const { count: yearsCount, ref: yearsRef } = useAnimatedCounter(55, 2400);
 
   return (
-    <section className="relative h-screen md:min-h-[85vh] w-full overflow-hidden">
+    <section className="relative h-[55vh] md:h-[70vh] w-full overflow-hidden">
       {/* Optimized Background Image - Live Switchable */}
       <AnimatePresence mode="wait">
         <motion.div
@@ -67,7 +67,7 @@ export default function HeroClassic() {
               style={{
                 backgroundImage: `url(${HERO_IMAGES[2].src})`,
                 backgroundSize: 'cover',
-                backgroundPosition: 'center center',
+                backgroundPosition: 'center 40%',
                 backgroundRepeat: 'no-repeat',
                 filter: 'brightness(1.15) contrast(1.1) saturate(1.3)',
               }}
@@ -83,9 +83,9 @@ export default function HeroClassic() {
               style={{
                 filter: 'brightness(1.15) contrast(1.1) saturate(1.3)',
                 objectFit: 'cover',
-                objectPosition: 'center center',
+                objectPosition: 'center 40%',
               }}
-              className="object-cover object-center"
+              className="object-cover"
               sizes="100vw"
               placeholder="blur"
               blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCeAAA/9k="
@@ -209,20 +209,20 @@ export default function HeroClassic() {
         </motion.div>
       </div>
 
-      {/* Live Hero Image Switcher - Subtle & Clean */}
+      {/* Live Hero Image Switcher - Mobile-Optimized Touch Targets */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.7 }}
         transition={{ delay: 1 }}
-        className="absolute bottom-4 md:bottom-10 right-4 md:right-10 flex gap-2 md:gap-3 bg-black/30 backdrop-blur-md px-2 md:px-5 py-2 md:py-4 rounded-full border border-white/10 md:border-white/20 shadow-lg z-20"
+        className="absolute bottom-4 md:bottom-10 right-4 md:right-10 flex gap-3 md:gap-3 bg-black/30 backdrop-blur-md px-3 md:px-5 py-3 md:py-4 rounded-full border border-white/10 md:border-white/20 shadow-lg z-20"
       >
         {[1, 2, 3].map((num) => (
           <button
             key={num}
             onClick={() => setActiveHero(num)}
             className={`
-              w-6 h-6 md:w-12 md:h-12 rounded-full border transition-all duration-300
-              flex items-center justify-center text-[10px] md:text-base font-bold
+              w-11 h-11 md:w-12 md:h-12 rounded-full border transition-all duration-300
+              flex items-center justify-center text-sm md:text-base font-bold
               ${activeHero === num
                 ? 'bg-amber-400 text-black border-amber-400 scale-105 shadow-lg'
                 : 'bg-white/5 text-white/70 border-white/30 hover:border-amber-400/50 hover:bg-amber-400/10 hover:text-amber-400 hover:scale-105'

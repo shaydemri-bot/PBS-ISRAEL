@@ -40,17 +40,35 @@ export default function Header() {
     >
       {/* Max-Width Container - Premium Centering */}
       <div className="max-w-[1536px] mx-auto">
-        {/* TIER 1: Logo + Utilities - Generous Spacing */}
-        <div className="flex items-center justify-between px-6 md:px-10 lg:px-12 py-6 md:py-8 lg:py-10 border-b border-gray-100">
-          {/* Left: Xypex Logo - Premium Sizing */}
-          <Link href="/" className="flex-shrink-0 group transition-all duration-500 ease-out">
+        {/* TIER 1: Logo + Utilities - Mobile Grid, Desktop Flex */}
+        <div className="grid grid-cols-[auto_1fr_auto] md:flex md:items-center md:justify-between items-center px-6 md:px-10 lg:px-12 py-5 md:py-8 lg:py-10 border-b border-gray-100">
+          {/* Mobile: Empty spacer for grid alignment */}
+          <div className="md:hidden"></div>
+
+          {/* Center: Logo - Desktop Left, Mobile Center */}
+          <Link href="/" className="flex-shrink-0 group transition-all duration-500 ease-out justify-self-center md:justify-self-start">
             <div style={{ isolation: 'isolate' }} className="relative">
+              {/* Desktop Logo */}
               <Image
                 src="/images/xypex headr logo.png"
                 alt="Xypex - Concrete Waterproofing by Crystallization"
                 width={350}
                 height={105}
-                className="h-20 sm:h-22 md:h-24 lg:h-28 w-auto transition-all duration-500 ease-out group-hover:opacity-90 group-hover:scale-[1.02]"
+                className="hidden md:block h-24 lg:h-28 w-auto transition-all duration-500 ease-out group-hover:opacity-90 group-hover:scale-[1.02]"
+                style={{
+                  mixBlendMode: 'multiply',
+                  filter: 'contrast(1.15) brightness(1.03)',
+                  objectFit: 'contain'
+                }}
+                priority
+              />
+              {/* Mobile Logo - Perfectly Centered */}
+              <Image
+                src="/images/mobileheadoff.jpeg"
+                alt="PBS Israel - Xypex Mobile"
+                width={280}
+                height={80}
+                className="md:hidden h-14 w-auto transition-all duration-500 ease-out group-hover:opacity-90 group-hover:scale-[1.02]"
                 style={{
                   mixBlendMode: 'multiply',
                   filter: 'contrast(1.15) brightness(1.03)',
@@ -61,8 +79,8 @@ export default function Header() {
             </div>
           </Link>
 
-          {/* Mobile: Search Icon + Hamburger - Perfect Spacing */}
-          <div className="flex items-center gap-4 lg:hidden">
+          {/* Right: Mobile Utilities - Search Icon + Hamburger */}
+          <div className="flex items-center gap-4 lg:hidden justify-self-end">
             {/* Mobile Search Icon - Refined */}
             <button
               className="p-2.5 text-gray-600 hover:text-[#0071bb] transition-all duration-300 hover:bg-blue-50 rounded-lg"
