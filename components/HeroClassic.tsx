@@ -46,7 +46,7 @@ export default function HeroClassic() {
           }}
         >
           <Image
-            src="/images/mobileheadoff.jpeg"
+            src="/images/mainn.jpeg"
             alt="PBS Israel - Critical Infrastructure Waterproofing"
             fill
             priority
