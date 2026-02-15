@@ -40,14 +40,14 @@ export default function Home() {
       {/* Cinematic Splash Screen */}
       <LoadingScreen />
 
-      <div dir="rtl" className="min-h-screen bg-white">
+      <div dir="rtl" className="min-h-screen bg-white relative" style={{ zIndex: 10 }}>
         <Header />
 
         {/* 1. HERO SECTION - Full Screen with Live Swapper */}
         <HeroClassic />
 
         {/* CONSTRUCTION YELLOW DIVIDER - Clean Visual Break */}
-        <section className="bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-400 border-y-4 border-amber-500 h-12"></section>
+        <section className="relative bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-400 border-y-4 border-amber-500 h-12" style={{ zIndex: 10 }}></section>
 
         {/* 2. TRUSTED BY - Infinite Scrolling Logos with Fade-In */}
         <motion.div
@@ -55,12 +55,14 @@ export default function Home() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 1, ease: "easeOut" }}
+          className="relative"
+          style={{ zIndex: 10 }}
         >
           <LogoCarousel />
         </motion.div>
 
         {/* 3. DUAL VIDEO GRID - Global Impact & Technology */}
-        <section className="relative py-20 md:py-28 bg-white">
+        <section className="relative py-20 md:py-28 bg-white" style={{ zIndex: 10 }}>
           <GridDotBackground className="opacity-10" />
           <div className="relative z-10 max-w-[1536px] mx-auto px-4 md:px-8">
             {/* Section Heading - Refined Typography */}

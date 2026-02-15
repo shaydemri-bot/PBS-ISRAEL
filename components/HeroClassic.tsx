@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
 import { useAnimatedCounter } from '@/hooks/useAnimatedCounter';
 
@@ -22,6 +22,24 @@ export default function HeroClassic() {
   // Adaptive default: Desktop starts at 1, Mobile starts at 2
   const [activeHero, setActiveHero] = useState(1);
   const [isMobile, setIsMobile] = useState(false);
+
+  // Scroll to Reveal Effect - Sticky container with zoom transition
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"]
+  });
+
+  // LAYER 1: Background Image - FIXED position with "Zoom Reveal" effect
+  // As user scrolls, image scales up (100% → 115%) to "reveal" more detail
+  const bgScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
+
+  // Subtle Y-shift to enhance the "exploration" feeling (very minimal)
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "8%"]);
+
+  // LAYER 2: Foreground Content - Moves faster (70% speed) for 3D depth
+  const fgY = useTransform(scrollYProgress, [0, 1], ["0%", "70%"]);
+  const fgOpacity = useTransform(scrollYProgress, [0, 0.4, 1], [1, 0.6, 0]);
 
   // Detect screen size and set adaptive default image
   useEffect(() => {
@@ -49,8 +67,10 @@ export default function HeroClassic() {
   const { count: yearsCount, ref: yearsRef } = useAnimatedCounter(55, 2400);
 
   return (
-    <section className="relative h-[55vh] md:h-[70vh] w-full overflow-hidden">
-      {/* Fixed Background Image - Reveal Effect (stays still while content scrolls over) */}
+    <div ref={containerRef} className="relative h-[200vh] w-full" style={{ zIndex: 1 }}>
+      {/* Sticky Container - Pins the Hero during scroll transition */}
+      <div className="sticky top-0 h-screen w-full overflow-hidden">
+      {/* LAYER 1: Background Image - Fixed with Zoom Reveal (100% → 115%) */}
       <AnimatePresence mode="wait">
         <motion.div
           key={activeHero}
@@ -58,7 +78,11 @@ export default function HeroClassic() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
-          className="fixed top-0 left-0 w-full h-screen -z-10"
+          className="absolute inset-0 w-full h-full"
+          style={{
+            y: isMobile ? 0 : bgY, // Disable parallax on mobile for performance
+            scale: isMobile ? 1 : bgScale,
+          }}
         >
           {activeHero === 2 ? (
             /* TOHA2 - Special Framing with Background CSS (Mobile Optimized) */
@@ -93,6 +117,39 @@ export default function HeroClassic() {
           )}
         </motion.div>
       </AnimatePresence>
+
+      {/* LAYER 2: Foreground Content - Fast Parallax (60% speed) for Depth */}
+      <motion.div
+        className="relative h-full w-full flex flex-col items-center justify-center px-4 pointer-events-none"
+        style={{
+          y: isMobile ? 0 : fgY,
+          opacity: fgOpacity,
+        }}
+      >
+        {/* Cinematic Logo Overlay */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.3 }}
+          className="text-center"
+        >
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-extralight text-white tracking-tighter leading-none mb-4"
+              style={{
+                textShadow: '0 20px 40px rgba(0,0,0,0.8), 0 4px 8px rgba(0,0,0,0.6)',
+                letterSpacing: '-0.02em'
+              }}>
+            PBS ISRAEL
+          </h1>
+          <div className="h-px w-64 md:w-96 mx-auto bg-gradient-to-r from-transparent via-white/60 to-transparent mb-4" />
+          <p className="text-lg md:text-2xl text-white/90 font-light tracking-wider uppercase"
+             style={{ textShadow: '0 10px 20px rgba(0,0,0,0.8)' }}>
+            Xypex Crystalline Technology
+          </p>
+        </motion.div>
+      </motion.div>
+
+      {/* Hero Section Container - For Proper Height */}
+      <section className="absolute inset-0 w-full h-full">
 
       {/* Clean Hero - Pure Architectural Photography, No Overlays */}
 
@@ -214,7 +271,8 @@ export default function HeroClassic() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.7 }}
         transition={{ delay: 1 }}
-        className="absolute bottom-4 md:bottom-10 right-4 md:right-10 flex gap-3 md:gap-3 bg-black/30 backdrop-blur-md px-3 md:px-5 py-3 md:py-4 rounded-full border border-white/10 md:border-white/20 shadow-lg z-20"
+        className="absolute bottom-4 md:bottom-10 right-4 md:right-10 flex gap-3 md:gap-3 bg-black/30 backdrop-blur-md px-3 md:px-5 py-3 md:py-4 rounded-full border border-white/10 md:border-white/20 shadow-lg pointer-events-auto"
+        style={{ zIndex: 30 }}
       >
         {[1, 2, 3].map((num) => (
           <button
@@ -235,6 +293,8 @@ export default function HeroClassic() {
           </button>
         ))}
       </motion.div>
-    </section>
+      </section>
+      </div> {/* Close sticky container */}
+    </div>
   );
 }
