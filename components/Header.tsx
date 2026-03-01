@@ -34,8 +34,10 @@ export default function Header() {
   return (
     <header
       dir="rtl"
-      className={`fixed top-0 start-0 end-0 z-50 w-full bg-white transition-all duration-500 ${
-        isScrolled ? 'shadow-lg shadow-black/5' : 'shadow-sm shadow-black/3'
+      className={`fixed top-0 start-0 end-0 z-50 w-full transition-all duration-500 ${
+        isScrolled
+          ? 'bg-white/90 backdrop-blur-xl shadow-lg shadow-black/8 border-b border-white/60'
+          : 'bg-white shadow-sm shadow-black/3'
       }`}
     >
       {/* Max-Width Container - Premium Centering */}

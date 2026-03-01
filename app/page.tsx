@@ -177,13 +177,13 @@ export default function Home() {
               </p>
             </motion.div>
 
-            {/* Technology Visual - 3 Step Process */}
+            {/* Technology Visual - 3 Step Process (Glass Cards) */}
             <motion.div
               variants={staggerChildren}
               initial="initial"
               whileInView="animate"
               viewport={{ once: true, margin: "-100px" }}
-              className="grid md:grid-cols-3 gap-6"
+              className="grid md:grid-cols-3 gap-5"
             >
               {[
                 { step: '01', title: 'חדירה', desc: 'גבישי Xypex חודרים עד 90 ס"מ למטריצת הבטון' },
@@ -193,17 +193,24 @@ export default function Home() {
                 <motion.div
                   key={index}
                   variants={fadeInUp}
-                  className="text-center group"
+                  className="group"
                 >
-                  <div className="text-3xl font-black text-[#003366]/20 group-hover:text-[#f59e0b]/40 transition-colors mb-2" style={{ textShadow: '0 2px 8px rgba(255,255,255,0.8)' }}>
-                    {item.step}
+                  {/* Glass Card */}
+                  <div className="backdrop-blur-xl bg-white/95 rounded-2xl p-8 shadow-2xl border border-white/50 text-center h-full
+                                  hover:bg-white hover:-translate-y-1 transition-all duration-300">
+                    {/* Step Number */}
+                    <div className="text-5xl font-black text-[#003366]/15 group-hover:text-[#f59e0b]/35 transition-colors duration-300 mb-4 leading-none">
+                      {item.step}
+                    </div>
+                    {/* Thin divider */}
+                    <div className="w-8 h-px bg-[#003366]/20 mx-auto mb-4 group-hover:w-14 group-hover:bg-[#f59e0b]/50 transition-all duration-300" />
+                    <h3 className="text-lg font-bold tracking-[-0.02em] text-[#003366] mb-3 leading-[1.3]">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-slate-600 leading-[1.7] font-normal tracking-[0.02em]">
+                      {item.desc}
+                    </p>
                   </div>
-                  <h3 className="text-base font-bold tracking-[-0.02em] text-[#003366] mb-2 leading-[1.3]" style={{ textShadow: '0 1px 6px rgba(255,255,255,0.9)' }}>
-                    {item.title}
-                  </h3>
-                  <p className="text-xs text-slate-700 leading-[1.7] font-normal tracking-[0.02em]" style={{ textShadow: '0 1px 6px rgba(255,255,255,0.85)' }}>
-                    {item.desc}
-                  </p>
                 </motion.div>
               ))}
             </motion.div>
