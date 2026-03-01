@@ -33,8 +33,8 @@ export default function Header() {
 
   return (
     <header
-      dir="ltr"
-      className={`fixed top-0 left-0 right-0 z-50 w-full bg-white transition-all duration-500 ${
+      dir="rtl"
+      className={`fixed top-0 start-0 end-0 z-50 w-full bg-white transition-all duration-500 ${
         isScrolled ? 'shadow-lg shadow-black/5' : 'shadow-sm shadow-black/3'
       }`}
     >

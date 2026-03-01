@@ -27,7 +27,7 @@ const fadeInUp = {
   animate: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
+    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }
   }
 };
 
@@ -258,7 +258,7 @@ export default function Home() {
                   title: 'תעשייה ונמלים',
                   desc: 'מפעלים, מתקני אחסון, נמלים',
                   applications: ['נמל מפרץ חיפה', 'מפעלים כימיים', 'טיפול בשפכים'],
-                  bgImage: '/images/WhatsApp Image 2026-02-13 at 22.02.11.jpeg',
+                  bgImage: '/images/xypex-haifa-industry-site.jpeg',
                   icon: <Factory className="w-16 h-16 mx-auto text-slate-500" strokeWidth={1} />
                 },
               ].map((solution, index) => (

@@ -46,7 +46,7 @@ export default function HeroClassic() {
           }}
         >
           <Image
-            src="/images/mainn.jpeg"
+            src="/images/xypex-hero-construction-site.jpeg"
             alt="PBS Israel - Critical Infrastructure Waterproofing"
             fill
             priority

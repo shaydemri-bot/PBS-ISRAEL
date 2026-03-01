@@ -23,7 +23,7 @@ const companies = [
   {
     name: 'ETZ HASHAKED',
     nameHe: 'עץ השקד',
-    logo: '/images/logo/etzhashaked.png',
+    logo: '/images/logo/etz-hashaked-partner-logo.png',
   },
   {
     name: 'STRUCTURA',
@@ -33,12 +33,12 @@ const companies = [
   {
     name: 'CEMENTCAL',
     nameHe: 'צמנטכל',
-    logo: '/images/logo/צמנטכל.Png',
+    logo: '/images/logo/cementcal-partner-logo.png',
   },
   {
     name: 'GABBAY GROUP',
     nameHe: 'קבוצת גבאי',
-    logo: '/images/logo/קבוצתגבאי.png',
+    logo: '/images/logo/gabbay-group-partner-logo.png',
   },
   {
     name: 'ARIEL GABBAY',
