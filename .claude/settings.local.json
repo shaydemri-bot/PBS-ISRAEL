@@ -28,7 +28,14 @@
       "Bash(git add:*)",
       "Bash(git push:*)",
       "Bash(grep:*)",
-      "Bash(identify:*)"
+      "Bash(identify:*)",
+      "Bash(git rm:*)",
+      "Bash(git checkout:*)",
+      "Bash(git merge:*)",
+      "Bash(xargs -I {} sh -c 'echo \"\"=== {} ===\"\" && head -20 {} | grep -E \"\"import|ThemeToggle\"\"')",
+      "Bash(pkill:*)",
+      "Bash(git fetch:*)",
+      "mcp__Claude_Preview__preview_start"
     ]
   }
 }

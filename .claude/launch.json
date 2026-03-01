@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "pbs-website",
+      "runtimeExecutable": "cmd",
+      "runtimeArgs": ["/c", "C:\\Users\\shayd\\Desktop\\pbs-website\\node_modules\\.bin\\next.cmd", "dev"],
+      "port": 3000
+    }
+  ]
+}
